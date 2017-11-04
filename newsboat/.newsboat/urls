@@ -1,0 +1,27 @@
+# daily news
+https://rss.golem.de/rss.php?feed=OPML
+http://feeds.feedburner.com/hacker-news-feed-50?format=xml
+http://www.reddit.com/r/programming/hot/.rss
+http://www.reddit.com/r/linux/hot/.rss
+http://www.reddit.com/r/vim/hot/.rss
+http://www.reddit.com/r/spacevim/hot/.rss
+http://www.reddit.com/r/golang/hot/.rss 
+http://www.reddit.com/r/worldnews/hot/.rss
+
+# trending on GitHub
+http://github-trends.ryotarai.info/rss/github_trends_unknown_weekly.rss
+http://github-trends.ryotarai.info/rss/github_trends_javascript_weekly.rss
+http://github-trends.ryotarai.info/rss/github_trends_html_weekly.rss
+http://github-trends.ryotarai.info/rss/github_trends_css_weekly.rss
+http://github-trends.ryotarai.info/rss/github_trends_go_weekly.rss
+http://github-trends.ryotarai.info/rss/github_trends_python_weekly.rss
+http://github-trends.ryotarai.info/rss/github_trends_vim-script_weekly.rss
+
+# people
+https://addyosmani.com/rss.xml
+http://matt.might.net/articles/feed.rss
+
+# community
+http://medium.com/feed/@freecodecamp
+http://medium.com/feed/@hackernoon
+https://www.indiehackers.com/feed.xml

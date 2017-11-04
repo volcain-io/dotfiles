@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Downloads given file and extracts it afterwards
+#
+#   $ psextract https://url.com/file.rar
+#
+
+# automatic exit from shell script on error
+set -e
+
+# check, if any argument is set
+if [ "$#" = 0 ]; then
+    echo "No arguments supplied. Usage: psextract [OPTIONS] [MODULE_OPTIONS] URL|FILE"
+    exit 255
+fi
+
+if [ "$1" = "down" ]; then
+    plowdown $@ --run-after extract $5 
+else
+    plowdown --help
+fi
+
+exit 0

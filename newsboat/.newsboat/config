@@ -1,0 +1,11 @@
+max-items        100
+browser          chromium
+show-read-feeds  no
+player           mpv
+
+color info                white    default  bold
+color article             green    default
+color listnormal          default  default
+color listfocus           white    red      bold
+color listfocus_unread    white    red      bold
+color listnormal_unread   white    default  bold
