@@ -10,7 +10,7 @@ all:
 	make ssh
 
 install:
-	sudo pacman -Syu --no-confirm chromium ctags dropbox firefox git irssi mpv mupdf newsboat node nvim plowshare stow ttf-hack virtualbox yaourt yarn
+	sudo pacman -Syu --no-confirm chromium ctags dropbox firefox git irssi jre9-openjdk mpv mupdf newsboat node nvim plowshare stow ttf-hack virtualbox yaourt yarn
 
 localbin:
 	cp -r ~/dotfiles/localbin ~/localbin
