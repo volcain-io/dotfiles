@@ -15,6 +15,6 @@ This is my dotfiles repository and I'm the King Of My Castle!
 
 ```shell
 cd ~
-git clone http://github/volcain-io/dotfiles.git .dotfiles
+git clone http://github.com/volcain-io/dotfiles.git .dotfiles
 cd .dotfiles && make
 ```
