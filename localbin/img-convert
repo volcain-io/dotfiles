@@ -1,13 +1,34 @@
-#!/bin/sh
+#!/usr/bin/env bash
+#
+# Converts a given JPG image to given quality and resizes it without overriding the original file.
+#
+# Usage: img-convert QUALITY FILENAME
+#
+#   $ img-convert 60 foo
 
-SRC="$1"
-LOW=60
-convert $SRC.jpg -quality $LOW low_$SRC.jpg
-convert $SRC.jpg -quality $LOW low_$SRC.webp
-convert $SRC.jpg -quality $LOW -resize 50% "$SRC"_"$LOW"q_50pc.jpg
-convert $SRC.jpg -quality $LOW -resize 50% "$SRC"_"$LOW"q_50pc.webp
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# Trace what gets executed
+# set -o xtrace
 
-# To use this script,
-# run the following from a terminal
-# in a folder containing an image named foo.jpg (or whatever):
-#   img-convert foo
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+arg1="${1:-}"
+
+num_quality="$1"
+filename="$2"
+
+convert ${filename}.jpg -quality ${num_quality} low_${filename}.jpg
+convert ${filename}.jpg -quality ${num_quality} low_${filename}.webp
+convert ${filename}.jpg -quality ${num_quality} -resize 50% "${filename}"_"${num_quality}"q_50pc.jpg
+convert ${filename}.jpg -quality ${num_quality} -resize 50% "${filename}"_"${num_quality}"q_50pc.webp
+
+exit $?

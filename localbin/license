@@ -1,15 +1,31 @@
-#!/bin/sh
-# Usage: license
+#!/usr/bin/env bash
+#
 # Prints an MIT license appropriate for totin' around.
 #
-#   $ license > COPYING
+# Usage: license
 #
-# Original version by Chris Wanstrath:
-# http://gist.github.com/287717
-exec sh -c "tail -n +$(($LINENO + 2)) < $0 | sed s/DATE/$(date +%Y)/"
-MIT License
+#   $ license > COPYING
 
-Copyright (c) DATE Volkan Erdogan
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+arg1="${1:-}"
+
+printf 'MIT License
+
+Copyright (c) %s Volkan Erdogan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,4 +43,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+SOFTWARE.' $(date +%Y)
+
+exit 0
