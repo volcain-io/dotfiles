@@ -3,14 +3,17 @@ all:
 	make config
 	make localbin
 	make zsh
-	make spacevim 
+	make spacemacs
 	make fzf
 	make newsboat
-	make plowshare
 	make ssh
 
 install:
-	sudo pacman -Syu --no-confirm chromium ctags dropbox firefox git irssi jre9-openjdk mpv mupdf newsboat node nvim plowshare stow ttf-hack virtualbox yaourt yarn
+	sudo pacman -Syu --no-confirm bat chromium ctags diff-so-fancy dropbox fd firefox git htop irssi jre9-openjdk macchanger mpv mupdf newsboat node npm nvim pandoc pass php stow ttf-hack tldr virtualbox yaourt yarn
+
+config:
+	cd ~/dotfiles
+	stow config
 
 localbin:
 	cp -r ~/dotfiles/localbin ~/localbin
@@ -21,26 +24,18 @@ zsh:
 	wget -O spaceship.zsh-theme https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh
 	chsh -s $(which zsh)
 
-spacevim:
-	cd ~ && curl -sLf https://spacevim.org/install.sh | bash
+spacemacs:
+	cd ~ && git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	cd ~/dotfiles
-	stow spacevim
+	stow emacs.d
 
 fzf:
 	cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
-config:
-	cd ~/dotfiles
-	stow config
-
 newsboat:
 	cd ~/dotfiles
 	stow newsboat
-
-plowshare:
-	cd ~/dotfiles
-	stow plowshare
 
 ssh:
 	cd ~/dotfiles
