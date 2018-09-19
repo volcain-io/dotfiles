@@ -3,20 +3,21 @@ all:
 	make config
 	make localbin
 	make zsh
+	make chtsh
 	make spacemacs
 	make fzf
 	make newsboat
 	make ssh
 
 install:
-	sudo pacman -Syu --no-confirm bat chromium ctags diff-so-fancy dropbox fd firefox git htop irssi jre9-openjdk macchanger mpv mupdf newsboat node npm nvim pandoc pass php stow ttf-hack tldr virtualbox yaourt yarn
+	sudo pacman -Syu --no-confirm bat chromium ctags diff-so-fancy dropbox fd firefox git htop irssi jre9-openjdk macchanger mpv mupdf newsboat node npm nvim pandoc pass php rlwrap stow ttf-hack tldr virtualbox yaourt yarn
 
 config:
-	cd ~/dotfiles
+	cd ~/.dotfiles
 	stow config
 
 localbin:
-	cp -r ~/dotfiles/localbin ~/localbin
+	cp -r ~/.dotfiles/localbin ~/localbin
 
 zsh:
 	cd ~ && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -24,9 +25,13 @@ zsh:
 	wget -O spaceship.zsh-theme https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh
 	chsh -s $(which zsh)
 
+chtsh:
+	curl https://cht.sh/:cht.sh > ~/.dotfiles/localbin/cht.sh
+	chmod +x ~/.dotfiles/localbin/cht.sh
+
 spacemacs:
 	cd ~ && git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	cd ~/dotfiles
+	cd ~/.dotfiles
 	stow emacs.d
 
 fzf:
@@ -34,9 +39,9 @@ fzf:
 	~/.fzf/install
 
 newsboat:
-	cd ~/dotfiles
+	cd ~/.dotfiles
 	stow newsboat
 
 ssh:
-	cd ~/dotfiles
+	cd ~/.dotfiles
 	stow ssh 
