@@ -10,7 +10,7 @@ all:
 	make ssh
 
 install:
-	sudo pacman -Syu --no-confirm bat chromium ctags diff-so-fancy dropbox fd firefox git htop irssi jre9-openjdk macchanger mpv mupdf newsboat node npm nvim pandoc pass php rlwrap stow ttf-hack tldr virtualbox yaourt yarn
+	sudo pacman -Syu --no-confirm bat chromium ctags diff-so-fancy dropbox fd firefox git htop irssi jq jre9-openjdk macchanger mpv mupdf newsboat node npm nvim pandoc pass php rlwrap stow tig ttf-hack tldr virtualbox yaourt yarn
 
 config:
 	cd ~/.dotfiles
