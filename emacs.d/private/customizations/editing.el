@@ -5,7 +5,7 @@
 (push 'company-lsp company-backends)
 
 (add-hook 'after-init-hook (lambda ()
-                             (global-company-mode)
+                             (global-company-mode 1)
                              (company-quickhelp-mode 1)))
 
 (setq company-idle-delay 0.3
