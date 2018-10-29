@@ -12,7 +12,7 @@ all:
 	make newsboat
 
 install:
-	sudo pacman -S --noconfirm bat chromium ctags diff-so-fancy fd firefox git htop jq macchanger mpv mupdf newsboat nodejs npm pandoc pass rlwrap rxvt-unicode tig ttf-hack tldr yaourt yarn zsh
+	sudo pacman -S --noconfirm bat chromium ctags diff-so-fancy fd firefox git htop jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass rlwrap rxvt-unicode tig ttf-hack tldr yaourt yarn zsh
 
 config:
 	cd ~/ && ln -s .dotfiles/config/ ~/.config
