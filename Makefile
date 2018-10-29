@@ -4,7 +4,6 @@ all:
 	make config
 	make localbin
 	make zsh
-	make ssh
 	make vim
 	make spacemacs
 	make nvm
@@ -33,9 +32,6 @@ zsh:
 	cd ~ && ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 	cd ~ && ln -sf ~/.dotfiles/zsh/.zshrc ~/.zlogin
 	chsh -s /usr/bin/zsh
-
-ssh:
-	cd ~ && ln -sf ~/.dotfiles/ssh/ ~/.ssh
 
 vim:
 	cd ~ && git clone git://github.com/amix/vimrc.git ~/.vim_runtime
