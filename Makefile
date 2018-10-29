@@ -40,7 +40,6 @@ vim:
 
 spacemacs:
 	cd ~ && git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	rm -rf ~/.emacs.d/private
 	cd ~ && ln -s ~/.dotfiles/emacs.d/private/ ~/.emacs.d/private/
 	cd ~ && ln -s ~/.dotfiles/.spacemacs ~/.spacemacs
 
