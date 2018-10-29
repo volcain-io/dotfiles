@@ -24,10 +24,10 @@ localbin:
 	cd ~ && ln -s ~/.dotfiles/localbin/ ~/.localbin
 
 zsh:
-	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
-	ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
-	ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+	cd ~ && git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	cd ~ && git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
+	cd ~ && ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+	cd ~ && ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 	chsh -s /usr/bin/zsh
 
 ssh:
