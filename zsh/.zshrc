@@ -1,8 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -55,45 +50,7 @@ plugins=(archlinux colored-man-pages colorize copyfile cp extract git github git
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=$PATH:$HOME/.node_modules/bin:$HOME/.yarn/bin
-#export PATH=$PATH:~/code/AndroidSDK/tools
-#export PATH=$PATH:~/code/AndroidSDK/platform-tools
-#export PATH=$PATH:~/Workspace/flutter/bin
-export PATH=$HOME/.local/bin:$HOME/.localbin/:$PATH
-# Google Lighthouse
-export CHROME_PATH=/usr/bin/chromium
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_MESSAGES="C"
-export EDITOR=vi
-export TERM=rxvt-unicode
-
 alias vi='vim'
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Show OS info when opening a new terminal
 neofetch
