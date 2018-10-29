@@ -15,19 +15,20 @@ install:
 	sudo pacman -S --noconfirm bat chromium ctags diff-so-fancy fd firefox git htop jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass rlwrap rxvt-unicode tig ttf-hack tldr yaourt yarn zsh
 
 config:
-	cd ~/ && ln -s .dotfiles/config/ ~/.config
-	cd ~/ && ln -s .dotfiles/.ctags ~/.ctags
-	cd ~/ && ln -s .dotfiles/.dir_colors ~/.dir_colors
-	cd ~/ && ln -s .dotfiles/.gitconfig ~/.gitconfig
+	# cd ~/ && ln -s .dotfiles/config/ .config
+	cd ~/ && ln -s .dotfiles/.ctags .
+	cd ~/ && ln -s .dotfiles/.dir_colors .
+	cd ~/ && ln -s .dotfiles/.gitconfig .
 
 localbin:
 	cd ~ && ln -s ~/.dotfiles/localbin/ ~/.localbin
 
 zsh:
-	cd ~ && git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	cd ~ && curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 	cd ~ && git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	cd ~ && ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 	cd ~ && ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+	source ~/.zshrc
 	chsh -s /usr/bin/zsh
 
 ssh:
