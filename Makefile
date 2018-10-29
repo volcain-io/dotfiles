@@ -3,45 +3,56 @@ all:
 	make config
 	make localbin
 	make zsh
-	make chtsh
+	make ssh
+	make vim
 	make spacemacs
+	make nvm
+	make node
 	make fzf
 	make newsboat
-	make ssh
 
 install:
-	sudo pacman -Syu --no-confirm bat chromium ctags diff-so-fancy dropbox fd firefox git htop irssi jq jre9-openjdk macchanger mpv mupdf newsboat node npm nvim pandoc pass php rlwrap stow tig ttf-hack tldr virtualbox yaourt yarn
+	sudo pacman -S --noconfirm bat chromium ctags diff-so-fancy fd firefox git htop jq macchanger mpv mupdf newsboat nodejs npm pandoc pass rlwrap tig ttf-hack tldr yaourt yarn zsh
 
 config:
-	cd ~/.dotfiles
-	stow config
+	cd ~/ && ln -s .dotfiles/.ctags ~/.ctags
+	cd ~/ && ln -s .dotfiles/.dir_colors ~/.dir_colors
+	cd ~/ && ln -s .dotfiles/.gitconfig ~/.gitconfig
 
 localbin:
-	cp -r ~/.dotfiles/localbin ~/localbin
+	cd ~ && ln -s ~/.dotfiles/localbin/ ~/.localbin
 
 zsh:
-	cd ~ && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	cd ~/.oh-my-zsh/custom/themes
-	wget -O spaceship.zsh-theme https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh
-	chsh -s $(which zsh)
+	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
+	ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+	ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+	chsh -s /usr/bin/zsh
 
-chtsh:
-	curl https://cht.sh/:cht.sh > ~/.dotfiles/localbin/cht.sh
-	chmod +x ~/.dotfiles/localbin/cht.sh
+ssh:
+	cd ~ && ln -s ~/.dotfiles/ssh/ ~/.ssh
+
+vim:
+	cd ~ && git clone git://github.com/amix/vimrc.git ~/.vim_runtime
+	cd ~ && sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 spacemacs:
 	cd ~ && git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	cd ~/.dotfiles
-	stow emacs.d
+	rm -rf ~/.emacs.d/private
+	cd ~ && ln -s ~/.dotfiles/emacs.d/private/ ~/.emacs.d/private/
+	cd ~ && ln -s ~/.dotfiles/.spacemacs ~/.spacemacs
+
+nvm:
+	cd ~ && curl https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+	cd ~ && source ~/.nvm/nvm.sh
+
+node:
+	nvm install node
+	nvm use node
 
 fzf:
 	cd ~ && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
 newsboat:
-	cd ~/.dotfiles
-	stow newsboat
-
-ssh:
-	cd ~/.dotfiles
-	stow ssh 
+	cd ~ && ln -s ~/.dotfiles/newsboat/ ~/.newsboat

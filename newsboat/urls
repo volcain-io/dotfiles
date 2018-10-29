@@ -1,0 +1,32 @@
+# Community
+https://medium.com/feed/@freecodecamp "~FreeCodeCamp" "medium" "freecodecamp" "programming"
+https://medium.com/feed/@hackernoon "~HackerNoon" "medium" "hackernoon" "programming" "hacking"
+https://www.indiehackers.com/feed.xml "~IndieHackers" "indiehackers" "programming" "hacking"
+
+# GitHub
+https://github-trends.ryotarai.info/rss/github_trends_javascript_weekly.rss "~GitHub Weekly - JavaScript" "github" "programming"
+https://github-trends.ryotarai.info/rss/github_trends_html_weekly.rss "~GitHub Weekly - HTML" "github" "programming"
+https://github-trends.ryotarai.info/rss/github_trends_css_weekly.rss "~GitHub Weekly - CSS" "github" "programming"
+https://github-trends.ryotarai.info/rss/github_trends_python_weekly.rss "~GitHub Weekly - Python" "github" "programming"
+https://github-trends.ryotarai.info/rss/github_trends_vim-script_weekly.rss "~GitHub Weekly - VIM Script" "github" "programming"
+https://github-trends.ryotarai.info/rss/github_trends_unknown_weekly.rss "~GitHub Weekly - Unknown" "github" "programming"
+
+# Golem
+https://rss.golem.de/rss.php?feed=OPML "~Golem" "golem" "news"
+
+# HackerNews
+https://feeds.feedburner.com/hacker-news-feed-50?format=xml "~HackerNews" "hacker" "news"
+
+# People
+https://addyosmani.com/rss.xml "~Addy Osmani" "people"
+http://matt.might.net/articles/feed.rss "~Matt Might" "people"
+
+# Reddit
+https://www.reddit.com/r/programming/hot/.rss "~Reddit Programming" "reddit" "programming"
+https://www.reddit.com/r/linux/hot/.rss "~Reddit Linux" "reddit" "linux"
+https://www.reddit.com/r/vim/hot/.rss "~Reddit VIM" "reddit" "vim"
+https://www.reddit.com/r/spacemacs/hot/.rss "~Reddit Spacemacs" "reddit" "spacemacs"
+https://www.reddit.com/r/worldnews/hot/.rss "~Reddit WolrdNews" "reddit" "news"
+
+# Native
+https://www.entelaylak.com/feed/ "entelaylak" "culture"

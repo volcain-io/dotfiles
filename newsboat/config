@@ -1,0 +1,29 @@
+auto-reload					yes
+browser							firefox
+cleanup-on-quit			yes
+feed-sort-order			name
+max-items						100
+player							mpv
+refresh-on-startup	yes
+show-read-feeds			no
+
+bind-key j	next
+bind-key k  prev
+bind-key l  next-feed
+bind-key h  prev-feed
+bind-key ^D down	article
+bind-key ^U up		article
+bind-key j	next article
+bind-key k	prev article
+
+color article								 white	default
+color background						 white	default
+color info									 blue		default
+color listfocus							 red		default
+color listfocus_unread			 green	default		bold
+color listnormal						 white	blue
+color listnormal_unread			 white	blue
+
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-mode "display"
