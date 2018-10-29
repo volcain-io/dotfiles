@@ -1,3 +1,6 @@
+# Path to your oh-my-zsh installation
+export ZSH=$HOME/.oh-my-zsh
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -46,7 +49,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux colored-man-pages colorize copyfile cp extract git github gitignore heroku jsontools node npm tldr vi-mode web-search wp-cli yarn zsh-syntax-highlighting)
+plugins=(archlinux colored-man-pages colorize copyfile cp extract git github gitignore heroku jsontools node npm tldr vi-mode web-search wp-cli yarn zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,5 +62,3 @@ neofetch
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
