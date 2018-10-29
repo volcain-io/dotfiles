@@ -1,3 +1,4 @@
+.PHONY: all install config localbin zsh ssh vim spacemacs nvm node fzf newsboat
 all:
 	make install
 	make config
@@ -16,23 +17,23 @@ install:
 
 config:
 	# cd ~/ && ln -s .dotfiles/config/ .config
-	cd ~/ && ln -s .dotfiles/.ctags .
-	cd ~/ && ln -s .dotfiles/.dir_colors .
-	cd ~/ && ln -s .dotfiles/.gitconfig .
+	cd ~/ && ln -sf .dotfiles/.ctags .
+	cd ~/ && ln -sf .dotfiles/.dir_colors .
+	cd ~/ && ln -sf .dotfiles/.gitconfig .
 
 localbin:
-	cd ~ && ln -s ~/.dotfiles/localbin/ ~/.localbin
+	cd ~ && ln -sf ~/.dotfiles/localbin/ ~/.localbin
 
 zsh:
 	cd ~ && curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 	cd ~ && git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
-	cd ~ && ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
-	cd ~ && ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
-	source ~/.zshrc
+	cd ~ && git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	cd ~ && ln -sf ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+	cd ~ && ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 	chsh -s /usr/bin/zsh
 
 ssh:
-	cd ~ && ln -s ~/.dotfiles/ssh/ ~/.ssh
+	cd ~ && ln -sf ~/.dotfiles/ssh/ ~/.ssh
 
 vim:
 	cd ~ && git clone git://github.com/amix/vimrc.git ~/.vim_runtime
@@ -40,8 +41,8 @@ vim:
 
 spacemacs:
 	cd ~ && git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	cd ~ && ln -s ~/.dotfiles/emacs.d/private/ ~/.emacs.d/private/
-	cd ~ && ln -s ~/.dotfiles/.spacemacs ~/.spacemacs
+	cd ~ && ln -sf ~/.dotfiles/emacs.d/private/customizations/ ~/.emacs.d/private/customizations
+	cd ~ && ln -sf ~/.dotfiles/.spacemacs ~/.spacemacs
 
 nvm:
 	cd ~ && curl https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -56,4 +57,4 @@ fzf:
 	~/.fzf/install
 
 newsboat:
-	cd ~ && ln -s ~/.dotfiles/newsboat/ ~/.newsboat
+	cd ~ && ln -sf ~/.dotfiles/newsboat/ ~/.newsboat
