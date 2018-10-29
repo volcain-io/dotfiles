@@ -29,7 +29,9 @@ zsh:
 	cd ~ && git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	cd ~ && git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	cd ~ && ln -sf ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+	cd ~ && ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshenv
 	cd ~ && ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
+	cd ~ && ln -sf ~/.dotfiles/zsh/.zshrc ~/.zlogin
 	chsh -s /usr/bin/zsh
 
 ssh:
