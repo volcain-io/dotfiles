@@ -95,6 +95,9 @@ alias vi='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Show OS info when opening a new terminal
+neofetch
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
