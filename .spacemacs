@@ -37,13 +37,10 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-return-key-behavior 'complete
-                      auto-completion-tab-key-behavior 'cycle
-                      auto-completion-complete-with-key-sequence nil
-                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-complete-with-key-sequence "jk"
                       auto-completion-private-snippets-directory nil
                       auto-completion-enable-snippets-in-popup t
-                      auto-completion-enable-help-tooltip 'manual)
+                      auto-completion-enable-help-tooltip t)
      better-defaults
      (elm :variables
           elm-format-on-save t
@@ -59,7 +56,7 @@ values."
      html
      (javascript :variables
                  add-node-modules-path t
-                 javascript-disable-tern-port-files nil)
+                 javascript-disable-tern-port-files t)
      (markdown :variables
                markdown-live-preview-engine 'vmd
                markdown-command "pandoc")
