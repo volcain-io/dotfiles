@@ -1,3 +1,5 @@
+(require 'company)
+(require 'company-tern)
 (require 'setup-smartparens)
 (require 'flycheck-flow)
 
@@ -95,6 +97,9 @@
 
 (add-hook 'js-mode-hook 'subword-mode)
 (add-hook 'js-mode-hook 'smartparens-mode)
+(add-hook 'js-mode-hook (lambda ()
+                           (tern-mode)
+                           (company-mode)))
 (add-hook 'rjsx-mode-hook 'subword-mode)
 (add-hook 'rjsx-mode-hook 'smartparens-mode)
 (add-hook 'json-mode-hook 'smartparens-mode)
