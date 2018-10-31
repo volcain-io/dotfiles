@@ -13,3 +13,4 @@ export PATH=$PATH:$HOME/.node_modules/bin:$HOME/.yarn/bin
 #export PATH=$PATH:~/code/AndroidSDK/platform-tools
 #export PATH=$PATH:~/Workspace/flutter/bin
 export PATH=$HOME/.local/bin:$HOME/.localbin/:$PATH
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
