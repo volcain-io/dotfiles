@@ -1,2 +1,0 @@
-# Show OS info
-neofetch
