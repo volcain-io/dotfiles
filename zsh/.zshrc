@@ -1,6 +1,3 @@
-# Path to your oh-my-zsh installation
-export ZSH=$HOME/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -55,10 +52,10 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi='vim'
 
-# Show OS info when opening a new terminal
-neofetch
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Show OS info when opening a new terminal
+neofetch
