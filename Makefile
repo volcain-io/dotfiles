@@ -15,10 +15,10 @@ install:
 	sudo pacman -S --noconfirm bat chromium ctags diff-so-fancy fd firefox git htop jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass powerline-fonts rlwrap rxvt-unicode tig tldr yaourt yarn zsh
 
 config:
-	# cd ~/ && ln -s .dotfiles/config/ .config
 	cd ~/ && ln -sf .dotfiles/.ctags .
 	cd ~/ && ln -sf .dotfiles/.dir_colors .
 	cd ~/ && ln -sf .dotfiles/.gitconfig .
+	cd ~/ && ln -sf .dotfiles/.tern-config .
 
 localbin:
 	cd ~ && ln -sf ~/.dotfiles/localbin/ ~/.localbin

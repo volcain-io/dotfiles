@@ -1,0 +1,21 @@
+{
+  "libs": [
+    "browser",
+    "ecmascript",
+    "jquery",
+    "react"
+  ],
+  "plugins": {
+      "complete_strings": {},
+      "doc_comment": null,
+      "es_modules": {},
+      "node": {},
+      "requirejs": {
+	"baseUrl": "./",
+	"paths": {}
+      }
+  },
+  "dontLoad": [
+      "node_modules/**"
+  ]
+}
