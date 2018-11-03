@@ -20,23 +20,32 @@
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
 
-;; Flycheck + ESLint
-(defun my/use-eslint-from-node-modules ()
+;; Flycheck with ESLint or StandardJS
+(defun my/js-flycheck ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
                 "node_modules"))
+         ;; ESLint
          (local-eslint (expand-file-name "node_modules/.bin/eslint" root))
-         (global-eslint (executable-find "eslint"))
+         ;; Standard
+         (local-standard-js (expand-file-name "node_modules/.bin/standard" root))
+         (global-standard-js (executable-find "standard"))
 
-         (eslint (seq-find 'file-executable-p (list local-eslint
-                                                    global-eslint))))
+         (eslint-js (seq-find 'file-executable-p (list local-eslint)))
+         (standard-js (seq-find 'file-executable-p (list local-standard-js global-standard-js))))
 
-    (setq-local flycheck-javascript-eslint-executable eslint)))
+    (cond ((not (eq standard-js nil))
+           (setq-local flycheck-define-checker standard-js)
+           (setq-local flycheck-javascript-standard-executable standard-js)))
+    (cond ((not (eq standard-js nil))
+           (setq-local flycheck-define-checker eslint-js)
+           (setq-local flycheck-javascript-eslint-executable eslint-js)))
+    ))
 
-(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+(add-hook 'flycheck-mode-hook #'my/js-flycheck)
 
 ;; Standard
-(defun my/use-standardjs-or-prettier-from-node-modules ()
+(defun my/js-formatter ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
                 "node_modules"))
@@ -52,21 +61,18 @@
          (prettier-js (seq-find 'file-executable-p (list local-prettier)))
          (standard-js (seq-find 'file-executable-p (list local-standard-js global-standard-js))))
 
+    (cond ((not (eq standard-js nil))
+           (set-variable 'js-formatter-executable standard-js)
+           (set-variable 'js-formatter-args "--fix")))
+    (cond ((not (eq prettier-js nil))
+          (set-variable 'js-formatter-executable prettier-js)
+          (set-variable 'js-formatter-args "--write --single-quote")))
     (cond ((not (eq eslint-js nil))
-           (set-variable 'js-formatter-executable eslint-js)
-           (set-variable 'js-formatter-args "--fix"))
-          ((and (eq eslint-js nil)
-                (not (eq prettier-js nil)))
-           (set-variable 'js-formatter-executable prettier-js)
-           (set-variable 'js-formatter-args "--write --single-quote"))
-          ((and (eq prettier-js nil)
-                (not (eq standard-js nil)))
-           (set-variable 'js-formatter-executable eslint-js)
-           (set-variable 'js-formatter-args "--fix"))
-          )
+          (set-variable 'js-formatter-executable eslint-js)
+          (set-variable 'js-formatter-args "--fix")))
   ))
 
-(add-hook 'js-mode-hook #'my/use-standardjs-or-prettier-from-node-modules)
+(add-hook 'js-mode-hook #'my/js-formatter)
 
 (defun my/js-fix ()
   (interactive)
