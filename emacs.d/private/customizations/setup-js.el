@@ -3,6 +3,9 @@
 (require 'setup-smartparens)
 (require 'flycheck-flow)
 
+(setq add-node-modules-path t)
+(setq javascript-disable-tern-port-files t)
+
 ;; javascript / html
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.eslintrc.*$" . json-mode))
@@ -21,7 +24,7 @@
 (setq-default flycheck-temp-prefix ".flycheck")
 
 ;; Flycheck with ESLint or StandardJS
-(defun my/js-flycheck ()
+(defun my-js-flycheck-mode ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
                 "node_modules"))
@@ -37,15 +40,15 @@
     (cond ((not (eq standard-js nil))
            (setq-local flycheck-define-checker standard-js)
            (setq-local flycheck-javascript-standard-executable standard-js)))
-    (cond ((not (eq standard-js nil))
+    (cond ((not (eq eslint-js nil))
            (setq-local flycheck-define-checker eslint-js)
            (setq-local flycheck-javascript-eslint-executable eslint-js)))
     ))
 
-(add-hook 'flycheck-mode-hook #'my/js-flycheck)
+(add-hook 'flycheck-mode-hook 'my-js-flycheck-mode)
 
-;; Standard
-(defun my/js-formatter ()
+;; Use Standard.js, Prettier.js or ESLint as formatter
+(defun my-js-formatter ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
                 "node_modules"))
@@ -72,9 +75,10 @@
           (set-variable 'js-formatter-args "--fix")))
   ))
 
-(add-hook 'js-mode-hook #'my/js-formatter)
+(add-hook 'js-mode-hook 'my-js-formatter)
 
-(defun my/js-fix ()
+;; fix code after save
+(defun my-js-fix ()
   (interactive)
     (let ((initial-point (point)))
       (when (and (eq 'js-mode major-mode)
@@ -84,7 +88,7 @@
       (goto-char initial-point))
     ))
 
-(add-hook 'after-save-hook #'my/js-fix)
+(add-hook 'after-save-hook 'my-js-fix)
 
 ;; Flycheck + Flowtype
 ;; (defun my/use-flow-from-node-modules ()
@@ -101,15 +105,15 @@
 ;; (add-hook 'flycheck-mode-hook #'my/use-flow-from-node-modules)
 ;; (flycheck-add-next-checker 'javascript-flow)
 
-(add-hook 'js-mode-hook 'subword-mode)
-(add-hook 'js-mode-hook 'smartparens-mode)
+;; (add-hook 'js-mode-hook #'subword-mode)
+(add-hook 'js-mode-hook #'smartparens-mode)
 (add-hook 'js-mode-hook (lambda ()
                            (tern-mode)
                            (company-mode)))
-(add-hook 'rjsx-mode-hook 'subword-mode)
-(add-hook 'rjsx-mode-hook 'smartparens-mode)
-(add-hook 'json-mode-hook 'smartparens-mode)
-(add-hook 'html-mode-hook 'subword-mode)
+;; (add-hook 'rjsx-mode-hook #'subword-mode)
+(add-hook 'rjsx-mode-hook #'smartparens-mode)
+(add-hook 'json-mode-hook #'smartparens-mode)
+;; (add-hook 'html-mode-hook #'subword-mode)
 
 (setq js-indent-level 2)
 (eval-after-load "sgml-mode"

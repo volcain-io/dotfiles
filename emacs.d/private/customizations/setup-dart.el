@@ -1,8 +1,8 @@
-;; Set Dart SDK Path
-;; Enable analyzer support
-;; Auto format before save
+;; set Dart SDK Path
 (setq dart-sdk-path "/opt/dart-sdk/"
+  ;; enable analyzer support
   dart-enable-analysis-server t
+  ;; auto format before save
   dart-format-on-save t)
-;; Use Flycheck for error checking
-(add-hook 'dart-mode-hook 'flycheck-mode)
+;; use Flycheck for error checking
+(add-hook 'dart-mode-hook #'flycheck-mode)

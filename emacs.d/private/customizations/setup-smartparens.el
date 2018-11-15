@@ -1,8 +1,4 @@
-;; enable smartparens default configuration
 (require 'smartparens-config)
-
-;; (setq sp-base-key-bindings 'paredit)
-;; (sp-use-paredit-bindings)
 
 (define-key smartparens-mode-map (kbd "C-<right>") 'sp-slurp-hybrid-sexp)
 
@@ -18,8 +14,7 @@
 (set-face-attribute 'sp-wrap-tag-overlay-face nil
                     :background "#826e6e")
 
-;; Markdown mode
-
+;; markdown mode
 (sp-with-modes '(markdown-mode gfm-mode rst-mode)
   (sp-local-pair "*" "*"
                  :wrap "C-*"
@@ -30,8 +25,7 @@
   (sp-local-pair "_" "_" :wrap "C-_" :unless '(sp-point-after-word-p)))
 
 (defun sp--gfm-point-after-word-p (id action context)
-  "Return t if point is after a word, nil otherwise.
-   This predicate is only tested on \"insert\" action."
+  "Return t if point is after a word, nil otherwise. This predicate is only tested on \"insert\" action."
   (when (eq action 'insert)
     (sp--looking-back-p (concat "\\(\\sw\\)" (regexp-quote id)))))
 
@@ -49,4 +43,3 @@
                                             ("* ||\n[i]" "RET"))))
 
 (provide 'setup-smartparens)
-;;; setup-smartparens.el ends here

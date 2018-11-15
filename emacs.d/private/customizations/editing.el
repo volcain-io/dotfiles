@@ -1,7 +1,8 @@
 ;; Customizations relating to editing a buffer.
-
 (require 'company)
 (require 'company-lsp)
+(require 'flycheck)
+
 (push 'company-lsp company-backends)
 
 (add-hook 'after-init-hook (lambda ()
@@ -27,25 +28,21 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; Whitespace
-
 (add-hook 'prog-mode-hook
           (lambda ()
             (setq c-basic-offset 2
                   tab-width 2
                   indent-tabs-mode nil)))
-
 (add-hook 'css-mode-hook
           (lambda ()
             (setq css-indent-offset 2
                   tab-width 2
                   indent-tabs-mode nil)))
-
 (add-hook 'makefile-mode-hook
           (lambda ()
             (setq indent-tabs-mode t)
             (setq-default indent-tabs-mode t)
             (setq tab-width 2)))
-
 (add-hook 'makefile-gmake-mode-hook
           (lambda ()
             (setq indent-tabs-mode t)
@@ -64,47 +61,21 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; highlight-symbol
-
-(add-hook 'prog-mode-hook 'auto-highlight-symbol-mode)
-
+(add-hook 'prog-mode-hook #'auto-highlight-symbol-mode)
 (setq ahs-idle-interval 0.4)
 
 ;; truncate lines by default
 (setq-default truncate-lines t)
 
-;; display a vertical rule at column 80
+;; display a vertical rule at column 120
 (setq-default fill-column 120)
-
 (add-hook 'prog-mode-hook 'turn-on-fci-mode)
 (add-hook 'text-mode-hook 'turn-on-fci-mode)
 
-;; diff-hl setup
-
-;; diff-hl - diff hightlights in right gutter as you type
-(diff-hl-flydiff-mode)
-
-;; Load in magithub features after magit package has loaded
-(use-package magithub
-   :after magit
-   :config (magithub-feature-autoinject t))
-
-;; Use Spacemacs as the $EDITOR (or $GIT_EDITOR) for git commits messages
-;; when using git commit on the command line
-(global-git-commit-mode t)
-
-
-;; smooth-scrolling
-
-(setq smooth-scroll-margin 5)
-
 ;; Flycheck
-
-;; http://www.flycheck.org/manual/latest/index.html
-(require 'flycheck)
-
 ;; turn on flychecking globally
-(add-hook 'after-init-hook 'global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Turn on command-log-mode when opening a source code or text file
-(add-hook 'prog-mode-hook 'command-log-mode)
-(add-hook 'text-mode-hook 'command-log-mode)
+(add-hook 'prog-mode-hook #'command-log-mode)
+(add-hook 'text-mode-hook #'command-log-mode)
