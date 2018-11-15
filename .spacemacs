@@ -42,53 +42,30 @@ values."
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t)
      better-defaults
-     (elm :variables
-          elm-format-on-save t
-          elm-sort-imports-on-save t)
+     elm
      emacs-lisp
-     (git :variables
-          git-magit-status-fullscreen t
-          git-enable-git-support t
-          git-gutter-use-fringe t)
+     git
      github
      go
      helm
      html
-     (javascript :variables
-                 add-node-modules-path t
-                 javascript-disable-tern-port-files t)
-     (markdown :variables
-               markdown-live-preview-engine 'vmd
-               markdown-command "pandoc")
-     (org :variables
-          org-enable-github-support t
-          org-enable-reveal-js-support t
-          org-enable-priority-commands t)
+     javascript
+     markdown
+     org
      php
-     (python :variables
-             python-enable-yapf-format-on-save t)
+     python
      (ranger :variables
              ranger-show-preview t
              ranger-cleanup-eagerly t
              ranger-cleanup-on-disable t
              ranger-ignored-extensions '("mkv" "flv" "iso" "mp4"))
      react
-     (ruby :variables
-           ruby-test-runner 'minitest
-           ruby-enable-enh-ruby-mode t)
-     (shell :variables
-            shell-default-shell 'multi-term
-            shell-default-height 30
-            shell-default-position 'bottom)
+     ruby
+     shell
      spell-checking
-     (syntax-checking :variables
-                      syntax-checking-enable-tooltips nil)
-     (typescript :variables
-                 typescript-fmt-on-save t
-                 typescript-fmt-tool 'typescript-formatter)
-     (version-control :variables
-                      version-control-diff-tool 'diff-hl
-                      version-control-global-margin t)
+     syntax-checking
+     typescript
+     version-control
      yaml
      )
    ;; List of additional packages that will be installed without being
@@ -181,6 +158,7 @@ values."
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
+   ;; dotspacemacs-scratch-mode 'org-mode
    dotspacemacs-scratch-mode 'org-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
@@ -385,11 +363,17 @@ you should place your code here."
   ;; Language-specific
   (load "setup-css.el")
   (load "setup-dart.el")
+  (load "setup-elm.el")
+  (load "setup-git.el")
   (load "setup-js.el")
   (load "setup-markdown.el")
   (load "setup-org.el")
   (load "setup-prettier.el")
+  (load "setup-python.el")
+  (load "setup-ruby.el")
+  (load "setup-shell.el")
   (load "setup-smartparens.el")
+  (load "setup-typescript.el")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -401,11 +385,42 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(custom-enabled-themes (quote (spacemacs-dark)))
+ '(custom-safe-themes
+   (quote
+    ("8aca557e9a17174d8f847fb02870cb2bb67f3b6e808e46c0e54a44e3e18e1020" "75d3dde259ce79660bac8e9e237b55674b910b470f313cdf4b019230d01a982a" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "4697a2d4afca3f5ed4fdf5f715e36a6cac5c6154e105f3596b44a4874ae52c45" "6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" "fe666e5ac37c2dfcf80074e88b9252c71a22b6f5d2f566df9a7aa4f9bea55ef8" "100e7c5956d7bb3fd0eebff57fde6de8f3b9fafa056a2519f169f85199cc1c96" "f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" default)))
  '(evil-want-Y-yank-to-eol nil)
+ '(fci-rule-color "#5c5e5e" t)
+ '(flycheck-javascript-flow-args nil)
+ '(jdee-db-active-breakpoint-face-colors (cons "#0d0d0d" "#41728e"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#0d0d0d" "#b5bd68"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#0d0d0d" "#5a5b5a"))
  '(package-selected-packages
    (quote
-    (magit-todos treepy graphql flycheck-flow snoopy smart-dash aggresive-indent doom-themes enh-ruby-mode magithub ghub+ apiwrap magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht command-log-mode names camcorder bongo rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby go-guru go-eldoc company-go go-mode flycheck-elm elm-mode dart-mode company-lsp lsp-ui lsp-mode ox-reveal vmd-mode phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode carbon-now-sh yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic ranger yaml-mode ox-gfm company-quickhelp unfill mwim helm-company helm-c-yasnippet git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy diff-hl company-web web-completion-data company-tern dash-functional company-statistics company-shell company auto-yasnippet ac-ispell auto-complete tide typescript-mode prettier-js add-node-modules-path all-the-icons memoize web-mode web-beautify tern tagedit slim-mode scss-mode sass-mode pug-mode livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc helm-css-scss haml-mode emmet-mode coffee-mode xterm-color smeargle shell-pop orgit org-projectile-per-project org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub let-alist with-editor eshell-z eshell-prompt-extras esh-help auto-dictionary ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
- '(paradox-github-token t))
+    (golden-ratio magit-todos treepy graphql flycheck-flow snoopy smart-dash aggresive-indent doom-themes enh-ruby-mode magithub ghub+ apiwrap magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht command-log-mode names camcorder bongo rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby go-guru go-eldoc company-go go-mode flycheck-elm elm-mode dart-mode company-lsp lsp-ui lsp-mode ox-reveal vmd-mode phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode carbon-now-sh yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic ranger yaml-mode ox-gfm company-quickhelp unfill mwim helm-company helm-c-yasnippet git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy diff-hl company-web web-completion-data company-tern dash-functional company-statistics company-shell company auto-yasnippet ac-ispell auto-complete tide typescript-mode prettier-js add-node-modules-path all-the-icons memoize web-mode web-beautify tern tagedit slim-mode scss-mode sass-mode pug-mode livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc helm-css-scss haml-mode emmet-mode coffee-mode xterm-color smeargle shell-pop orgit org-projectile-per-project org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub let-alist with-editor eshell-z eshell-prompt-extras esh-help auto-dictionary ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+ '(paradox-github-token t)
+ '(vc-annotate-background "#1d1f21")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#b5bd68")
+    (cons 40 "#c8c06c")
+    (cons 60 "#dcc370")
+    (cons 80 "#f0c674")
+    (cons 100 "#eab56d")
+    (cons 120 "#e3a366")
+    (cons 140 "#de935f")
+    (cons 160 "#d79e84")
+    (cons 180 "#d0a9a9")
+    (cons 200 "#c9b4cf")
+    (cons 220 "#ca9aac")
+    (cons 240 "#cb8089")
+    (cons 260 "#cc6666")
+    (cons 280 "#af6363")
+    (cons 300 "#936060")
+    (cons 320 "#765d5d")
+    (cons 340 "#5c5e5e")
+    (cons 360 "#5c5e5e")))
+ '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
