@@ -1,3 +1,5 @@
+(require 'doom-themes)
+
 ;; enable GitHub, Bootstrap & Reveal.Js support
 (setq org-enable-github-support t)
 (setq org-enable-bootstrap-support t)
@@ -35,3 +37,6 @@
 ;; turn on visual-line-mode for Org-mode only
 (add-hook 'org-mode-hook #'visual-line-mode)
 (add-hook 'text-mode-hook #'visual-line-mode)
+
+;; Corrects (and improves) org-mode's native fontification
+(doom-themes-org-config)
