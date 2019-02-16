@@ -59,3 +59,5 @@ alias vi='vim'
 
 # Show OS info when opening a new terminal
 neofetch
+
+source "/home/fred/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
