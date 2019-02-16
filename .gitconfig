@@ -1,5 +1,5 @@
 [user]
-	email = volcain-io@gmail.com
+	email = volcain.io@gmail.com
 	name  = volcain-io
 
 [alias]
@@ -15,38 +15,38 @@
 	reset-staging = reset --hard origin/staging
 
 [merge]
-		tool = opendiff
+	tool = opendiff
 
 [branch]
-		autosetuprebase = always
+	autosetuprebase = always
 
 [color]
-		ui = auto
+	ui = auto
 
 [color "branch"]
-		current = yellow reverse
-		local   = yellow
-		remote  = green
+	current = yellow reverse
+	local   = yellow
+	remote  = green
 
 [color "diff"]
-		meta = yellow bold
-		frag = magenta bold
-		old  = red bold
-		new  = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old  = red bold
+	new  = green bold
 
 [color "status"]
-		added     = yellow
-		changed   = green
-		untracked = cyan
+    added     = yellow
+    changed   = green
+	untracked = cyan
 
 [github]
-		user = volcain-io
+    user = volcain-io
 
 [core]
 	editor = vim
 
 [help]
-		autocorrect = 1
+	autocorrect = 1
 
 [filter "lfs"]
 	clean    = git-lfs clean -- %f
@@ -54,11 +54,16 @@
 	process  = git-lfs filter-process
 	required = true
 
+[url "git@github.com"]
+    insteadOf = git://github
+
 [pager]
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 	show = diff-so-fancy | less --tabs=1,5 -RFX
+
 [magithub]
 	online = false
+
 [magithub "status"]
 	includeStatusHeader = false
 	includePullRequestsSection = false
