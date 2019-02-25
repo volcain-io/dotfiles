@@ -46,18 +46,11 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux colored-man-pages colorize copyfile cp extract git github gitignore heroku jsontools node npm tldr vi-mode web-search wp-cli yarn zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(archlinux colored-man-pages colorize copyfile cp extract fzf git github gitignore heroku jsontools node npm nvm tldr vi-mode web-search wp-cli yarn zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 alias vi='vim'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Show OS info when opening a new terminal
 neofetch
-
-source "~/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
