@@ -34,7 +34,6 @@ zsh:
 	cd ~ && ln -sf ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 	cd ~ && ln -sf ~/.dotfiles/zsh/.zshenv ~/.zshenv
 	cd ~ && ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
-	cd ~ && ln -sf ~/.dotfiles/zsh/.zlogin ~/.zlogin
 	chsh -s /usr/bin/zsh
 
 vim:
