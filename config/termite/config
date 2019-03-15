@@ -46,7 +46,7 @@ cursor_shape = underline
 
 foreground = #fafafa
 foreground_bold = #ffffff
-background = #292b2e
+background = rgba(41,43,46,0.8)
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
