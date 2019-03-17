@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --bg-fill '/home/fred/Pictures/Wallpapers/Retro.jpg' '/home/fred/Pictures/Wallpapers/Synthwave.jpg' '/home/fred/Pictures/Wallpapers/Blade Runner 2049.jpg' 
