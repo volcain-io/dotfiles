@@ -4,7 +4,7 @@
 #
 # Usage: wg-status INTERFACE
 #
-#   $ wg-status myconfig
+#   $ wg-status wireguard1
 
 # This option will make the script exit when there is an error
 set -o errexit
