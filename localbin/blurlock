@@ -1,0 +1,24 @@
+#!/bin/bash
+# /usr/bin/blurlock
+
+# take screenshot
+# import -window root /tmp/screenshot.png
+
+# lock the screen
+i3lock \
+	--show-failed-attempts \
+	--blur=0x5 \
+	--bar-indicator \
+	--bar-width=8 \
+	--bar-color=1e2029ff \
+  	--ringvercolor=50fa7bff \
+  	--ringwrongcolor=ff5555ff \
+  	--keyhlcolor=61bfffff \
+	--bshlcolor=ffb86cff \
+	--wrongcolor=f8f8f2ff \
+	--verifcolor=f8f8f2ff \
+	--veriftext="" \
+	--wrongtext="nope. try again" \
+	--noinputtext="type password to unlock" \
+
+exit 0
