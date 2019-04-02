@@ -101,15 +101,14 @@ padding-right = 1
 module-margin-left = 1
 
 font-0 = "Hack:size=10:weight=bold;1"
-font-1 = "TerminessTTF Nerd Font:size=11:weight=bold;1"
 
 modules-left = i3
 modules-center = memory wifi wg date cpu temperature battery 
 modules-right = user
 
-;tray-position = right
-;tray-padding = 2
-;tray-background = ${colors.bg}
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
 
 override-redirect = false
 
@@ -149,11 +148,10 @@ label-urgent-padding = 1
 
 [module/memory]
 type = internal/memory
-interval = 2
 
 format-prefix = "mem "
 
-label = %gb_used%
+label = %mb_used%/%mb_free%
 label-foreground = ${colors.memory-label-foreground}
 
 [module/wifi]
@@ -180,8 +178,8 @@ format-prefix = "wg"
 
 [module/date]
 type = internal/date
-date = %m/%d
-time = %H/%M/%S
+date = %m.%d
+time = %H.%M.%S
 
 format-prefix = "date/time "
 
@@ -193,7 +191,7 @@ type = internal/cpu
 
 format-prefix = "cpu "
 
-label = %percentage-cores:2%
+label = %percentage:2%%
 label-foreground = ${colors.cpu-label-foreground}
 
 [module/temperature]
@@ -230,30 +228,30 @@ label-discharging-foreground = ${colors.bat-label-discharging-foreground}
 label-full = "100% full"
 label-full-foreground = ${colors.bat-label-full-foreground}
 
-animation-charging-0 = "c          "
-animation-charging-1 = "ch         "
-animation-charging-2 = "cha        "
-animation-charging-3 = "char       "
-animation-charging-4 = "charg      "
-animation-charging-5 = "chargi     "
-animation-charging-6 = "chargin    "
+animation-charging-0 = "c%{F#6b6b6b}harging   "
+animation-charging-1 = "ch%{F#6b6b6b}arging   "
+animation-charging-2 = "cha%{F#6b6b6b}rging   "
+animation-charging-3 = "char%{F#6b6b6b}ging   "
+animation-charging-4 = "charg%{F#6b6b6b}ing   "
+animation-charging-5 = "chargi%{F#6b6b6b}ng   "
+animation-charging-6 = "chargin%{F#6b6b6b}g   "
 animation-charging-7 = "charging   "
 animation-charging-foreground = ${colors.bat-animation-charging-foreground}
-animation-charging-framerate = 500
+animation-charging-framerate = 1000
 
 animation-discharging-0  = "discharging"
-animation-discharging-1  = "dischargin "
-animation-discharging-2  = "dischargi  "
-animation-discharging-3  = "discharg   "
-animation-discharging-4  = "dischar    "
-animation-discharging-5  = "discha     "
-animation-discharging-6  = "disch      "
-animation-discharging-7  = "disc       "
-animation-discharging-8  = "dis        "
-animation-discharging-9  = "di         "
-animation-discharging-10 = "d          "
+animation-discharging-1  = "dischargin%{F#6b6b6b}g"
+animation-discharging-2  = "dischargi%{F#6b6b6b}ng"
+animation-discharging-3  = "discharg%{F#6b6b6b}ing"
+animation-discharging-4  = "dischar%{F#6b6b6b}ging"
+animation-discharging-5  = "discha%{F#6b6b6b}rging"
+animation-discharging-6  = "disch%{F#6b6b6b}arging"
+animation-discharging-7  = "disc%{F#6b6b6b}harging"
+animation-discharging-8  = "dis%{F#6b6b6b}charging"
+animation-discharging-9  = "di%{F#6b6b6b}scharging"
+animation-discharging-10 = "d%{F#6b6b6b}ischarging"
 animation-discharging-foreground = ${colors.bat-animation-discharging-foreground}
-animation-discharging-framerate = 500
+animation-discharging-framerate = 1000
 
 [module/user]
 type = custom/script
