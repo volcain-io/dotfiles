@@ -1,0 +1,48 @@
+* {
+    background-color: #282a36;
+    font: "Hack Bold 10";
+    margin: 0;
+    padding: 0;
+    text-color: #f8f8f2;
+}
+#window {
+    anchor: north;
+    location: north;
+    padding: 4px 12px 3px 8px;
+    width: 100%;
+}
+#prompt {
+    padding: 0px 4px 0px 0px;
+    text-color: #61bfff;
+}
+#entry {
+    expand: false;
+    text-color: #50fa7b;
+    width: 10em;
+}
+#listview {
+    border: 0;
+    columns: 4;
+    lines: 4;
+    orientation: horizontal;
+    text-color: #ffcc00;
+}
+#element normal.active {
+    text-color: #ffcc00;
+}
+#element normal.urgent {
+    text-color: #ffcc00;
+}
+#element selected.normal {
+    background-color: #ffcc00;
+    text-color: #282a36;
+}
+#element selected.urgent {
+    text-color: #ff6655;
+}
+#element alternate.active {
+    text-color: #ffcc00;
+}
+#element alternate.urgent {
+    text-color: #ff6655;
+}
