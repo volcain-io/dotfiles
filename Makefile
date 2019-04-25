@@ -23,6 +23,7 @@ config:
 	cd ~ && ln -sf ~/.dotfiles/.xinitrc .
 	cd ~ && ln -sf ~/.dotfiles/config/i3 ~/.i3
 	cd ~ && ln -sf ~/.dotfiles/config/termite/ ~/.config/termite
+	cd ~ && ln -sf ~/.dotfiles/config/neofetch/ ~/.config/neofetch
 
 localbin:
 	cd ~ && ln -sf ~/.dotfiles/localbin/ ~/.localbin
