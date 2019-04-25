@@ -145,10 +145,16 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 root
-set $ws2 web
-set $ws3 code
-set $ws4 mail
+set $ws1 "1:main"
+set $ws2 "2:code"
+set $ws3 "3:web"
+set $ws4 "4:mail"
+
+# output workspaces to specific monitors
+workspace "1:main" output LVDS1
+workspace "2:code" output HDMI1
+workspace "3:web" output HDMI1
+workspace "4:mail" output VGA1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -170,9 +176,9 @@ bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
 
 # Open applications on specific workspaces
 assign [class="Pcmanfm"] $ws1
-assign [class="Firefox"] $ws2
-assign [class="Chromium"] $ws2
-assign [class="Emacs"] $ws3
+assign [class="Emacs"] $ws2
+assign [class="Firefox"] $ws3
+assign [class="Chromium"] $ws3
 assign [class="Thunderbird"] $ws4
 
 # Open specific applications in floating mode
