@@ -89,7 +89,6 @@ temp-label-warn-foreground = ${colors.color1}
 user-label-foreground = ${colors.color6}
 
 [bar/alienware]
-;monitor = ${env:MONITOR:HDMI1}
 monitor = ${env:MONITOR:LVDS1}
 fixed-center = true
 
@@ -117,9 +116,9 @@ cursor-scroll = ns-resize
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
 wrapping-scroll = false
 enable-scroll = false
+strip-wsnumbers = true
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
@@ -228,14 +227,15 @@ label-discharging-foreground = ${colors.bat-label-discharging-foreground}
 label-full = "100% full"
 label-full-foreground = ${colors.bat-label-full-foreground}
 
-animation-charging-0 = "c%{F#6b6b6b}harging   "
-animation-charging-1 = "ch%{F#6b6b6b}arging   "
-animation-charging-2 = "cha%{F#6b6b6b}rging   "
-animation-charging-3 = "char%{F#6b6b6b}ging   "
-animation-charging-4 = "charg%{F#6b6b6b}ing   "
-animation-charging-5 = "chargi%{F#6b6b6b}ng   "
-animation-charging-6 = "chargin%{F#6b6b6b}g   "
-animation-charging-7 = "charging   "
+animation-charging-0 = "%{F#6b6b6b}charging   "
+animation-charging-1 = "c%{F#6b6b6b}harging   "
+animation-charging-2 = "ch%{F#6b6b6b}arging   "
+animation-charging-3 = "cha%{F#6b6b6b}rging   "
+animation-charging-4 = "char%{F#6b6b6b}ging   "
+animation-charging-5 = "charg%{F#6b6b6b}ing   "
+animation-charging-6 = "chargi%{F#6b6b6b}ng   "
+animation-charging-7 = "chargin%{F#6b6b6b}g   "
+animation-charging-8 = "charging   "
 animation-charging-foreground = ${colors.bat-animation-charging-foreground}
 animation-charging-framerate = 1000
 
@@ -250,6 +250,7 @@ animation-discharging-7  = "disc%{F#6b6b6b}harging"
 animation-discharging-8  = "dis%{F#6b6b6b}charging"
 animation-discharging-9  = "di%{F#6b6b6b}scharging"
 animation-discharging-10 = "d%{F#6b6b6b}ischarging"
+animation-discharging-11 = "%{F#6b6b6b}discharging"
 animation-discharging-foreground = ${colors.bat-animation-discharging-foreground}
 animation-discharging-framerate = 1000
 
