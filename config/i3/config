@@ -146,9 +146,9 @@ bindsym $mod+Ctrl+Left workspace prev
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
 #set $ws1 "1:main"
-set $ws1 "2:code"
-set $ws2 "3:web"
-set $ws3 "4:mail"
+set $ws1 "1:code"
+set $ws2 "2:web"
+set $ws3 "3:mail"
 
 # output workspaces to specific monitors
 #workspace "1:main" output LVDS1
