@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
 # Set wallpaper(s) according to number of monitors.
-# Default directory for wallpapers is ${current_dir}/wallpapers
+# Default directory for wallpapers is ~/.dotfiles/wallpapers
 #
-# Usage: set-wallpapers DIR
+# Usage: set-wallpapers [DIR]
 #
 #   $ set-wallpapers ~/Pictures/Wallpapers
 
@@ -23,7 +23,7 @@ __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on
 
 arg1="${1:-}"
 
-dir_wallpaper="${1:-${__dir}/wallpapers}"
+dir_wallpaper="${1:-${HOME}/.dotfiles/wallpapers}"
 num_of_monitors="$(xrandr --listmonitors | awk '/Monitors:/ {print $2}')"
 random_wallpapers=$(ls ${dir_wallpaper} | shuf -n${num_of_monitors} | awk -v dir_w="$dir_wallpaper" '{print dir_w"/"$1}')
 
