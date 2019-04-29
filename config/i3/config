@@ -346,13 +346,17 @@ set_from_resource $term_color15    color15
 # hide/unhide i3status bar
 #bindsym $mod+m bar mode toggle
 
+# Set borders to 3px
+default_border pixel 3
+default_floating_border pixel 3
+
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+# class                   border  background text    indicator child_border
+  client.focused          #50FA7B #979797    #80FFF9 #FDF6E3   #50FA7B
+  client.focused_inactive #2F3D44 #979797    #1E2029 #454948   #FFCC00
+  client.unfocused        #2F3D44 #979797    #1E2029 #454948   #979797
+  client.urgent           #FF5555 #979797    #1E2029 #FFCC00   #50FA7B
+  client.placeholder      #1E2029 #F8F8F2    #1E2029 #000000   #F8F8F2
 
   client.background       #2B2C2B
 
