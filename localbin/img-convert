@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-# Converts a given JPG image to given quality and resizes it without overriding the original file.
+# Converts a given JPG image to given quality and resizes it without overriding the original file. Default quality value is 70.
 #
-# Usage: img-convert QUALITY FILENAME
+# Usage: img-convert FILENAME [QUALITY]
 #
-#   $ img-convert 60 foo
+#   $ img-convert foo 70
 
 # This option will make the script exit when there is an error
 set -o errexit
@@ -21,10 +21,8 @@ __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
-arg1="${1:-}"
-
-num_quality="$1"
-filename="$2"
+filename="${1:?Usage: img-convert FILENAME [QUALITY]}"
+num_quality="${2:-70}"
 
 convert ${filename}.jpg -quality ${num_quality} low_${filename}.jpg
 convert ${filename}.jpg -quality ${num_quality} low_${filename}.webp
