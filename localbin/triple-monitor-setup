@@ -1,2 +1,12 @@
 #!/bin/sh
+# Workaround to turn on connected outputs that may be in suspend mode and hence shown as disconnected
+declare -i count=1
+declare -i seconds=1
+
+while((count)); do
+    xrandr >/dev/null
+    sleep $seconds
+    ((count--))
+done
+
 xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off --output HDMI1 --crtc 1 --mode 1920x1080 --pos 0x0 --rotate normal --output LVDS1 --primary --mode 1600x900 --pos 1920x0 --rotate normal --output VGA1 --crtc 2 --mode 1920x1080 --pos 3520x0 --rotate normal
