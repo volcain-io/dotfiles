@@ -36,5 +36,5 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-# start i3 & redirect all errors
-exec i3 2> /tmp/i3-error.log
+# start i3
+exec i3
