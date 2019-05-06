@@ -19,13 +19,13 @@
         org-todo-keywords '((sequence "TODO" "DOING" "BLOCKED" "REVIEW" "|" "DONE" "CANCELED" "ARCHIVED"))
         ;; setting Colours (faces) for todo states to give clearer view of work
         org-todo-keyword-faces '(
-                                 ("TODO" . (:foreground "white" :weight bold :background "teal"))
-                                 ("DOING" . (:foreground "yellow" :weight bold))
-                                 ("BLOCKED" . (:foreground "white" :weight bold :background "darkred"))
-                                 ("REVIEW" . (:foreground "orange" :weight bold))
-                                 ("DONE" . (:foreground "green" :weight bold))
-                                 ("CANCELED" . (:foreground "white" :weight bold :background "gray"))
-                                 ("ARCHIVED" .  (:foreground "white" :weight bold :background "blue")))
+                                 ("TODO" . (:foreground "#f8f8f2" :weight bold :background "#979797"))
+                                 ("DOING" . (:foreground "#ffcc00" :weight bold))
+                                 ("BLOCKED" . (:foreground "#f8f8f2" :weight bold :background "#ff5555"))
+                                 ("REVIEW" . (:foreground "#282a36" :weight bold))
+                                 ("DONE" . (:foreground "#50fa7b" :weight bold))
+                                 ("CANCELED" . (:foreground "#f8f8f2" :weight bold :background "#ff79c6"))
+                                 ("ARCHIVED" .  (:foreground "#1e2029" :weight bold)))
         ;; progress logging
         ;; when a TODO item enters DONE, add a CLOSED: property with current date-time stamp
         org-log-done 'time)
