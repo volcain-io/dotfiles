@@ -2,6 +2,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_MESSAGES="C"
 export EDITOR=vi
+export BROWSER=firefox
 export TERM=termite
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export CHROME_PATH=/usr/bin/chromium
