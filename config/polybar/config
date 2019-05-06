@@ -27,27 +27,27 @@ color9  = #ff6655
 # Green
 color2  = #50fa7b
 # Bright Green
-color10 = #99bb66
+color10 = #0189cc
 # Yellow
 color3  = #ffcc00
 # Bright Yellow
-color11 = #ffb86c
+color11 = #f1fa8c
 # Blue
-color4  = #61bfff
+color4 = #0189cc
 # Bright Blue
-color12 = #0189cc
+color12 = #61bfff
 # Magenta
 color5  = #ff79c6
 # Bright Magenta
-color13 = #c678dd
+color13 = #bd93f9
 # Cyan
-color6  = #44b9b1
+color6  = #8be9fd
 # Bright Cyan
 color14 = #8be9fd
 # White
 color7  = #f8f8f2
 # Bright White
-color15 = #2d2d2d
+color15 = #e2e2dc
 
 foreground  = ${colors.color7}
 background  = #282a36

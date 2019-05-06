@@ -44,48 +44,48 @@ foreground         = #f8f8f2
 foreground_bold    = #f8f8f2
 cursor             = #ffcc00
 cursor_foreground  = #282a36
-background         = rgba(40, 41, 54, 0.8)
+background         = rgba(40, 42, 54, 0.8)
 
 # 16 color space
 # Black
 color0 = #1e2029
 # Bright Black
-color8 = #979797
+color8 = #ccccc7
 
 # Red
 color1  = #ff5555
 # Bright Red
-color9  = #ff5555
+color9  = #ffb86c
 
 # Green
 color2  = #50fa7b
 # Bright Green
-color10 = #50fa7b
+color10 = #0189cc
 
 # Yellow
 color3  = #ffcc00
 # Bright Yellow
-color11 = #ffcc00
+color11 = #f1fa8c
 
 # Blue
-color4  = #61bfff
+color4  = #0189cc
 # Bright Blue
 color12 = #61bfff
 
 # Magenta
 color5  = #ff79c6
 # Bright Magenta
-color13 = #ff79c6
+color13 = #bd93f9
 
 # Cyan
-color6  = #44b9b1
+color6  = #8be9fd
 # Bright Cyan
-color14 = #44b9b1
+color14 = #8be9fd
 
 # White
 color7  = #f8f8f2
 # Bright White
-color15 = #f8f8f2
+color15 = #e2e2dc
 
 [hints]
 font = Hack 11
