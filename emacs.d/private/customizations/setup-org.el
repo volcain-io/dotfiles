@@ -16,7 +16,7 @@
   (setq org-agenda-files '("~/Dropbox/Orgzly/")
         org-default-notes-file "~/Dropbox/Orgzly/TODOs.org"
         ;; define a kanban style set of stages for todo tasks
-        org-todo-keywords '((sequence "TODO" "DOING" "BLOCKED" "REVIEW" "|" "DONE" "CANCELED" "ARCHIVED"))
+        org-todo-keywords '((sequence "TODO(t!)" "DOING(d!)" "BLOCKED(b!)" "REVIEW(r!)" "|" "DONE(dd!)" "CANCELED(c!)" "ARCHIVED(a!)"))
         ;; setting Colours (faces) for todo states to give clearer view of work
         org-todo-keyword-faces '(
                                  ("TODO" . (:foreground "#f8f8f2" :weight bold :background "#979797"))
