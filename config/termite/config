@@ -39,7 +39,7 @@ cursor_shape = block
 #scrollbar = off
 
 [colors]
-# based on Emacs Doom Dracule Theme https://github.com/hlissner/emacs-doom-themes/blob/master/themes/doom-dracula-theme.el
+# inspired by Dracula Theme https://draculatheme.com
 foreground         = #f8f8f2
 foreground_bold    = #f8f8f2
 cursor             = #ffcc00
@@ -47,44 +47,36 @@ cursor_foreground  = #282a36
 background         = rgba(40, 42, 54, 0.8)
 
 # 16 color space
-# Black
+# Black dark/light
 color0 = #1e2029
-# Bright Black
 color8 = #ccccc7
 
-# Red
+# Red dark/light
 color1  = #ff5555
-# Bright Red
-color9  = #ffb86c
+color9  = #ff6e67
 
-# Green
+# Green dark/light
 color2  = #50fa7b
-# Bright Green
-color10 = #0189cc
+color10 = #5af78e
 
-# Yellow
+# Yellow dark/light
 color3  = #ffcc00
-# Bright Yellow
-color11 = #f1fa8c
+color11 = #f4f99d
 
-# Blue
+# Blue dark/light
 color4  = #0189cc
-# Bright Blue
 color12 = #61bfff
 
-# Magenta
+# Magenta dark/light
 color5  = #ff79c6
-# Bright Magenta
-color13 = #bd93f9
+color13 = #ff92d0
 
-# Cyan
+# Cyan dark/light
 color6  = #8be9fd
-# Bright Cyan
-color14 = #8be9fd
+color14 = #9aedfe
 
-# White
+# White dark/light
 color7  = #f8f8f2
-# Bright White
 color15 = #e2e2dc
 
 [hints]

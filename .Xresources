@@ -6,55 +6,56 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
+XTerm*background:        #282a36
+XTerm*foreground:        #f8f8f2
+XTerm*pointerColor:      #ffcc00
 XTerm*faceName:          Fixed
 XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
+# inspired by Dracula Theme https://draculatheme.com
+*background:                      #282a36
+*foreground:                      #f8f8f2
 *fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
+*fadeColor:                       #1e2029
+*cursorColor:                     #ffcc00
+*pointerColorBackground:          #2b2c2b
+*pointerColorForeground:          #16a085
 
 !! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+*color0:                          #1e2029
+*color8:                          #ccccc7
 
 !! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
+*color1:                          #ff5555
+*color9:                          #ff6e67
 
 !! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
+*color2:                          #50fa7b
+*color10:                         #5af78e
 
 !! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
+*color3:                          #ffcc00
+*color11:                         #f4f99d
 
 !! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
+*color4:                          #0189cc
+*color12:                         #61bfff
 
 !! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
+*color5:                          #ff79c6
+*color13:                         #ff92d0
 
 !! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
+*color6:                          #8be9fd
+*color14:                         #9aedfe
 
 !! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+*color7:                          #f8f8f2
+*color15:                         #e2e2dc
 
-Xcursor.theme: xcursor-breeze
+Xcursor.theme:                    xcursor-breeze
 Xcursor.size:                     0
 
 URxvt.font:                       xft:Hack:pixelsize=13:antialias=true:hinting=true,xft:Hack:pixelsize=13:antialias=true:hinting=true
