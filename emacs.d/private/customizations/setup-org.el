@@ -13,19 +13,39 @@
 ;; avoid conflict when loading `org` functions
 (with-eval-after-load 'org
   ;; define the location of the file to hold tasks
-  (setq org-agenda-files '("~/Dropbox/Orgzly/")
-        org-default-notes-file "~/Dropbox/Orgzly/TODOs.org"
+  (setq org-agenda-files '("~/Dropbox/Orgzly")
+        org-default-notes-file '("~/Dropbox/Orgzly/TODOs.org")
         ;; define a kanban style set of stages for todo tasks
-        org-todo-keywords '((sequence "TODO(t!)" "DOING(d!)" "BLOCKED(b!)" "REVIEW(r!)" "|" "DONE(dd!)" "CANCELED(c!)" "ARCHIVED(a!)"))
+        org-todo-keywords '((sequence "IDEA(i)" "TODO(t)" "IN-PROGRESS(p)" "NEXT(n)" "WAITING(w)" "REVIEW(r)" "|" "DONE(d)")
+                            (sequence "|" "BLOCKED(b)" "CANCELED(c)" "ARCHIVED(a)"))
         ;; setting Colours (faces) for todo states to give clearer view of work
-        org-todo-keyword-faces '(
+        org-todo-keyword-faces '(("IDEA" . (:foreground "#f1fa8c" :weight bold))
                                  ("TODO" . (:foreground "#f8f8f2" :weight bold))
-                                 ("DOING" . (:foreground "#ffcc00" :weight bold))
-                                 ("BLOCKED" . (:foreground "#ff5555" :weight bold))
+                                 ("IN-PROGRESS" . (:foreground "#8be9fd" :weight bold))
+                                 ("NEXT" . (:foreground "#ffb86c" :weight bold))
+                                 ("WAITING" . (:foreground "#bd93f9" :weight bold))
                                  ("REVIEW" . (:foreground "#61bfff" :weight bold))
                                  ("DONE" . (:foreground "#50fa7b" :weight bold))
+                                 ("BLOCKED" . (:foreground "#ff5555" :weight bold))
                                  ("CANCELED" . (:foreground "#ff79c6" :weight bold))
                                  ("ARCHIVED" .  (:foreground "#999999" :weight bold)))
+        ;; define important tags
+        org-tag-persistent-alist '((:startgroup . nil)
+                                   ("easy" . ?e)
+                                   ("medium" . ?m)
+                                   ("hard" . ?h)
+                                   (:endgroup . nil)
+                                   (:startgroup . nil)
+                                   ("home" . ?h)
+                                   ("work" . ?w)
+                                   ("research" . ?s)
+                                   (:endgroup . nil)
+                                   (:startgroup . nil)
+                                   ("abholung" . ?a)
+                                   ("auslieferung" . ?l)
+                                   ("selbstabholung" . ?A)
+                                   ("rücklieferung" . ?L)
+                                   (:endgroup . nil))
         ;; progress logging
         ;; when a TODO item enters DONE, add a CLOSED: property with current date-time stamp
         org-log-done 'time)
@@ -34,7 +54,7 @@
 ;; markdown mode hook for orgtbl-mode minor mode
 (add-hook 'markdown-mode-hook #'orgtbl-mode)
 
-;; turn on visual-line-mode for Org-mode only
+;; turn on visual-line-mode for Org-mode only'("~/Dropbox/Orgzly/")
 (add-hook 'org-mode-hook #'visual-line-mode)
 (add-hook 'text-mode-hook #'visual-line-mode)
 
