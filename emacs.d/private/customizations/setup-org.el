@@ -13,8 +13,8 @@
 ;; avoid conflict when loading `org` functions
 (with-eval-after-load 'org
   ;; define the location of the file to hold tasks
-  (setq org-agenda-files '("~/Dropbox/Orgzly")
-        org-default-notes-file '("~/Dropbox/Orgzly/TODOs.org")
+  (setq org-agenda-files '(list "~/Dropbox/Orgzly/ktb" "~/Dropbox/Orgzly/work.org" "~/Dropbox/Orgzly/personal.org" "~/Dropbox/Orgzly/dev.org")
+        org-default-notes-file '("~/Dropbox/Orgzly/todo.org")
         ;; define a kanban style set of stages for todo tasks
         org-todo-keywords '((sequence "IDEA(i)" "TODO(t)" "IN-PROGRESS(p)" "NEXT(n)" "WAITING(w)" "REVIEW(r)" "|" "DONE(d)")
                             (sequence "|" "BLOCKED(b)" "CANCELED(c)" "ARCHIVED(a)"))
