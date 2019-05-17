@@ -13,7 +13,7 @@
 ;; avoid conflict when loading `org` functions
 (with-eval-after-load 'org
   ;; define the location of the file to hold tasks
-  (setq org-agenda-files '(list "~/Dropbox/Orgzly/ktb" "~/Dropbox/Orgzly/work.org" "~/Dropbox/Orgzly/personal.org" "~/Dropbox/Orgzly/dev.org")
+  (setq org-agenda-files (list "~/Dropbox/Orgzly" "~/Dropbox/Orgzly/ktb")
         org-default-notes-file '("~/Dropbox/Orgzly/todo.org")
         ;; define a kanban style set of stages for todo tasks
         org-todo-keywords '((sequence "IDEA(i)" "TODO(t)" "IN-PROGRESS(p)" "NEXT(n)" "WAITING(w)" "REVIEW(r)" "|" "DONE(d)")
@@ -54,7 +54,7 @@
 ;; markdown mode hook for orgtbl-mode minor mode
 (add-hook 'markdown-mode-hook #'orgtbl-mode)
 
-;; turn on visual-line-mode for Org-mode only'("~/Dropbox/Orgzly/")
+;; turn on visual-line-mode for org-mode only
 (add-hook 'org-mode-hook #'visual-line-mode)
 (add-hook 'text-mode-hook #'visual-line-mode)
 
