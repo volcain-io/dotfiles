@@ -12,7 +12,7 @@ all:
 	make newsboat
 
 install:
-	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy emacs etcher fd firefox gimp git htop inkscape jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass powerline-fonts rlwrap termite tig the_silver_searcher thunderbird tldr ttf-hack ttf-nanum yarn yay zsh
+	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst dunstify emacs etcher fd firefox gimp git htop inkscape jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass powerline-fonts rlwrap termite tig the_silver_searcher thunderbird tldr ttf-hack ttf-nanum yarn yay zsh
 
 config:
 	cd ~ && ln -sf ~/.dotfiles/.ctags .
@@ -21,9 +21,12 @@ config:
 	cd ~ && ln -sf ~/.dotfiles/.tern-config .
 	cd ~ && ln -sf ~/.dotfiles/.Xresources .
 	cd ~ && ln -sf ~/.dotfiles/.xinitrc .
+	cd ~ && ln -sf ~/.dotfiles/config/dunst ~/.config/dunst
 	cd ~ && ln -sf ~/.dotfiles/config/i3 ~/.i3
-	cd ~ && ln -sf ~/.dotfiles/config/termite/ ~/.config/termite
 	cd ~ && ln -sf ~/.dotfiles/config/neofetch/ ~/.config/neofetch
+	cd ~ && ln -sf ~/.dotfiles/config/polybar/ ~/.config/polybar
+	cd ~ && ln -sf ~/.dotfiles/config/rofi/ ~/.config/rofi
+	cd ~ && ln -sf ~/.dotfiles/config/termite/ ~/.config/termite
 
 localbin:
 	cd ~ && ln -sf ~/.dotfiles/localbin/ ~/.localbin
