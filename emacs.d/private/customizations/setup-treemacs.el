@@ -12,3 +12,5 @@
 (doom-themes-org-config)
 ;; position treemacs buffer on the right
 (setq treemacs-position 'right)
+;; automatically focus current selected file
+(setq treemacs-follow-mode t)
