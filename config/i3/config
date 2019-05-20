@@ -62,7 +62,7 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 bindsym $mod+Ctrl+b exec termite -e 'bmenu'
 bindsym $mod+F2 exec firefox
 # bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F3 exec ranger
+bindsym $mod+F3 exec termite -e 'ranger'
 # bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec termite -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
