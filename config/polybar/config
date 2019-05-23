@@ -173,7 +173,7 @@ label-disconnected-foreground = ${colors.wifi-label-disconnected-foreground}
 type = custom/script
 exec = ~/.dotfiles/localbin/wg-status mullvadnl3de4
 
-format-prefix = "wg"
+format-prefix = "wireguard"
 
 [module/date]
 type = internal/date
