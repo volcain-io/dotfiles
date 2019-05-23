@@ -26,9 +26,9 @@ interface="${1:?Unknown interface}"
 status=$(echo $(systemctl is-active wg-quick@${interface}.service 2>/dev/null))
 
 if [[ ${status} = "active" ]]; then
-    echo "%{F#50fa7b} ${status}"
+    echo "%{F#50fa7b} on"
 elif [[ ${status} = "inactive" ]]; then
-    echo "%{F#ff5555} ${status}"
+    echo "%{F#ff5555} off"
 else
     echo "%{F#ffb86c} unknown"
 fi
