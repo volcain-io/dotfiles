@@ -52,10 +52,10 @@
         ;; custom capture templates
         org-capture-templates '(("a" "Kiss the box - Abholung" entry (file "~/Dropbox/Orgzly/ktb/auslieferungen.org")
                                  "* TODO [[%^{link}][%^{description}]] :auslieferung:\n  SCHEDULED: %^{Delivery date+time}T\n
-                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{PRINTER}p %^{BACKGR.}p %^{DRIVER}p" :empty-lines 1))
+                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{PRINTER}p %^{BACKGR.}p %^{MISC}p %^{DRIVER}p" :empty-lines 1))
         org-capture-templates '(("l" "Kiss the box - Auslieferung" entry (file "~/Dropbox/Orgzly/ktb/auslieferungen.org")
                                  "* TODO [[%^{link}][%^{description}]] :auslieferung:\n  SCHEDULED: %^{Delivery date+time}T\n
-                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{PRINTER}p %^{BACKGR.}p %^{DRIVER}p" :empty-lines 1))
+                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{PRINTER}p %^{BACKGR.}p %^{MISC}p %^{DRIVER}p" :empty-lines 1))
         )
 
   )
