@@ -1,4 +1,4 @@
-rofi.combi-modi:        window,run,ssh
+rofi.combi-modi:        window,drun,run,ssh
 rofi.display-combi:     >
 rofi.display-drun:      run >
 rofi.display-ssh:       ssh >
