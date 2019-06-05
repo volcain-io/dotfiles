@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Customized session menu based on rofi (dmenu mode) with auto-select enabled.
+#
+# Usage: session-menu
+#
+#   $session-menu
+
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+
+case $(echo "[L]ock|[E]xit|[S]hutdown" | rofi -sep '|' -auto-select -dmenu -p "Session" -i) in
+    '[L]ock')
+        ~/.dotfiles/localbin/blurlock
+        ;;
+    '[E]xit')
+        i3exit logout
+        ;;
+    '[S]hutdown')
+        i3exit shutdown
+        ;;
+esac
+
+exit $?
