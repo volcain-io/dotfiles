@@ -157,6 +157,7 @@ label-foreground = ${colors.memory-label-foreground}
 type = internal/network
 interface = wlp8s0
 interval = 3.0
+accumulate-stats = true
 
 format-connected = <label-connected>
 format-connected-prefix = "wifi "
@@ -164,7 +165,7 @@ format-connected-prefix = "wifi "
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = "wifi "
 
-label-connected = %essid%
+label-connected = %{A1:termite -e "nmtui-connect":}%essid%%{A}
 label-connected-foreground = ${colors.wifi-label-connected-foreground}
 label-disconnected = %ifname%
 label-disconnected-foreground = ${colors.wifi-label-disconnected-foreground}
@@ -174,6 +175,8 @@ type = custom/script
 exec = ~/.dotfiles/localbin/wg-status mullvadnl3de2
 
 format-prefix = "wireguard"
+click-left=termite -e "wg-quick up mullvadnl3de2"
+click-right=termite -e "wg-quick down mullvadnl3de2"
 
 [module/date]
 type = internal/date
