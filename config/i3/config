@@ -42,6 +42,9 @@ bindsym $mod+z exec --no-startup-id morc_menu
 # start pass
 bindsym $mod+p exec --no-startup-id passmenu
 
+# start session
+bindsym $mod+0 exec --no-startup-id ~/.localbin/session-menu
+
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -68,7 +71,8 @@ bindsym $mod+F5 exec termite -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
+#bindsym Print exec --no-startup-id i3-scrot
+bindsym Print exec --no-startup-id ~/.localbin/take-screenshot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
@@ -221,21 +225,21 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system [l]ock, [e]xit, [s]hutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.dotfiles/localbin/blurlock, mode "default"
+#bindsym $mod+0 mode "$mode_system"
+#set $mode_system Session [l]ock, [e]xit, [s]hutdown
+#mode "$mode_system" {
+#    bindsym l exec --no-startup-id ~/.localbin/blurlock, mode "default"
 #    bindsym s exec --no-startup-id i3exit suspend, mode "default"
 #    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
+#    bindsym e exec --no-startup-id i3exit logout, mode "default"
 #    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
 #    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym s exec --no-startup-id i3exit shutdown, mode "default"
+#    bindsym s exec --no-startup-id i3exit shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -262,7 +266,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id ~/.dotfiles/localbin/blurlock
+bindsym $mod+9 exec --no-startup-id ~/.localbin/blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
