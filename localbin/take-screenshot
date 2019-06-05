@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#
+# rofi menu to take screenshots with scrot
+#
+# usage: take-screenshot
+#
+#   $ take-screenshot
+
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+dir_screenshots="$HOME/Pictures/Screenshots"
+file_extension="png"
+filename=""
+prefix=""
+scrot_option=""
+selection=-1
+
+# create screenshot directory
+mkdir -p ${dir_screenshots}
+
+# start
+case $(echo "Full screen|Selection|Active Window|High Quality|Open screenshots directory" | rofi -sep '|' -dmenu -p "Take Screenshot" -i) in
+    'Full screen')
+        selection=1
+        filename_prefix="default"
+        scrot_option=""
+        ;;
+    'Selection')
+        selection=2
+        filename_prefix="selection"
+        scrot_option="-s"
+        ;;
+    'Active Window')
+        selection=3
+        filename_prefix="active"
+        scrot_option="-u"
+        ;;
+    'High Quality')
+        selection=4
+        filename_prefix="hq"
+        scrot_option="-q 100"
+        ;;
+    'Open screenshots directory')
+        selection=0
+        ;;
+esac
+
+# put together all the pieces for the filename
+filename="${filename_prefix}-$(date -u +"%Y-%m-%d-%T").${file_extension}"
+
+# Do nothing by default
+if [[ ${selection} -eq 0 ]]; then
+    # Open ranger by default
+    ranger ${dir_screenshots}
+elif [[ ${selection} -gt 0 ]]; then
+    # Take screenshot
+    scrot -z ${scrot_option} ${filename}
+    mv ${filename} ${dir_screenshots}
+    # Display notification
+    dunstify "Screenshot ${filename} saved in ${dir_screenshots}"
+fi
+
+exit $?
