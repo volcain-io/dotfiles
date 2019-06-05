@@ -167,7 +167,7 @@ format-disconnected-prefix = "wifi "
 
 label-connected = %{A1:termite -e "nmtui-connect":}%essid%%{A}
 label-connected-foreground = ${colors.wifi-label-connected-foreground}
-label-disconnected = %ifname%
+label-disconnected = %{A1:termite -e "nmtui-connect":}%ifname%%{A}
 label-disconnected-foreground = ${colors.wifi-label-disconnected-foreground}
 
 [module/wg]
