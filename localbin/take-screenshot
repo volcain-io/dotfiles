@@ -24,7 +24,7 @@ __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on
 dir_screenshots="$HOME/Pictures/Screenshots"
 file_extension="png"
 filename=""
-prefix=""
+filename_prefix=""
 scrot_option=""
 selection=-1
 
@@ -64,7 +64,7 @@ filename="${filename_prefix}-$(date -u +"%Y-%m-%d-%T").${file_extension}"
 # Do nothing by default
 if [[ ${selection} -eq 0 ]]; then
     # Open ranger by default
-    ranger ${dir_screenshots}
+    termite -e "ranger ${dir_screenshots}"
 elif [[ ${selection} -gt 0 ]]; then
     # Take screenshot
     scrot -z ${scrot_option} ${filename}
