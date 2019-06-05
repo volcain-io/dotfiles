@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+#
+# Creates a bash script based on my boilerplate
+#
+# Usage: bbp FILENAME [DESCRIPTION]
+#
+#   $ bbp foo "This is a new bash script doing fancy stuff"
+
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+filename="${1:?Usage: bbp FILENAME}"
+description="${2:-"Here goes your description"}"
+
+printf '#!/usr/bin/env bash
+#
+# %s
+#
+# Usage: %s
+#
+#   $%s
+
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+arg1="${1:-}"
+
+exit $?' "${description}" "${filename}" "${filename}" > ${filename}
+
+# Set execute permission
+chmod +x ${filename}
+
+exit $?
