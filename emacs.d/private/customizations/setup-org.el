@@ -46,6 +46,8 @@
                                    ("selbstabholung" . ?A)
                                    ("rücklieferung" . ?L)
                                    (:endgroup . nil))
+        ;; force to mark all child tasks as "DONE" before parent task
+        org-enforce-todo-dependencies t
         ;; progress logging
         ;; when a TODO item enters DONE, add a CLOSED: property with current date-time stamp
         org-log-done 'time
