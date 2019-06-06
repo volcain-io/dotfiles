@@ -48,6 +48,8 @@
                                    (:endgroup . nil))
         ;; force to mark all child tasks as "DONE" before parent task
         org-enforce-todo-dependencies t
+        ;; force to mark all checkboxes before parent task
+        org-enforce-todo-checkbox-dependencies t
         ;; progress logging
         ;; when a TODO item enters DONE, add a CLOSED: property with current date-time stamp
         org-log-done 'time
