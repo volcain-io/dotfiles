@@ -150,7 +150,7 @@ type = internal/memory
 
 format-prefix = "mem "
 
-label = %mb_used%/%mb_free%
+label = %mb_used%/%mb_total%
 label-foreground = ${colors.memory-label-foreground}
 
 [module/wifi]
