@@ -181,7 +181,7 @@ click-right=termite -e "wg-quick down mullvadnl3de2"
 [module/date]
 type = internal/date
 date = %m.%d
-time = %H.%M.%S
+time = %H:%M:%S
 
 format-prefix = "date/time "
 
