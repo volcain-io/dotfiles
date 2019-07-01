@@ -1,123 +1,18 @@
-(require 'company)
-(require 'company-tern)
-(require 'setup-smartparens)
-(require 'flycheck-flow)
-
-(setq add-node-modules-path t)
-(setq javascript-disable-tern-port-files t)
-
-;; javascript / html
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.eslintrc.*$" . json-mode))
-(add-to-list 'auto-mode-alist '("\\.babelrc$" . json-mode))
-
-;; disable jshint since we prefer eslint checking
-(setq-default flycheck-disabled-checkers
-              (append flycheck-disabled-checkers
-                      '(javascript-jshint json-python-json javascript-jshint
-                                          javascript-gjslint javascript-jscs)))
-
-;; use eslint with rjsx-mode for jsx files
-(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
-
-;; customize flycheck temp file prefix
-(setq-default flycheck-temp-prefix ".flycheck")
-
-;; Flycheck with ESLint or StandardJS
-(defun my-js-flycheck-mode ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         ;; ESLint
-         (local-eslint (expand-file-name "node_modules/.bin/eslint" root))
-         ;; Standard
-         (local-standard-js (expand-file-name "node_modules/.bin/standard" root))
-         (global-standard-js (executable-find "standard"))
-
-         (eslint-js (seq-find 'file-executable-p (list local-eslint)))
-         (standard-js (seq-find 'file-executable-p (list local-standard-js global-standard-js))))
-
-    (cond ((not (eq standard-js nil))
-           (setq-local flycheck-define-checker standard-js)
-           (setq-local flycheck-javascript-standard-executable standard-js)))
-    (cond ((not (eq eslint-js nil))
-           (setq-local flycheck-define-checker eslint-js)
-           (setq-local flycheck-javascript-eslint-executable eslint-js)))
-    ))
-
-(add-hook 'flycheck-mode-hook 'my-js-flycheck-mode)
-
-;; Use Standard.js, Prettier.js or ESLint as formatter
-(defun my-js-formatter ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         ;; ESLint
-         (local-eslint (expand-file-name "node_modules/.bin/eslint" root))
-         ;; Prettier
-         (local-prettier (expand-file-name "node_modules/.bin/prettier" root))
-         ;; Standard
-         (local-standard-js (expand-file-name "node_modules/.bin/standard" root))
-         (global-standard-js (executable-find "standard"))
-
-         (eslint-js (seq-find 'file-executable-p (list local-eslint)))
-         (prettier-js (seq-find 'file-executable-p (list local-prettier)))
-         (standard-js (seq-find 'file-executable-p (list local-standard-js global-standard-js))))
-
-    (cond ((not (eq standard-js nil))
-           (set-variable 'js-formatter-executable standard-js)
-           (set-variable 'js-formatter-args "--fix")))
-    (cond ((not (eq prettier-js nil))
-          (set-variable 'js-formatter-executable prettier-js)
-          (set-variable 'js-formatter-args "--write --single-quote")))
-    (cond ((not (eq eslint-js nil))
-          (set-variable 'js-formatter-executable eslint-js)
-          (set-variable 'js-formatter-args "--fix")))
-  ))
-
-(add-hook 'js-mode-hook 'my-js-formatter)
-
-;; fix code after save
-(defun my-js-fix ()
-  (interactive)
-    (let ((initial-point (point)))
-      (when (and (eq 'js-mode major-mode)
-                 (not (eq js-formatter-executable nil)))
-          (call-process js-formatter-executable nil nil nil js-formatter-args (buffer-file-name))
-      (revert-buffer t t t)
-      (goto-char initial-point))
-    ))
-
-(add-hook 'after-save-hook 'my-js-fix)
-
-;; Flycheck + Flowtype
-;; (defun my/use-flow-from-node-modules ()
-;;   (let* ((root (locate-dominating-file
-;;                 (or (buffer-file-name) default-directory)
-;;                 "node_modules"))
-;;          (local-flow (expand-file-name "node_modules/flow-bin/vendor/flow" root))
-;;          (global-flow (executable-find "flow" root))
-
-;;          (flow (seq-find 'file-executable-p (list local-flow
-;;                                                   global-flow))))
-
-;;     (setq-local flycheck-javascript-flow-executable flow)))
-;; (add-hook 'flycheck-mode-hook #'my/use-flow-from-node-modules)
-;; (flycheck-add-next-checker 'javascript-flow)
-
-;; (add-hook 'js-mode-hook #'subword-mode)
-(add-hook 'js-mode-hook #'smartparens-mode)
-(add-hook 'js-mode-hook (lambda ()
-                           (tern-mode)
-                           (company-mode)))
-;; (add-hook 'rjsx-mode-hook #'subword-mode)
-(add-hook 'rjsx-mode-hook #'smartparens-mode)
-(add-hook 'json-mode-hook #'smartparens-mode)
-;; (add-hook 'html-mode-hook #'subword-mode)
-
+;; choose tern as backend
+(setq javascript-backend 'tern)
+;; enable prettier as formatter
+(setq javascript-fmt-tool 'prettier)
+;; enable import layer
+(setq javascript-import-tool 'import-js)
+;; enable server based REPL
+(setq javascript-repl 'nodejs)
+;; indent JSON files
 (setq js-indent-level 2)
-(eval-after-load "sgml-mode"
-  '(progn
-     (require 'tagedit)
-     (tagedit-add-paredit-like-keybindings)
-     (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
+;; indent JS files
+(setq js2-basic-offset 2)
+;; presume node variables
+(setq js2-include-node-externs t)
+;; support project local installations
+(setq node-add-modules-path t)
+
+(provide 'setup-js)

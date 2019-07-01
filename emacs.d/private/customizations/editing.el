@@ -1,25 +1,8 @@
 ;; Customizations relating to editing a buffer.
-(require 'company)
-(require 'company-lsp)
 (require 'flycheck)
-
-(push 'company-lsp company-backends)
-
-(add-hook 'after-init-hook (lambda ()
-                             (global-company-mode 1)
-                             (company-quickhelp-mode 1)))
-
-(setq company-idle-delay 0.3
-      company-tooltip-idle-delay 0.3)
 
 ;; Don't try to ping things that look like domain names
 (setq ffap-machine-p-known 'reject)
-
-;; Highlights matching parenthesis
-;; (show-paren-mode 1)
-
-;; Highlight current line
-;; (global-hl-line-mode 1)
 
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
@@ -75,7 +58,3 @@
 ;; Flycheck
 ;; turn on flychecking globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
-;; Turn on command-log-mode when opening a source code or text file
-(add-hook 'prog-mode-hook #'command-log-mode)
-(add-hook 'text-mode-hook #'command-log-mode)

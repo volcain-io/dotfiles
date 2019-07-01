@@ -40,6 +40,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
+     colors
      emacs-lisp
      elm
      git
@@ -47,25 +48,22 @@ This function should only modify configuration layer settings."
      go
      helm
      html
-     (javascript :variables
-                 javascript-backend 'tern
-                 javascript-fmt-tool 'prettier
-      )
+     javascript
      json
      markdown
      multiple-cursors
      org
      php
      pandoc
-     python
      prettier
+     python
      ranger
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+     react
+     shell
      shell-scripts
      ;; spell-checking
      syntax-checking
+     sql
      tern
      treemacs
      version-control
@@ -484,28 +482,28 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; Sets up exec-path-from-shell so that Emacs will use the correct environment variables
-  ;; (load "shell-integration.el")
+  (load "shell-integration.el")
   ;; For Treemacs sidebar
   (load "setup-treemacs.el")
   ;; For Neotree sidebar
   ;; (load "setup-neotree.el")
   ;; These customizations make editing a bit nicer.
-  ;; (load "editing.el")
+  (load "editing.el")
   ;; Hard-to-categorize customizations
-  ;; (load "misc.el")
+  (load "misc.el")
   ;; Language-specific
-  ;; (load "setup-css.el")
+  (load "setup-css.el")
   ;; (load "setup-dart.el")
   ;; (load "setup-elm.el")
-  ;; (load "setup-git.el")
-  ;; (load "setup-js.el")
+  (load "setup-git.el")
+  (load "setup-js.el")
   ;; (load "setup-markdown.el")
   (load "setup-org.el")
-  ;; (load "setup-prettier.el")
-  ;; (load "setup-python.el")
+  (load "setup-prettier.el")
+  (load "setup-python.el")
   ;; (load "setup-ruby.el")
-  ;; (load "setup-shell.el")
-  ;; (load "setup-smartparens.el")
+  (load "setup-shell.el")
+  (load "setup-smartparens.el")
   ;; (load "setup-typescript.el")
   )
 
@@ -521,9 +519,17 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(doom-treemacs-use-generic-icons nil)
  '(package-selected-packages
    (quote
-    (ox-twbs ox-gfm org-re-reveal font-lock+ yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toc-org tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs ranger rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements phpunit phpcbf php-auto-yasnippets persp-mode pcre2el password-generator paradox pandoc-mode ox-pandoc overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-elm flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elm-test-runner elm-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dotenv-mode doom-themes doom-modeline diminish diff-hl define-word cython-mode counsel-projectile company-web company-tern company-statistics company-shell company-php company-go company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode carbon-now-sh browse-at-remote auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))))
+    (sqlup-mode sql-indent ox-twbs ox-gfm org-re-reveal font-lock+ yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toc-org tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs ranger rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements phpunit phpcbf php-auto-yasnippets persp-mode pcre2el password-generator paradox pandoc-mode ox-pandoc overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-elm flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elm-test-runner elm-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dotenv-mode doom-themes doom-modeline diminish diff-hl define-word cython-mode counsel-projectile company-web company-tern company-statistics company-shell company-php company-go company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode carbon-now-sh browse-at-remote auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell)))
+ '(safe-local-variable-values
+   (quote
+    ((eval progn
+           (pp-buffer)
+           (indent-buffer))
+     (go-backend . go-mode)
+     (go-backend . lsp)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

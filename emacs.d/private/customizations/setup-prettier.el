@@ -1,20 +1,21 @@
-(setq prettier-js-width-mode 'fill)
+(require 'prettier-js)
 
-(defun my-prettier-js-mode ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         (local-prettier (expand-file-name "node_modules/.bin/prettier" root))
-         (global-prettier (executable-find "prettier"))
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
 
-         (prettier (seq-find 'file-executable-p (list local-prettier
-                                                    global-prettier))))
+(defun enable-minor-mode (my-pair)
+  "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
+  (if (buffer-file-name)
+      (if (string-match (car my-pair) buffer-file-name)
+          (funcall (cdr my-pair)))))
 
-    (setq-local prettier-js-command prettier)))
+(add-hook 'web-mode-hook #'(lambda ()
+                            (enable-minor-mode
+                             '("\\.jsx?\\'" . prettier-js-mode))))
 
-(add-hook 'css-mode-hook 'my-prettier-js-mode)
-;; (add-hook 'css-mode-hook #'prettier-js-mode)
-(add-hook 'scss-mode-hook 'my-prettier-js-mode)
-;; (add-hook 'scss-mode-hook #'prettier-js-mode)
+(eval-after-load 'web-mode
+    '(progn
+       (add-hook 'web-mode-hook #'add-node-modules-path)
+       (add-hook 'web-mode-hook #'prettier-js-mode)))
 
 (provide 'setup-prettier)
