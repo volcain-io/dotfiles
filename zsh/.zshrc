@@ -53,4 +53,4 @@ source $ZSH/oh-my-zsh.sh
 alias vi='vim'
 
 # Show OS info when opening a new terminal
-neofetch
+ufetch-manjaro
