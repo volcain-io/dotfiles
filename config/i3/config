@@ -180,7 +180,7 @@ bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
 
 # Open applications on specific workspaces
 assign [class="Emacs"] $ws1
-assign [class="Firefox"] $ws2
+assign [class="firefox"] $ws2
 assign [class="Chromium"] $ws2
 assign [class="Thunderbird"] $ws3
 
