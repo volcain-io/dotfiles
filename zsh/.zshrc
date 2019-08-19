@@ -46,7 +46,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump archlinux colored-man-pages colorize copyfile cp extract fzf git github gitignore heroku jsontools node npm nvm vi-mode web-search wp-cli yarn zsh-autosuggestions)
+plugins=(autojump colored-man-pages colorize copyfile cp extract fzf git github gitignore jsontools tmux vi-mode web-search zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
