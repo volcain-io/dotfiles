@@ -30,7 +30,7 @@ elif [[ ${status} == "Dropbox isn't responding!" ]]; then
 elif [[ ${status} == Sync* ]]; then
     echo "%{F#0189cc} snycing" # syncing & indexing files
 else
-    echo "%{F#50fa7b} latest" # up to date
+    echo "%{F#50fa7b} in sync" # up to date
 fi
  
 exit $?
