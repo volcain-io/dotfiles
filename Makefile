@@ -12,7 +12,7 @@ all:
 	make newsboat
 
 install:
-	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst dunstify emacs etcher fd firefox gimp git htop inkscape jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass powerline-fonts rlwrap termite tig the_silver_searcher thunderbird tldr ttf-hack ttf-nanum yarn yay zsh
+	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst dunstify emacs etcher fd firefox gimp git htop inkscape jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass powerline-fonts ripgrep rlwrap termite tig thunderbird tldr ttf-hack ttf-nanum yarn yay zsh
 
 config:
 	ln -sfn ~/.dotfiles/.ctags ~/.
