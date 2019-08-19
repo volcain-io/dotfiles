@@ -120,7 +120,8 @@
     #
     # It's important to note that markup inside the format option will be parsed
     # regardless of what this is set to.
-    markup = full
+    #markup = full
+    markup = no
 
     # The format of the message.
     # Possible variables are:
@@ -134,7 +135,7 @@
     #   %%  Literal %
     # Markup is allowed
     #format = "<b>%s</b>\n%b"
-    format = "<i><u>%a</u></i>\n<b>%s</b>\n%b"
+    #format = "<i><u>%a</u></i>\n<b>%s</b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
