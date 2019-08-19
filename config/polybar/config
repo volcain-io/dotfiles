@@ -87,6 +87,9 @@ temp-label-foreground = ${colors.color2}
 temp-label-warn-foreground = ${colors.color1}
 ; module user
 user-label-foreground = ${colors.color6}
+; module volume
+volume-label-foreground = ${colors.color2}
+volume-label-muted-foreground = ${colors.color1}
 
 [bar/alienware]
 monitor = ${env:MONITOR:LVDS1}
@@ -103,11 +106,11 @@ font-0 = "Hack:size=10:weight=bold;1"
 
 modules-left = i3
 modules-center = memory wifi wg date cpu temperature battery 
-modules-right = user
+modules-right = dropbox volume user
 
-tray-position = right
-tray-padding = 2
-tray-background = ${colors.background}
+;tray-position = right
+;tray-padding = 2
+;tray-background = ${colors.background}
 
 override-redirect = false
 
@@ -264,6 +267,22 @@ exec = whoami
 format-prefix = "user "
 
 label-foreground = ${colors.user-label-foreground}
+
+[module/volume]
+type = internal/alsa
+
+format-volume-prefix = "vol "
+format-muted-prefix = "vol "
+
+label-volume-foreground = ${colors.volume-label-foreground}
+label-muted = silent
+label-muted-foreground = ${colors.volume-label-muted-foreground}
+
+[module/dropbox]
+type = custom/script
+exec = ~/.dotfiles/localbin/dropbox-status
+
+format-prefix = "dropbox"
 
 [settings]
 screenchange-reload = true
