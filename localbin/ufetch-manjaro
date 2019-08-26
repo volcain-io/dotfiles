@@ -11,6 +11,7 @@ kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"
 shell="$(basename "$SHELL")"
+terminal="$TERM"
 
 ## UI DETECTION
 
@@ -34,22 +35,19 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${green}"        # labels
-nc="${reset}${bold}${green}"        # user and hostname
-ic="${reset}${bold}${white}"        # info
-c0="${reset}${bold}${green}"        # first color
+gc="${reset}${bold}${green}"        # green color
+wc="${reset}${bold}${white}"        # white color
 
 ## OUTPUT
 
 cat <<EOF
 
-
-${c0}  ███████${ic}╗${c0}███████${ic}╗${c0}  ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}  ██${ic}╔════╝${c0}██${ic}╔════╝${c0}  ${lc}OS:        ${ic}${os}${reset}
-${c0}  █████${ic}╗  ${c0}█████${ic}╗  ${c0}  ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}  ██${ic}╔══╝  ${c0}██${ic}╔══╝  ${c0}  ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}  ██${ic}║     ${c0}██${ic}║     ${c0}  ${lc}PACKAGES:  ${ic}${packages}${reset}
-${ic}  ╚═╝     ╚═╝      ${c0} ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}                    ${lc}${uitype}:        ${ic}${ui}${reset}
+${gc}  ███████${wc}╗${gc}███████${wc}╗${wc}        [${gc}OS${wc}]  ${os}${reset}
+${gc}  ██${wc}╔════╝${gc}██${wc}╔════╝${wc}    [${gc}KERNEL${wc}]  ${kernel}${reset}
+${gc}  █████${wc}╗  ${gc}█████${wc}╗  ${wc}    [${gc}UPTIME${wc}]  ${uptime}${reset}
+${gc}  ██${wc}╔══╝  ${gc}██${wc}╔══╝  ${wc}  [${gc}PACKAGES${wc}]  ${packages}${reset}
+${gc}  ██${wc}║     ${gc}██${wc}║     ${wc}     [${gc}SHELL${wc}]  ${shell}${reset}
+${wc}  ╚═╝     ╚═╝             [${gc}${uitype}${wc}]  ${ui}${reset}
+${gc}  ${USER}${wc}@${gc}${host}${reset} ${wc}      [${gc}TERMINAL${wc}]  ${terminal}${reset}
 
 EOF
