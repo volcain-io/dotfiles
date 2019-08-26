@@ -6,13 +6,10 @@ all:
 	make zsh
 	make vim
 	make spacemacs
-	make nvm
-	make node
-	make fzf
 	make newsboat
 
 install:
-	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst dunstify emacs etcher fd firefox gimp git htop inkscape jq macchanger mpv mupdf newsboat neofetch nodejs npm pandoc pass powerline-fonts ripgrep rlwrap termite tig thunderbird tldr ttf-hack ttf-nanum yarn yay zsh
+	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst dunstify emacs etcher exa fd firefox fzf gimp git htop i3-gaps inkscape jq macchanger maim mpv mupdf newsboat nodejs npm pandoc pass powerline-fonts ripgrep rlwrap scribus termite tig thunderbird tldr ttf-hack yarn yay zsh
 
 config:
 	ln -sfn ~/.dotfiles/.ctags ~/.
@@ -23,7 +20,6 @@ config:
 	ln -sfn ~/.dotfiles/.xinitrc ~/.
 	ln -sfn ~/.dotfiles/config/dunst ~/.config/dunst
 	ln -sfn ~/.dotfiles/config/i3 ~/.i3
-	ln -sfn ~/.dotfiles/config/neofetch/ ~/.config/neofetch
 	ln -sfn ~/.dotfiles/config/polybar/ ~/.config/polybar
 	ln -sfn ~/.dotfiles/config/rofi/ ~/.config/rofi
 	ln -sfn ~/.dotfiles/config/termite/ ~/.config/termite
@@ -48,18 +44,6 @@ spacemacs:
 	git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	ln -sfn ~/.dotfiles/emacs.d/private/customizations/ ~/.emacs.d/private/customizations
 	ln -sfn ~/.dotfiles/.spacemacs ~/.spacemacs
-
-nvm:
-	cd ~ && curl https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-	source ~/.nvm/nvm.sh
-
-node:
-	/usr/bin/nvm install node
-	/usr/bin/nvm use node
-
-fzf:
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install
 
 newsboat:
 	ln -sfn ~/.dotfiles/newsboat/ ~/.newsboat
