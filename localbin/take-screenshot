@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# rofi menu to take screenshots with scrot
+# rofi menu to take screenshots with maim
 #
 # usage: take-screenshot
 #
@@ -25,7 +25,7 @@ dir_screenshots="$HOME/Pictures/Screenshots"
 file_extension="png"
 filename=""
 filename_prefix=""
-scrot_option=""
+maim_option=""
 selection=-1
 
 # create screenshot directory
@@ -36,22 +36,22 @@ case $(echo "Full screen|Selection|Active Window|High Quality|Open screenshots d
     'Full screen')
         selection=1
         filename_prefix="default"
-        scrot_option=""
+        maim_option=""
         ;;
     'Selection')
         selection=2
         filename_prefix="selection"
-        scrot_option="-s"
+        maim_option="-s"
         ;;
     'Active Window')
         selection=3
         filename_prefix="active"
-        scrot_option="-u"
+        maim_option="-i $(xdotool getactivewindow)"
         ;;
     'High Quality')
         selection=4
         filename_prefix="hq"
-        scrot_option="-q 100"
+        maim_option="-m 1"
         ;;
     'Open screenshots directory')
         selection=0
@@ -67,10 +67,10 @@ if [[ ${selection} -eq 0 ]]; then
     termite -e "ranger ${dir_screenshots}" &
 elif [[ ${selection} -gt 0 ]]; then
     # Take screenshot
-    scrot -z ${scrot_option} ${filename}
+    maim -q ${maim_option} ${filename}
     mv ${filename} ${dir_screenshots}
     # Display notification
-    dunstify "Screenshot ${filename} saved in ${dir_screenshots}"
+    dunstify "Screenshot" "${filename} saved in ${dir_screenshots}"
 fi
 
 exit $?
