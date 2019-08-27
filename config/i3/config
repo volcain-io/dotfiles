@@ -40,7 +40,7 @@ bindsym $mod+d exec --no-startup-id rofi -show
 bindsym $mod+z exec --no-startup-id morc_menu
 
 # start pass
-bindsym $mod+p exec --no-startup-id passmenu
+bindsym $mod+p exec --no-startup-id passmenu -i
 
 # start greenclip
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
