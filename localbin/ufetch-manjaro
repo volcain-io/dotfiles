@@ -16,7 +16,7 @@ terminal="$TERM"
 ## UI DETECTION
 
 ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
-uitype='WM'
+ui_type='WM'
 
 ## DEFINE COLORS
 
@@ -26,6 +26,7 @@ if [ -x "$(command -v tput)" ]; then
 	black="$(tput setaf 0)"
 	red="$(tput setaf 1)"
 	green="$(tput setaf 2)"
+	green_bg="$(tput setab 2)"
 	yellow="$(tput setaf 3)"
 	blue="$(tput setaf 4)"
 	magenta="$(tput setaf 5)"
@@ -35,19 +36,18 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-gc="${reset}${bold}${green}"        # green color
-wc="${reset}${bold}${white}"        # white color
-
+bold_green_fg="${reset}${bold}${green}" # bold, green, foreground
+bold_white_fg="${reset}${bold}${white}" # bold, white, foreground
 ## OUTPUT
 
 cat <<EOF
 
-${gc}  ███████${wc}╗${gc}███████${wc}╗${wc}        [${gc}OS${wc}]  ${os}${reset}
-${gc}  ██${wc}╔════╝${gc}██${wc}╔════╝${wc}    [${gc}KERNEL${wc}]  ${kernel}${reset}
-${gc}  █████${wc}╗  ${gc}█████${wc}╗  ${wc}    [${gc}UPTIME${wc}]  ${uptime}${reset}
-${gc}  ██${wc}╔══╝  ${gc}██${wc}╔══╝  ${wc}  [${gc}PACKAGES${wc}]  ${packages}${reset}
-${gc}  ██${wc}║     ${gc}██${wc}║     ${wc}     [${gc}SHELL${wc}]  ${shell}${reset}
-${wc}  ╚═╝     ╚═╝             [${gc}${uitype}${wc}]  ${ui}${reset}
-${gc}  ${USER}${wc}@${gc}${host}${reset} ${wc}      [${gc}TERMINAL${wc}]  ${terminal}${reset}
+${bold_green_fg}  ███████${bold_white_fg}╗${bold_green_fg}███████${bold_white_fg}╗        [${bold_green_fg}OS${bold_white_fg}]  ${os}${reset}
+${bold_green_fg}  ██${bold_white_fg}╔════╝${bold_green_fg}██${bold_white_fg}╔════╝    [${bold_green_fg}KERNEL${bold_white_fg}]  ${kernel}${reset}
+${bold_green_fg}  █████${bold_white_fg}╗  ${bold_green_fg}█████${bold_white_fg}╗      [${bold_green_fg}UPTIME${bold_white_fg}]  ${uptime}${reset}
+${bold_green_fg}  ██${bold_white_fg}╔══╝  ${bold_green_fg}██${bold_white_fg}╔══╝    [${bold_green_fg}PACKAGES${bold_white_fg}]  ${packages}${reset}
+${bold_green_fg}  ██${bold_white_fg}║     ${bold_green_fg}██${bold_white_fg}║          [${bold_green_fg}SHELL${bold_white_fg}]  ${shell}${reset}
+${bold_white_fg}  ╚═╝     ╚═╝             [${bold_green_fg}${ui_type}${bold_white_fg}]  ${ui}${reset}
+${bold_green_fg}  ${USER}${bold_white_fg}@${bold_green_fg}${host}       ${bold_white_fg}[${bold_green_fg}TERMINAL${bold_white_fg}]  ${terminal}${reset}
 
 EOF
