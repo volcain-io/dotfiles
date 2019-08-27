@@ -22,7 +22,7 @@ __base="$(basename ${__file} .sh)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
 
-case $(echo "[L]ock|[E]xit|[S]hutdown" | rofi -sep '|' -auto-select -dmenu -p "Session" -i) in
+case $(echo "[L]ock|[E]xit|[S]hutdown" | rofi -sep '|' -auto-select -no-fixed-num-lines -dmenu -p "Session" -i) in
     '[L]ock')
         ~/.dotfiles/localbin/blurlock
         ;;
