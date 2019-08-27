@@ -2,6 +2,7 @@
 all:
 	make install
 	make config
+	make local
 	make localbin
 	make zsh
 	make vim
@@ -23,6 +24,9 @@ config:
 	ln -sfn ~/.dotfiles/config/polybar/ ~/.config/polybar
 	ln -sfn ~/.dotfiles/config/rofi/ ~/.config/rofi
 	ln -sfn ~/.dotfiles/config/termite/ ~/.config/termite
+
+local:
+	ln -sfn ~/.dotfiles/local/share/mime/packages/text-markdown.xml ~/.local/share/mime/packages/text-markdown.xml
 
 localbin:
 	ln -sfn ~/.dotfiles/localbin/ ~/.localbin
