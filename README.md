@@ -1,9 +1,11 @@
 # [dotfiles](https://dotfiles.github.io)
 
-These are my dotfiles! I am using these files currently on [Manjaro Linux](https://manjaro.org). So these files should work on [Arch Linux based distros](https://wiki.archlinux.org/index.php/Arch-based_distributions#Active). I didn't test the `Make` file yet. So use it on your own risk.
+These are my dotfiles! I am using these files currently on [Manjaro Linux](https://manjaro.org). So these files should work on [Arch Linux based distros](https://wiki.archlinux.org/index.php/Arch-based_distributions#Active). I didn't test the `Makefile` file yet. So use it on your own risk.
 Below you will find a couple of screenshots and more details which programs I use on my machine.
 
 ## Install
+
+**Caution:** Not tested. Use at your own risk.
 
 ```shell
 cd ~
@@ -48,7 +50,7 @@ Therefore the script will prompt for `sudo` password, if you want to start or st
 
 ## Battery
 
-There three states for tracking the battery state.
+There are three states for tracking the battery state.
 
 | State       | Description                                                          | Screenshot                                                  |
 |-------------|----------------------------------------------------------------------|-------------------------------------------------------------|
