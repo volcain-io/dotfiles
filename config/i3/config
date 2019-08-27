@@ -37,7 +37,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+#bindsym $mod+z exec --no-startup-id morc_menu
 
 # start pass
 bindsym $mod+p exec --no-startup-id passmenu -i
@@ -53,7 +53,7 @@ bindsym $mod+0 exec --no-startup-id ~/.localbin/session-menu
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#bindsym $mod+Ctrl+m exec termite -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -61,8 +61,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; dunstify 'Brightness' 'up'"
+# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; dunstify 'Brightness' 'down'"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec termite -e 'bmenu'
@@ -73,7 +73,7 @@ bindsym $mod+F3 exec termite -e 'ranger'
 bindsym $mod+F5 exec termite -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Shift+d --release exec "killall dunst; exec dunstify 'Dunst' 'restarting...'"
 #bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print exec --no-startup-id ~/.localbin/take-screenshot
 #bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -113,8 +113,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+h split h;exec dunstify 'Split Orientation' 'tile horizontally'
+bindsym $mod+v split v;exec dunstify 'Split Orientation' 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -281,7 +281,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
+#exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
