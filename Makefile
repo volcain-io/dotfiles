@@ -9,6 +9,7 @@ all:
 	make vim
 	make spacemacs
 	make newsboat
+	make git
 
 install:
 	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst emacs exa fd firefox fzf gimp htop i3-gaps inkscape jq macchanger maim mpv mupdf newsboat nodejs npm pandoc pass powerline-fonts ripgrep rlwrap scribus termite tig thunderbird tldr ttf-hack yarn zsh
@@ -16,7 +17,6 @@ install:
 config:
 	ln -sfn ~/.dotfiles/.ctags ~/.
 	ln -sfn ~/.dotfiles/.dir_colors ~/.
-	ln -sfn ~/.dotfiles/.gitconfig ~/.
 	ln -sfn ~/.dotfiles/.tern-config ~/.
 	ln -sfn ~/.dotfiles/.Xresources ~/.
 	ln -sfn ~/.dotfiles/.xinitrc ~/.
@@ -28,7 +28,7 @@ config:
 
 yay:
 	cd ~ && git clone https://aur.archlinux.org/yay.git
-	cd yay && makepkg -si
+	cd ~/yay && makepkg -si
 
 local:
 	ln -sfn ~/.dotfiles/local/share/mime/packages/text-markdown.xml ~/.local/share/mime/packages/text-markdown.xml
@@ -56,3 +56,6 @@ spacemacs:
 
 newsboat:
 	ln -sfn ~/.dotfiles/newsboat/ ~/.newsboat
+
+git:
+	ln -sfn ~/.dotfiles/.gitconfig ~/.
