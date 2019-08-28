@@ -11,7 +11,7 @@ all:
 	make newsboat
 
 install:
-	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst emacs exa fd firefox fzf gimp git htop i3-gaps inkscape jq macchanger maim mpv mupdf newsboat nodejs npm pandoc pass powerline-fonts ripgrep rlwrap scribus termite tig thunderbird tldr ttf-hack yarn zsh
+	sudo pacman -S --noconfirm adobe-source-code-pro-fonts bat chromium ctags diff-so-fancy dunst emacs exa fd firefox fzf gimp htop i3-gaps inkscape jq macchanger maim mpv mupdf newsboat nodejs npm pandoc pass powerline-fonts ripgrep rlwrap scribus termite tig thunderbird tldr ttf-hack yarn zsh
 
 config:
 	ln -sfn ~/.dotfiles/.ctags ~/.
@@ -27,7 +27,7 @@ config:
 	ln -sfn ~/.dotfiles/config/termite/ ~/.config/termite
 
 yay:
-	cd ~ && git clone https://aur.archlinux.git/yay.git
+	cd ~ && git clone https://aur.archlinux.org/yay.git
 	cd yay && makepkg -si
 
 local:
