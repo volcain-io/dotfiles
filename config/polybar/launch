@@ -7,10 +7,4 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-if type "xrandr"; then
-    for m in $(xrandr -q | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar -r alienware &
-    done
-else
-    polybar -r alienware &
-fi
+MONITOR=$(xrandr -q | grep " connected primary" | cut -d" " -f1) polybar -r alienware &

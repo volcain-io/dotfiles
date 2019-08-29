@@ -92,7 +92,7 @@ volume-label-foreground = ${colors.color2}
 volume-label-muted-foreground = ${colors.color1}
 
 [bar/alienware]
-monitor = ${env:MONITOR:LVDS1}
+monitor = ${env:MONITOR:VIRTUAL1}
 fixed-center = true
 
 background = ${colors.background}
