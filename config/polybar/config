@@ -275,7 +275,7 @@ format-volume-prefix = "vol "
 format-muted-prefix = "vol "
 
 label-volume-foreground = ${colors.volume-label-foreground}
-label-muted = mute
+label-muted = %{A1:amixer -D pulse sset Master toggle:}%mute%%{A}
 label-muted-foreground = ${colors.volume-label-muted-foreground}
 
 [module/dropbox]
