@@ -15,7 +15,7 @@ all:
 	make git
 
 install:
-	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts alsa-utils alsa-plugins alsa-lib atool autojump avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm pandoc pass powerline-fonts ranger ripgrep rlwrap rofi scribus termite tig thunderbird tmux tldr ttf-hack gvim yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
+	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts alsa-utils alsa-plugins alsa-lib atool avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm pandoc pass powerline-fonts ranger ripgrep rlwrap rofi scribus termite tig thunderbird tmux tldr ttf-hack gvim yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
 
 config:
 	ln -sfn ~/.dotfiles/.ctags ~/.
