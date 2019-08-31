@@ -7,7 +7,7 @@ all:
 	make local
 	make localbin
 	make zsh
-	make vim
+	make spacevim
 	make spacemacs
 	make newsboat
 	make polybar
@@ -59,9 +59,8 @@ zsh:
 	ln -sfn ~/.dotfiles/zsh/.zshrc ~/.zshrc
 	chsh -s /usr/bin/zsh
 
-vim:
-	git clone git://github.com/amix/vimrc.git ~/.vim_runtime
-	sh ~/.vim_runtime/install_awesome_vimrc.sh
+spacevim:
+	curl -sLf https://spacevim.org/install.sh | bash
 
 spacemacs:
 	git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
