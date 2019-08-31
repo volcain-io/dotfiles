@@ -14,7 +14,7 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-# inspired by Dracula Theme https://draculatheme.com
+! inspired by Dracula Theme https://draculatheme.com
 *background:                      #282a36
 *foreground:                      #f8f8f2
 *fading:                          8
