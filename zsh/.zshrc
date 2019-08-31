@@ -46,15 +46,11 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(catimg colored-man-pages colorize copyfile cp extract fzf git github gitignore jsontools pass tig tmux vi-mode web-search zsh-autosuggestions z)
+plugins=(catimg colored-man-pages colorize copyfile cp extract fzf git github gitignore jsontools pass tig tmux vi-mode web-search z zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 alias vi='vim'
-
-# load zmv
-autoload -U zmv
-alias zmv='noglob zmv -W'
 
 # Show OS info when opening a new terminal
 ufetch-manjaro
