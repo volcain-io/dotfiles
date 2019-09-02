@@ -33,10 +33,10 @@ Middle screen is my laptop monitor, which is also the main screen.
 ### WiFi
 
 Setup of connecting and disconnecting to a WiFi network is pretty simple and straightforward.
-I simply start `nmtui-connect` on `left mouse click` and the terminal opens up to configure my network connection.
+I simply start `wifi-menu` on `left mouse click` and the terminal opens up to configure my network connection.
 See `[module/wifi]` inside polybar config file for more details.
 
-![WiFi](screenshots/wifi-nmtui-connect.png)
+![WiFi](screenshots/wifi-menu.png)
 
 ### Wireguard
 
