@@ -42,12 +42,15 @@ bold_white_fg="${reset}${bold}${white}" # bold, white, foreground
 
 cat <<EOF
 
-${bold_green_fg}  ███████${bold_white_fg}╗${bold_green_fg}███████${bold_white_fg}╗        [${bold_green_fg}OS${bold_white_fg}]  ${os}${reset}
-${bold_green_fg}  ██${bold_white_fg}╔════╝${bold_green_fg}██${bold_white_fg}╔════╝    [${bold_green_fg}KERNEL${bold_white_fg}]  ${kernel}${reset}
-${bold_green_fg}  █████${bold_white_fg}╗  ${bold_green_fg}█████${bold_white_fg}╗      [${bold_green_fg}UPTIME${bold_white_fg}]  ${uptime}${reset}
-${bold_green_fg}  ██${bold_white_fg}╔══╝  ${bold_green_fg}██${bold_white_fg}╔══╝    [${bold_green_fg}PACKAGES${bold_white_fg}]  ${packages}${reset}
-${bold_green_fg}  ██${bold_white_fg}║     ${bold_green_fg}██${bold_white_fg}║          [${bold_green_fg}SHELL${bold_white_fg}]  ${shell}${reset}
-${bold_white_fg}  ╚═╝     ╚═╝             [${bold_green_fg}${ui_type}${bold_white_fg}]  ${ui}${reset}
-${bold_green_fg}  ${USER}${bold_white_fg}@${bold_green_fg}${host}       ${bold_white_fg}[${bold_green_fg}TERMINAL${bold_white_fg}]  ${terminal}${reset}
+${bold_green_fg}       █████${bold_white_fg}══╗         [${bold_green_fg}USER${bold_white_fg}]  ${bold_green_fg}${USER}
+${bold_green_fg}    ██████████${bold_white_fg}╚═╗       [${bold_green_fg}HOST${bold_white_fg}]  ${bold_green_fg}${host}
+${bold_green_fg}   █████████████${bold_white_fg}║         [${bold_green_fg}OS${bold_white_fg}]  ${os}${reset}
+${bold_green_fg}   ██${bold_white_fg}╔═╗${bold_green_fg}███${bold_white_fg}╔═╗${bold_green_fg}██${bold_white_fg}║     [${bold_green_fg}KERNEL${bold_white_fg}]  ${kernel}${reset}
+${bold_green_fg}   █████████████${bold_white_fg}║     [${bold_green_fg}UPTIME${bold_white_fg}]  ${uptime}${reset}
+${bold_green_fg}     ████ ████${bold_white_fg}╔═╝   [${bold_green_fg}PACKAGES${bold_white_fg}]  ${packages}${reset}
+${bold_green_fg}       █████${bold_white_fg}╔═╝        [${bold_green_fg}SHELL${bold_white_fg}]  ${shell}${reset}
+${bold_green_fg}       █${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║             [${bold_green_fg}${ui_type}${bold_white_fg}]  ${ui}${reset}
+${bold_green_fg}       █${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║       [${bold_green_fg}TERMINAL${bold_white_fg}]  ${terminal}${reset}
+${bold_white_fg}       ╚╝╚╝╚╝
 
 EOF
