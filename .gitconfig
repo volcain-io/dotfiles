@@ -35,12 +35,12 @@
 	new  = green bold
 
 [color "status"]
-    added     = yellow
-    changed   = green
+  added     = yellow
+  changed   = green
 	untracked = cyan
 
 [github]
-    user = volcain-io
+  user = volcain-io
 
 [core]
 	editor = vim
@@ -55,10 +55,10 @@
 	required = true
 
 [url "git@github.com"]
-    insteadOf = git://github.com
+  insteadOf = git://github.com
 
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+  insteadOf = https://github.com/
 
 [pager]
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
