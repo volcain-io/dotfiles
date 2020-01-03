@@ -18,11 +18,11 @@ bind-key k	prev article
 
 color article								 white	default
 color background						 white	default
-color info									 blue		default
-color listfocus							 red		default
-color listfocus_unread			 green	default		bold
-color listnormal						 white	blue
-color listnormal_unread			 white	blue
+color info									 blue		default   bold
+color listfocus							 red		color237  bold
+color listfocus_unread			 green	color237	bold
+color listnormal						 red    default
+color listnormal_unread			 green  default
 
 ignore-article "*" "title =~ \"Sponsor\""
 ignore-article "*" "title =~ \"Advertisement\""
