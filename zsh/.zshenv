@@ -4,7 +4,7 @@ export LC_MESSAGES="C"
 export EDITOR=vi
 export BROWSER=firefox
 export TERM=termite
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export CHROME_PATH=/usr/bin/chromium
 export NVM_DIR="$HOME/.nvm"
 # Set Path
