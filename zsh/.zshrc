@@ -50,7 +50,5 @@ plugins=(catimg colored-man-pages colorize copyfile cp extract fzf git github gi
 
 source $ZSH/oh-my-zsh.sh
 
-alias vi='vim'
-
 # Show OS info when opening a new terminal
 ufetch-manjaro
