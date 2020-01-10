@@ -1,4 +1,5 @@
 alias cat="bat"
+alias find="fd"
 alias ls="exa -al --git"
 alias vi="vim"
 alias grep="rg"
