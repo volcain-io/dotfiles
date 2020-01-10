@@ -54,6 +54,11 @@ zsh:
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	ln -sfn ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/common_alias.zsh ~/.oh-my-zsh/custom/common_alias.zsh
+	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/exercism_completion.zsh ~/.oh-my-zsh/custom/exercism_completion.zsh
+	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/fzf_completion.zsh ~/.oh-my-zsh/custom/fzf_completion.zsh
+	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/zmv.zsh ~/.oh-my-zsh/custom/zmv.zsh
+	ln -sfn ~/.dotfiles/zsh/.zshrc ~/.zshrc
 	ln -sfn ~/.dotfiles/zsh/.zprofile ~/.zprofile
 	ln -sfn ~/.dotfiles/zsh/.zshenv ~/.zshenv
 	ln -sfn ~/.dotfiles/zsh/.zshrc ~/.zshrc
