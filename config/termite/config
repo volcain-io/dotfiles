@@ -42,14 +42,14 @@ cursor_shape = block
 # inspired by Dracula Theme https://draculatheme.com
 foreground         = #f8f8f2
 foreground_bold    = #f8f8f2
-cursor             = #ffcc00
-cursor_foreground  = #282a36
-background         = rgba(40, 42, 54, 0.8)
+cursor             = #f1fa8c
+cursor_foreground  = #44475a
+background         = rgba(40,42,54,0.9)
 
 # 16 color space
 # Black dark/light
-color0 = #1e2029
-color8 = #ccccc7
+color0 = #000000
+color8 = #4d4d4d
 
 # Red dark/light
 color1  = #ff5555
@@ -60,12 +60,12 @@ color2  = #50fa7b
 color10 = #5af78e
 
 # Yellow dark/light
-color3  = #ffcc00
+color3  = #f1fa8c
 color11 = #f4f99d
 
 # Blue dark/light
-color4  = #0189cc
-color12 = #61bfff
+color4  = #bd93f9
+color12 = #caa9fa
 
 # Magenta dark/light
 color5  = #ff79c6
@@ -76,8 +76,8 @@ color6  = #8be9fd
 color14 = #9aedfe
 
 # White dark/light
-color7  = #f8f8f2
-color15 = #e2e2dc
+color7  = #bfbfbf
+color15 = #e6e6e6
 
 [hints]
 font = Hack 11

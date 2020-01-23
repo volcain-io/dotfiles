@@ -284,8 +284,8 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    frame_color = "#f8f8f2"
-    background  = "#f8f8f2"
+    frame_color = "#f1fa8c"
+    background  = "#f1fa8c"
     foreground  = "#282a36"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable

@@ -25,24 +25,24 @@
     columns: 4;
     lines: 4;
     orientation: horizontal;
-    text-color: #ffcc00;
+    text-color: #f1fa8c;
 }
 #element normal.active {
-    text-color: #ffcc00;
+    text-color: #f1fa8c;
 }
 #element normal.urgent {
-    text-color: #ffcc00;
+    text-color: #f1fa8c;
 }
 #element selected.normal {
-    background-color: #ffcc00;
+    background-color: #f1fa8c;
     text-color: #282a36;
 }
 #element selected.urgent {
-    text-color: #ff6655;
+    text-color: #ff5555;
 }
 #element alternate.active {
-    text-color: #ffcc00;
+    text-color: #f1fa8c;
 }
 #element alternate.urgent {
-    text-color: #ff6655;
+    text-color: #ff5555;
 }

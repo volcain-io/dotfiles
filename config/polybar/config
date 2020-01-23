@@ -19,38 +19,24 @@
 [colors]
 ; Inspired by emacs doom dracula colors from https://github.com/hlissner/emacs-doom-themes
 # Black
-color0  = #1e2029
+color0  = #282a36
 # Red
 color1  = #ff5555
-# Bright Red
-color9  = #ff6655
 # Green
 color2  = #50fa7b
-# Bright Green
-color10 = #0189cc
 # Yellow
-color3  = #ffcc00
-# Bright Yellow
-color11 = #f1fa8c
+color3 = #f1fa8c
 # Blue
-color4 = #0189cc
-# Bright Blue
-color12 = #61bfff
+color4 = #6272a4
 # Magenta
-color5  = #ff79c6
-# Bright Magenta
-color13 = #bd93f9
+color5 = #bd93f9
 # Cyan
 color6  = #8be9fd
-# Bright Cyan
-color14 = #8be9fd
 # White
 color7  = #f8f8f2
-# Bright White
-color15 = #e2e2dc
 
 foreground  = ${colors.color7}
-background  = #282a36
+background  = ${colors.color0}
 transparent = #00ffffff
 ; bar colors
 bar-background = ${colors.background}
@@ -68,14 +54,14 @@ i3-urgent-foreground = ${colors.color1}
 ; module memory colors
 memory-label-foreground = ${colors.color2}
 ; module wifi colors
-wifi-label-connected-foreground = ${colors.color13}
+wifi-label-connected-foreground = ${colors.color5}
 wifi-label-disconnected-foreground = ${colors.color1}
 ; module wireguard colors
-wireguard-label-foreground = ${colors.color11}
+wireguard-label-foreground = ${colors.color3}
 ; module date/time colors
-datetime-label-foreground = ${colors.color12}
+datetime-label-foreground = ${colors.color6}
 ; module cpu colors
-cpu-label-foreground = ${colors.color11}
+cpu-label-foreground = ${colors.color3}
 ; module battery colors
 bat-label-charging-foreground = ${colors.color2}
 bat-label-discharging-foreground = ${colors.color1}
@@ -233,30 +219,30 @@ label-discharging-foreground = ${colors.bat-label-discharging-foreground}
 label-full = "100% full"
 label-full-foreground = ${colors.bat-label-full-foreground}
 
-animation-charging-0 = "%{F#6b6b6b}charging   "
-animation-charging-1 = "c%{F#6b6b6b}harging   "
-animation-charging-2 = "ch%{F#6b6b6b}arging   "
-animation-charging-3 = "cha%{F#6b6b6b}rging   "
-animation-charging-4 = "char%{F#6b6b6b}ging   "
-animation-charging-5 = "charg%{F#6b6b6b}ing   "
-animation-charging-6 = "chargi%{F#6b6b6b}ng   "
-animation-charging-7 = "chargin%{F#6b6b6b}g   "
+animation-charging-0 = "%{F#44475a}charging   "
+animation-charging-1 = "c%{F#44475a}harging   "
+animation-charging-2 = "ch%{F#44475a}arging   "
+animation-charging-3 = "cha%{F#44475a}rging   "
+animation-charging-4 = "char%{F#44475a}ging   "
+animation-charging-5 = "charg%{F#44475a}ing   "
+animation-charging-6 = "chargi%{F#44475a}ng   "
+animation-charging-7 = "chargin%{F#44475a}g   "
 animation-charging-8 = "charging   "
 animation-charging-foreground = ${colors.bat-animation-charging-foreground}
 animation-charging-framerate = 1000
 
 animation-discharging-0  = "discharging"
-animation-discharging-1  = "dischargin%{F#6b6b6b}g"
-animation-discharging-2  = "dischargi%{F#6b6b6b}ng"
-animation-discharging-3  = "discharg%{F#6b6b6b}ing"
-animation-discharging-4  = "dischar%{F#6b6b6b}ging"
-animation-discharging-5  = "discha%{F#6b6b6b}rging"
-animation-discharging-6  = "disch%{F#6b6b6b}arging"
-animation-discharging-7  = "disc%{F#6b6b6b}harging"
-animation-discharging-8  = "dis%{F#6b6b6b}charging"
-animation-discharging-9  = "di%{F#6b6b6b}scharging"
-animation-discharging-10 = "d%{F#6b6b6b}ischarging"
-animation-discharging-11 = "%{F#6b6b6b}discharging"
+animation-discharging-1  = "dischargin%{F#44475a}g"
+animation-discharging-2  = "dischargi%{F#44475a}ng"
+animation-discharging-3  = "discharg%{F#44475a}ing"
+animation-discharging-4  = "dischar%{F#44475a}ging"
+animation-discharging-5  = "discha%{F#44475a}rging"
+animation-discharging-6  = "disch%{F#44475a}arging"
+animation-discharging-7  = "disc%{F#44475a}harging"
+animation-discharging-8  = "dis%{F#44475a}charging"
+animation-discharging-9  = "di%{F#44475a}scharging"
+animation-discharging-10 = "d%{F#44475a}ischarging"
+animation-discharging-11 = "%{F#44475a}discharging"
 animation-discharging-foreground = ${colors.bat-animation-discharging-foreground}
 animation-discharging-framerate = 1000
 
