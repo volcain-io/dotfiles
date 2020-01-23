@@ -328,11 +328,11 @@ default_floating_border pixel 3
 
 # Theme colors
 # class                 border  background text    indicator child_border
-client.focused          #50fa7b #50fa7b    #f8f8f2 #50fa7b   #50fa7b
-client.focused_inactive #f1fa8c #f1fa8c    #f8f8f2 #f1fa8c   #f1fa8c
-client.unfocused        #282a36 #282a36    #f8f8f2 #282a36   #282a36
-client.urgent           #ff5555 #ff5555    #f8f8f2 #ff5555   #ff5555
-client.placeholder      #f8f8f2 #f8f8f2    #282a36 #f8f8f2   #f8f8f2
+client.focused          #50fa7b #282a36    #50fa7b #282a36   #50fa7b
+client.focused_inactive #f1fa8c #282a36    #f1fa8c #282a36   #f1fa8c
+client.unfocused        #282a36 #282a36    #f8f8f2 #282a36   #f8f8f2
+client.urgent           #ff5555 #282a36    #ff5555 #282a36   #ff5555
+client.placeholder      #282a36 #f8f8f2    #282a36 #f8f8f2   #f8f8f2
 
 client.background       #f8f8f2
 
