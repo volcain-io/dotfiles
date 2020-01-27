@@ -135,7 +135,7 @@ A custom script checks periodically the state of dropbox.
 | Font (Spacemacs) | [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro) |
 | Font (Powerline) | [Powerline Fonts](https://github.com/powerline/fonts)                   |
 | Zsh Theme        | [Spaceship](https://github.com/denysdovhan/spaceship-prompt)            |
-| VIM Config       | [Ultimate Vim Configuration](https://github.com/amix/vimrc)             |
+| VIM Config       | [SpaceVim](https://github.com/SpaceVim/SpaceVim)                        |
 
 ## Config
 
