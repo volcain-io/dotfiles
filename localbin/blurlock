@@ -10,13 +10,13 @@ i3lock \
 	--blur=0x5 \
 	--bar-indicator \
 	--bar-width=8 \
-	--bar-color=1e2029ff \
-  	--ringvercolor=50fa7bff \
-  	--ringwrongcolor=ff5555ff \
-  	--keyhlcolor=61bfffff \
-	--bshlcolor=ffb86cff \
+	--bar-color=282a36ff \
+  --ringvercolor=50fa7bff \
+	--ringwrongcolor=ff5555ff \
+	--keyhlcolor=8be9fdff \
+	--bshlcolor=f1fa8cff \
 	--wrongcolor=f8f8f2ff \
-	--verifcolor=f8f8f2ff \
+	--verifcolor=r8f8f2ff \
 	--veriftext="welcom..." \
 	--wrongtext="nope. try again" \
 	--noinputtext="type password to unlock" \

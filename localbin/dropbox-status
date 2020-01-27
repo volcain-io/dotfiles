@@ -26,7 +26,7 @@ status=$(echo $(dropbox-cli status))
 if [[ ${status} == "Dropbox isn't running!" ]]; then
     echo "%{F#ff5555} down" # daemon down
 elif [[ ${status} == "Dropbox isn't responding!" ]]; then
-    echo "%{F#ffcc00} dead" # something went wrong
+    echo "%{F#f1fa8c} dead" # something went wrong
 elif [[ ${status} == Sync* ]]; then
     echo "%{F#0189cc} snycing" # syncing & indexing files
 else
