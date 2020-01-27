@@ -111,10 +111,10 @@ A custom script checks periodically the state of dropbox.
 
 | Original    | Alternative                                                | Usage      |
 |-------------|------------------------------------------------------------|------------|
-| grep        | [ripgrep](https://github.com/BurntSushi/ripgrep)           | Evaluating |
+| grep        | [ripgrep](https://github.com/BurntSushi/ripgrep)           | Fully      |
 | cat         | [bat](https://github.com/sharkdp/bat)                      | Fully      |
 | find        | [fd](https://github.com/sharkdp/fd)                        | Evaluating |
-| ls          | [exa](https://github.com/ogham/exa)                        | Evaluating |
+| ls          | [exa](https://github.com/ogham/exa)                        | Fully      |
 | notify-send | [dunstify](https://github.com/dunst-project/dunst)         | Fully      |
 | git diff    | [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) | Fully      |
 | top         | [htop](https://github.com/hishamhm/htop)                   | Fully      |
