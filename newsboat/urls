@@ -3,14 +3,6 @@ https://medium.com/feed/@freecodecamp "~FreeCodeCamp" "medium" "freecodecamp" "p
 https://medium.com/feed/@hackernoon "~HackerNoon" "medium" "hackernoon" "programming" "hacking"
 https://www.indiehackers.com/feed.xml "~IndieHackers" "indiehackers" "programming" "hacking"
 
-# GitHub
-https://github-trends.ryotarai.info/rss/github_trends_javascript_weekly.rss "~GitHub Weekly - JavaScript" "github" "programming"
-https://github-trends.ryotarai.info/rss/github_trends_html_weekly.rss "~GitHub Weekly - HTML" "github" "programming"
-https://github-trends.ryotarai.info/rss/github_trends_css_weekly.rss "~GitHub Weekly - CSS" "github" "programming"
-https://github-trends.ryotarai.info/rss/github_trends_python_weekly.rss "~GitHub Weekly - Python" "github" "programming"
-https://github-trends.ryotarai.info/rss/github_trends_vim-script_weekly.rss "~GitHub Weekly - VIM Script" "github" "programming"
-https://github-trends.ryotarai.info/rss/github_trends_unknown_weekly.rss "~GitHub Weekly - Unknown" "github" "programming"
-
 # Golem
 https://rss.golem.de/rss.php?feed=OPML "~Golem" "golem" "news"
 
@@ -28,5 +20,5 @@ https://www.reddit.com/r/vim/hot/.rss "~Reddit VIM" "reddit" "vim"
 https://www.reddit.com/r/spacemacs/hot/.rss "~Reddit Spacemacs" "reddit" "spacemacs"
 https://www.reddit.com/r/worldnews/hot/.rss "~Reddit WolrdNews" "reddit" "news"
 
-# Native
-https://www.entelaylak.com/feed/ "entelaylak" "culture"
+# Telepolis
+https://www.heise.de/tp/news-atom.xml "~Telepolis" "telepolis" "news"
