@@ -16,7 +16,7 @@ i3lock \
 	--keyhlcolor=8be9fdff \
 	--bshlcolor=f1fa8cff \
 	--wrongcolor=f8f8f2ff \
-	--verifcolor=r8f8f2ff \
+	--verifcolor=f8f8f2ff \
 	--veriftext="welcom..." \
 	--wrongtext="nope. try again" \
 	--noinputtext="type password to unlock" \
