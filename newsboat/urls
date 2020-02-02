@@ -1,27 +1,14 @@
-# Community
-https://medium.com/feed/@freecodecamp "~FreeCodeCamp" "medium" "freecodecamp" "programming"
-https://medium.com/feed/@hackernoon "~HackerNoon" "medium" "hackernoon" "programming" "hacking"
-https://www.indiehackers.com/feed.xml "~IndieHackers" "indiehackers" "programming" "hacking"
-
 # Golem
 https://rss.golem.de/rss.php?feed=OPML "~Golem" "golem" "news"
 
 # HackerNews
 https://feeds.feedburner.com/hacker-news-feed-50?format=xml "~HackerNews" "hacker" "news"
 
-# People
-https://addyosmani.com/rss.xml "~Addy Osmani" "people"
-http://matt.might.net/articles/feed.rss "~Matt Might" "people"
-
-# Reddit
-https://www.reddit.com/r/programming/hot/.rss "~Reddit Programming" "reddit" "programming"
-https://www.reddit.com/r/linux/hot/.rss "~Reddit Linux" "reddit" "linux"
-https://www.reddit.com/r/vim/hot/.rss "~Reddit VIM" "reddit" "vim"
-https://www.reddit.com/r/spacemacs/hot/.rss "~Reddit Spacemacs" "reddit" "spacemacs"
-https://www.reddit.com/r/worldnews/hot/.rss "~Reddit WolrdNews" "reddit" "news"
-
 # Telepolis
 https://www.heise.de/tp/news-atom.xml "~Telepolis" "telepolis" "news"
 
 # Ach gut
 https://www.achgut.com/rss2 "~Achgut" "achgut" "news"
+
+# wirecutter
+https://thewirecutter.com/feed/ "~Wirecutter" "wirecutter" "news"
