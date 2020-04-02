@@ -12,7 +12,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 #export PATH=$PATH:~/code/AndroidSDK/tools
 #export PATH=$PATH:~/code/AndroidSDK/platform-tools
 #export PATH=$PATH:~/Workspace/flutter/bin
-export PATH=$HOME/.local/bin:$HOME/.localbin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.localbin:$HOME/.config/composer/vendor/bin/:$PATH
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs --vimgrep --glob '!git/*'"
 # Path to your oh-my-zsh installation
 export ZSH=$HOME/.oh-my-zsh
