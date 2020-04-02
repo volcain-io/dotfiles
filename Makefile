@@ -1,4 +1,4 @@
-.PHONY: all install config systemctl yay local localbin zsh spacemacs newsboat polybar dropbox git
+.PHONY: all install config systemctl yay local localbin zsh spacemacs newsboat polybar dropbox git nnn
 all:
 	make install
 	make config
@@ -13,21 +13,23 @@ all:
 	make polybar
 	make dropbox
 	make git
+	make nnn
 
 install:
-	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts alsa-utils alsa-plugins alsa-lib atool avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm pandoc pass powerline-fonts ranger ripgrep rlwrap rofi scribus termite tig thunderbird tmux tldr ttf-hack gvim yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
+	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts advcp alsa-utils alsa-plugins alsa-lib atool avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm nnn pandoc pass powerline-fonts renameutils ripgrep rlwrap rofi scribus termite tig thunderbird tmux tldr ttf-hack trash-cli whois yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
 
 config:
 	ln -sfn ~/.dotfiles/.ctags ~/.
 	ln -sfn ~/.dotfiles/.dir_colors ~/.
 	ln -sfn ~/.dotfiles/.tern-config ~/.
+	ln -sfn ~/.dotfiles/.tmux.conf ~/.
 	ln -sfn ~/.dotfiles/.Xresources ~/.
 	ln -sfn ~/.dotfiles/.xinitrc ~/.
 	ln -sfn ~/.dotfiles/config/dunst ~/.config/dunst
 	ln -sfn ~/.dotfiles/config/i3 ~/.i3
-	ln -sfn ~/.dotfiles/config/polybar/ ~/.config/polybar
-	ln -sfn ~/.dotfiles/config/rofi/ ~/.config/rofi
-	ln -sfn ~/.dotfiles/config/termite/ ~/.config/termite
+	ln -sfn ~/.dotfiles/config/polybar ~/.config/polybar
+	ln -sfn ~/.dotfiles/config/rofi ~/.config/rofi
+	ln -sfn ~/.dotfiles/config/termite ~/.config/termite
 	# set 
 	localectl set-keymap de-latin1-nodeadkeys
 	localectl set-x11-keymap de
@@ -57,7 +59,10 @@ zsh:
 	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/common_alias.zsh ~/.oh-my-zsh/custom/common_alias.zsh
 	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/exercism_completion.zsh ~/.oh-my-zsh/custom/exercism_completion.zsh
 	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/fzf_completion.zsh ~/.oh-my-zsh/custom/fzf_completion.zsh
+	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/history_options.zsh ~/.oh-my-zsh/custom/history_options.zsh
+	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/quitcd.zsh ~/.oh-my-zsh/custom/quitcd.zsh
 	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/zmv.zsh ~/.oh-my-zsh/custom/zmv.zsh
+	ln -sfn ~/.dotfiles/config/sxiv ~/.config/sxiv
 	ln -sfn ~/.dotfiles/zsh/.zshrc ~/.zshrc
 	ln -sfn ~/.dotfiles/zsh/.zprofile ~/.zprofile
 	ln -sfn ~/.dotfiles/zsh/.zshenv ~/.zshenv
@@ -83,3 +88,7 @@ dropbox:
 
 git:
 	ln -sfn ~/.dotfiles/.gitconfig ~/.
+
+nnn:
+	curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+	ln -sfn ~/.dotfiles/config/nnn/plugins/z ~/.config/nnn/plugins/z
