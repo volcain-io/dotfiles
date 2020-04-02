@@ -73,10 +73,10 @@ A custom script checks periodically the state of dropbox.
 
 A custom script checks periodically for available updates.
 
-| State   | Description                | Screenshot                                        | How To                                                                                                      |
-|---------|----------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| Latest  | System up to date          | ![Latest](screenshots/pacman-status-latest.png)   | -                                                                                                           |
-| Upgrade | Updates/Upgrades available | ![Upgrade](screenshots/pacman-status-upgrade.png) | Left mouse click on <span style="color:#50fa7b;background-color:#1e2029;padding:1px 5px;">**latest**</span> |
+| State   | Description                | Screenshot                                        | How To                                                                                                            |
+|---------|----------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Latest  | System up to date          | ![Latest](screenshots/pacman-status-latest.png)   | -                                                                                                                 |
+| Upgrade | Updates/Upgrades available | ![Upgrade](screenshots/pacman-status-upgrade.png) | Left mouse click on <span style="color:#50fa7b;background-color:#1e2029;padding:1px 5px;">**upgrade (XX)**</span> |
 
 ## Notifications
 
