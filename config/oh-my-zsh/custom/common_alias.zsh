@@ -3,3 +3,5 @@ alias ls="exa -alg --color=always --color-scale --git --group-directories-first 
 alias pass="pass"
 alias vi="vim"
 alias grep="rg"
+alias cp="acp -g"
+alias mv="amv -g"
