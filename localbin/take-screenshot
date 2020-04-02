@@ -32,26 +32,30 @@ selection=-1
 mkdir -p ${dir_screenshots}
 
 # start
-case $(echo "[1] Fullscreen|[2] Selection|[3] Active Window|[4] High Quality|[5] Open directory" | rofi -sep '|' -auto-select -no-fixed-num-lines -dmenu -p "Take Screenshot" -i) in
-    '[1] Full screen')
+case $(echo "[1] Fullscreen|[2] Selection|[3] Active Window|[4] High Quality|[5] Open screenshots directory" | rofi -sep '|' -auto-select -no-fixed-num-lines -dmenu -p "Take Screenshot" -i) in
+    '[1] Fullscreen')
         selection=1
         filename_prefix="default"
         maim_option=""
+        dunstify_title_postfix="Fullscreen"
         ;;
     '[2] Selection')
         selection=2
         filename_prefix="selection"
         maim_option="-s"
+        dunstify_title_postfix="Selection"
         ;;
     '[3] Active Window')
         selection=3
         filename_prefix="active"
         maim_option="-i $(xdotool getactivewindow)"
+        dunstify_title_postfix="Active Window"
         ;;
     '[4] High Quality')
         selection=4
         filename_prefix="hq"
         maim_option="-m 1"
+        dunstify_title_postfix="High Quality"
         ;;
     '[5] Open screenshots directory')
         selection=0
@@ -61,16 +65,17 @@ esac
 # put together all the pieces for the filename
 filename="${filename_prefix}-$(date -u +"%Y-%m-%d-%T").${file_extension}"
 
+echo ${selection}
 # Do nothing by default
 if [[ ${selection} -eq 0 ]]; then
     # Open nnn by default
-    termite -e "nnn ${dir_screenshots}" &
+    st -e nnn ${dir_screenshots} &
 elif [[ ${selection} -gt 0 ]]; then
     # Take screenshot
     maim -q ${maim_option} ${filename}
     mv ${filename} ${dir_screenshots}
     # Display notification
-    dunstify "Screenshot" "${filename} saved in ${dir_screenshots}"
+    dunstify "Screenshot: ${dunstify_title_postfix}" "${filename} saved in ${dir_screenshots} directory"
 fi
 
 exit $?
