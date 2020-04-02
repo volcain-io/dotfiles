@@ -26,7 +26,7 @@ Middle screen is my laptop monitor, which is also the main screen.
 
 ### Main screen
 
-![Main screen](screenshots/desktop-polybar-termite-htop-vim.png)
+![Main screen](screenshots/desktop-polybar-st-htop-spacemacs.png)
 
 ## Network
 
