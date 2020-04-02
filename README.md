@@ -91,7 +91,7 @@ A custom script checks periodically for available updates.
 | Shell               | [Zsh](https://www.zsh.org/)                                     |
 | Zsh Framework       | [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh/)         |
 | Window Manager      | [i3-gaps](https://github.com/Airblader/i3)                      |
-| Terminal            | [termite](https://github.com/thestinger/termite)                |
+| Terminal            | [st](https://st.suckless.org)                                   |
 | Status Bar          | [polybar](https://github.com/polybar/polybar)                   |
 | AUR Helper          | [yay](https://github.com/Jguer/yay)                             |
 | App Launcher        | [rofi](https://github.com/davatorium/rofi)                      |
