@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# Quickly enable/disable git url rewrite configuration
+#
+# Usage: git-url-rewrite [enable|disable]
+#
+#   $git-url-rewrite [enable|disable]
+
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+option="${1:-enable}"
+
+if [[ ${option} == "enable" ]]; then
+  sed -i 's/^\;//' ~/.gitconfig
+else
+  sed -i 's/^\[url/;&/' ~/.gitconfig
+  sed -i 's/^\s*\t*insteadOf/;&/' ~/.gitconfig
+fi
+
+exit $?
