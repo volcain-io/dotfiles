@@ -27,7 +27,7 @@ font xft:Hack 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -53,7 +53,7 @@ bindsym $mod+0 exec --no-startup-id ~/.localbin/session-menu
 ################################################################################################
 
 exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec termite -e 'alsamixer'
+#bindsym $mod+Ctrl+m exec st -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -65,12 +65,13 @@ exec --no-startup-id volumeicon
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; dunstify 'Brightness' 'down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec termite -e 'bmenu'
+bindsym $mod+Ctrl+b exec st -e 'bmenu'
 bindsym $mod+F2 exec firefox
 # bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F3 exec termite -e 'ranger'
+bindsym $mod+F3 exec st 'nnn'
 # bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec termite -e 'mocp'
+bindsym $mod+F5 exec st 'mocp'
+bindsym $mod+F12 exec st -e 'tmux'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec dunstify 'Dunst' 'restarting...'"
@@ -271,9 +272,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+9 exec --no-startup-id ~/.localbin/blurlock
-
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id nitrogen --restore; sleep 1; picom -b
@@ -289,7 +287,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id ~/.localbin/triple-monitor-setup; ~/.localbin/set-wallpaper; sleep 1; picom -b; ~/.dotfiles/config/polybar/launch
+exec_always --no-startup-id ~/.localbin/triple-monitor-setup; ~/.localbin/set-wallpaper; sleep 1; picom -b; ~/.localbin/launch-polybar
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
