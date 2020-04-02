@@ -69,6 +69,15 @@ A custom script checks periodically the state of dropbox.
 | Syncing | Files are being indexed and synchronized | ![Dropbox Syncing](screenshots/dropbox-syncing.png) |
 | In sync | All files are in sync.                   | ![Dropbox In Sync](screenshots/dropbox-in-sync.png) |
 
+## System updates
+
+A custom script checks periodically for available updates.
+
+| State   | Description                | Screenshot                                        | How To                                                                                                      |
+|---------|----------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Latest  | System up to date          | ![Latest](screenshots/pacman-status-latest.png)   | -                                                                                                           |
+| Upgrade | Updates/Upgrades available | ![Upgrade](screenshots/pacman-status-upgrade.png) | Left mouse click on <span style="color:#50fa7b;background-color:#1e2029;padding:1px 5px;">**latest**</span> |
+
 ## Notifications
 
 ![Notifications](screenshots/notifications-critical-normal-low.png)
