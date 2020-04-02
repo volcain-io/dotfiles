@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Read in a password and print out whether it has been seen in data
+# breaches using Troy Hunt's "pwned password" database.
+
+# This script is for people to who don't want to plug their password
+# into random third party websites to see if it is a known password.
+# While I trust Troy Hunt, I don't trust that his web service won't
+# get hijacked and dynamically load malicious Javascript. This script
+# solves that problem.
+
+# Actual passwords are never sent on the Internet. Instead, a hash is
+# taken and only the first five characters of the hash are sent. The
+# database returns around 500 possible hashes that begin with that
+# prefix and we grep to see if ours is among them.
+
+# You can read more about it here:
+# https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/
+
+# B9 March 2019
+
+verbose() {
+    [[ "$VERBOSE" ]] && echo "$@"
+}
+if [[ "$1" == "-v" ]]; then
+    VERBOSE=yup
+    shift
+fi
+    
+if [[ "$*" ]]; then
+    pass="$*"
+else
+    read -p "Password: " pass
+    [[ "$pass" ]] || exit
+fi
+
+hash=$(echo -n "$pass" | sha1sum)
+first5=${hash:0:5}
+rest=${hash:5:35}
+verbose "first five of hash is $first5, rest is $rest"
+
+echo -n "Requesting hashes that begin with $first5... "
+pwnedhashes=$(curl -s https://api.pwnedpasswords.com/range/$first5 | tr -d '\r')
+count=$(echo "$pwnedhashes" | wc -l)
+echo "downloaded $count possibilities."
+
+if result=$(grep -i "$rest" <<< "$pwnedhashes"); then
+    # Pwned! Red & black to conjure Mordor and badness.
+    tput setaf 0; tput setab 1; echo -n "Pwned"; tput sgr0
+    echo -en " \aBad news! Your password, "
+    tput setaf 1; tput setab 0; echo -n "$pass"; tput sgr0
+    echo ", has been pwned."
+    count=${result#*:} 
+    if [[ count -gt 1 ]]; then
+	echo "In fact, it's a common password that's been seen $count times."
+    fi
+else
+    # Green light, go
+    tput setaf 0; tput setab 2; echo -n "OK"; tput sgr0	
+    echo " Password not found in the pwned passwords database."
+fi
