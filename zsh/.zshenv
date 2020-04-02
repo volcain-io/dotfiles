@@ -9,7 +9,6 @@ export CHROME_PATH=/usr/bin/chromium
 export NVM_DIR="$HOME/.nvm"
 # Set Path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=$PATH:$HOME/.node_modules/bin:$HOME/.yarn/bin
 #export PATH=$PATH:~/code/AndroidSDK/tools
 #export PATH=$PATH:~/code/AndroidSDK/platform-tools
 #export PATH=$PATH:~/Workspace/flutter/bin
