@@ -16,3 +16,6 @@ export PATH=$HOME/.local/bin:$HOME/.localbin:$HOME/.config/composer/vendor/bin/:
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs --vimgrep --glob '!git/*'"
 # Path to your oh-my-zsh installation
 export ZSH=$HOME/.oh-my-zsh
+# Configre nnn
+export NNN_BMS="D:~/.dotfiles/;d:~/Downloads/;x:~/Dropbox/;p:~/Pictures/;w:~/Workspace/"
+export NNN_PLUG="d:diffs;D:dragdrop;g:gutenread;h:hexview;i:imgview;w:ipinfo;r:renamer;s:suedit;t:treeview;u:uidgid;z:z"
