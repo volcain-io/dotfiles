@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-# Checks status of wireguard
+# Here goes your description
 #
-# Usage: wg-status INTERFACE
+# Usage: pacman-status
 #
-#   $ wg-status wireguard1
+#   $pacman-status
 
 # This option will make the script exit when there is an error
 set -o errexit
@@ -21,14 +21,24 @@ __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
-interface="${1:?Unknown interface}"
+check_dependencies() {
+  if ! hash checkupdates >/dev/null 2>&1; then
+    echo "%{F#ff5555} error" # missing dependency
+    exit 1
+  fi
+}
 
-status=$(echo -n $(ip addr show dev ${interface} 2>/dev/null | awk 'END { print NR }'))
+num_upgrades() {
+  upgrades=$(checkupdates 2>/dev/null | wc -l)
+  echo -n ${upgrades}
+}
 
-if [[ ${status} == "0" ]]; then
-    echo -n "%{F#ff5555} off"
-elif [[ -n ${status} ]]; then
-    echo -n "%{F#50fa7b} on"
+check_dependencies
+
+if [[ $(num_upgrades) -eq 0 ]]; then
+  echo "%{F#50fa7b} latest" # up to date
+else
+  echo "%{F#f1fa8c} upgrade ($(num_upgrades))" # out-of-date packages
 fi
- 
+
 exit $?

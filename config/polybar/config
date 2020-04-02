@@ -92,7 +92,7 @@ font-0 = "Hack:size=10:weight=bold;1"
 
 modules-left = i3
 modules-center = memory wifi wg date cpu temperature battery 
-modules-right = dropbox volume user
+modules-right = dropbox volume user pacman
 
 ;tray-position = right
 ;tray-padding = 2
@@ -163,9 +163,9 @@ label-disconnected-foreground = ${colors.wifi-label-disconnected-foreground}
 type = custom/script
 exec = ~/.dotfiles/localbin/wg-status mullvad-us6
 
-format-prefix = "wireguard"
-click-left="gksu wg-quick up mullvad-us6"
-click-right="gksu wg-quick down mullvad-us6"
+format-prefix = "wg"
+click-left="gksu wg-quick up mullvad-us6 &"
+click-right="gksu wg-quick down mullvad-us6 &"
 
 [module/date]
 type = internal/date
@@ -246,6 +246,13 @@ animation-discharging-11 = "%{F#44475a}discharging"
 animation-discharging-foreground = ${colors.bat-animation-discharging-foreground}
 animation-discharging-framerate = 1000
 
+[module/pacman]
+type = custom/script
+exec = ~/.dotfiles/localbin/pacman-status
+
+format-prefix = "|"
+click-left="st -e sudo pacman -Syyu &"
+
 [module/user]
 type = custom/script
 exec = whoami
@@ -268,7 +275,7 @@ label-muted-foreground = ${colors.volume-label-muted-foreground}
 type = custom/script
 exec = ~/.dotfiles/localbin/dropbox-status
 
-format-prefix = "dropbox"
+format-prefix = "dbx"
 
 [settings]
 screenchange-reload = true
