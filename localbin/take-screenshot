@@ -32,28 +32,28 @@ selection=-1
 mkdir -p ${dir_screenshots}
 
 # start
-case $(echo "Full screen|Selection|Active Window|High Quality|Open screenshots directory" | rofi -sep '|' -dmenu -p "Take Screenshot" -i) in
-    'Full screen')
+case $(echo "[1] Fullscreen|[2] Selection|[3] Active Window|[4] High Quality|[5] Open directory" | rofi -sep '|' -auto-select -no-fixed-num-lines -dmenu -p "Take Screenshot" -i) in
+    '[1] Full screen')
         selection=1
         filename_prefix="default"
         maim_option=""
         ;;
-    'Selection')
+    '[2] Selection')
         selection=2
         filename_prefix="selection"
         maim_option="-s"
         ;;
-    'Active Window')
+    '[3] Active Window')
         selection=3
         filename_prefix="active"
         maim_option="-i $(xdotool getactivewindow)"
         ;;
-    'High Quality')
+    '[4] High Quality')
         selection=4
         filename_prefix="hq"
         maim_option="-m 1"
         ;;
-    'Open screenshots directory')
+    '[5] Open screenshots directory')
         selection=0
         ;;
 esac
