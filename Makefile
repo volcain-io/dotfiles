@@ -77,7 +77,7 @@ spacemacs:
 	ln -sfn ~/.dotfiles/.spacemacs ~/.spacemacs
 
 newsboat:
-	ln -sfn ~/.dotfiles/newsboat/ ~/.newsboat
+	ln -sfn ~/.dotfiles/.newsboat/ ~/.newsboat
 
 polybar:
 	yay -S polybar
