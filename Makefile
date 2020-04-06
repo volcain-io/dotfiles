@@ -49,7 +49,7 @@ local:
 	ln -sfn ~/.dotfiles/.local/share/mime/packages/text-markdown.xml ~/.local/share/mime/packages/text-markdown.xml
 
 localbin:
-	ln -sfn ~/.dotfiles/localbin/ ~/.localbin
+	ln -sfn ~/.dotfiles/.localbin/ ~/.localbin
 
 zsh:
 	cd ~ && curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
