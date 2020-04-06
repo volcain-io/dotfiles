@@ -65,6 +65,7 @@ zsh:
 
 spacevim:
 	curl -sLf https://spacevim.org/install.sh | bash
+	ln -sfn ~/.dotfiles/.SpaceVim.d/init.toml ~/.SpaceVim.d/init.toml
 
 spacemacs:
 	git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
