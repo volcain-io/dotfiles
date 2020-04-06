@@ -14,13 +14,12 @@ all:
 	make st
 
 install:
-	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts advcp alsa-utils alsa-plugins alsa-lib atool avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm nnn pandoc pass powerline-fonts renameutils ripgrep rlwrap rofi scribus termite tig thunderbird tmux tldr ttf-hack trash-cli whois yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
+	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts advcp alsa-utils alsa-plugins alsa-lib atool avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm nnn pandoc pass powerline-fonts renameutils ripgrep rlwrap rofi scribus tig thunderbird tmux tldr ttf-hack trash-cli whois yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
 
 config:
 	ln -sfn ~/.dotfiles/.config/dunst ~/.config/dunst
 	ln -sfn ~/.dotfiles/.config/rofi ~/.config/rofi
 	ln -sfn ~/.dotfiles/.config/sxiv ~/.config/sxiv
-	ln -sfn ~/.dotfiles/.config/termite ~/.config/termite
 	ln -sfn ~/.dotfiles/.ctags ~/.
 	ln -sfn ~/.dotfiles/.dir_colors ~/.
 	ln -sfn ~/.dotfiles/.gitconfig ~/.
