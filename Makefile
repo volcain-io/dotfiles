@@ -29,6 +29,7 @@ config:
 	ln -sfn ~/.dotfiles/config/dunst ~/.config/dunst
 	ln -sfn ~/.dotfiles/config/polybar ~/.config/polybar
 	ln -sfn ~/.dotfiles/config/rofi ~/.config/rofi
+	ln -sfn ~/.dotfiles/config/sxiv ~/.config/sxiv
 	ln -sfn ~/.dotfiles/config/termite ~/.config/termite
 	# set 
 	localectl set-keymap de-latin1-nodeadkeys
@@ -62,8 +63,6 @@ zsh:
 	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/history_options.zsh ~/.oh-my-zsh/custom/history_options.zsh
 	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/quitcd.zsh ~/.oh-my-zsh/custom/quitcd.zsh
 	ln -sfn ~/.dotfiles/config/oh-my-zsh/custom/zmv.zsh ~/.oh-my-zsh/custom/zmv.zsh
-	ln -sfn ~/.dotfiles/config/sxiv ~/.config/sxiv
-	ln -sfn ~/.dotfiles/zsh/.zshrc ~/.zshrc
 	ln -sfn ~/.dotfiles/zsh/.zprofile ~/.zprofile
 	ln -sfn ~/.dotfiles/zsh/.zshenv ~/.zshenv
 	ln -sfn ~/.dotfiles/zsh/.zshrc ~/.zshrc
