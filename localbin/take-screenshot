@@ -69,7 +69,7 @@ echo ${selection}
 # Do nothing by default
 if [[ ${selection} -eq 0 ]]; then
     # Open nnn by default
-    st -e nnn ${dir_screenshots} &
+    $TERM -e nnn ${dir_screenshots} &
 elif [[ ${selection} -gt 0 ]]; then
     # Take screenshot
     maim -q ${maim_option} ${filename}
