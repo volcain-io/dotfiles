@@ -46,7 +46,7 @@ yay:
 	cd ~/yay && makepkg -si && rm -rf ~/yay
 
 local:
-	ln -sfn ~/.dotfiles/local/share/mime/packages/text-markdown.xml ~/.local/share/mime/packages/text-markdown.xml
+	ln -sfn ~/.dotfiles/.local/share/mime/packages/text-markdown.xml ~/.local/share/mime/packages/text-markdown.xml
 
 localbin:
 	ln -sfn ~/.dotfiles/localbin/ ~/.localbin
