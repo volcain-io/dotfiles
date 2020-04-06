@@ -25,8 +25,8 @@ config:
 	ln -sfn ~/.dotfiles/.tmux.conf ~/.
 	ln -sfn ~/.dotfiles/.Xresources ~/.
 	ln -sfn ~/.dotfiles/.xinitrc ~/.
+	ln -sfn ~/.dotfiles/i3 ~/.i3
 	ln -sfn ~/.dotfiles/config/dunst ~/.config/dunst
-	ln -sfn ~/.dotfiles/config/i3 ~/.i3
 	ln -sfn ~/.dotfiles/config/polybar ~/.config/polybar
 	ln -sfn ~/.dotfiles/config/rofi ~/.config/rofi
 	ln -sfn ~/.dotfiles/config/termite ~/.config/termite
