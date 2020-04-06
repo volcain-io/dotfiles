@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+# ^X-^R: prompt for new image name (needs `dmenu`) and `mv`
+# ^X-^C: copy the image path to X clipboard (needs `xclip`)
+
+while read -r file
+do
+  case "$1" in
+    "C-d")
+      mv "$file" ~/.trash ;;
+    "C-r")
+      name="$(dmenu -p "rename $file to: ")" 2> /dev/null
+      if ! [ -z "$name" ]; then
+        mv "$file" "$name"
+      fi
+      ;;
+    "C-c")
+      printf "%s" "$file" | xclip -selection clipboard ;;
+    *)
+      printf "Unknown key binding: $1"
+      exit 1
+      ;;
+  esac
+done

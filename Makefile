@@ -1,37 +1,38 @@
-.PHONY: all install config systemctl yay local localbin zsh spacemacs newsboat polybar dropbox git nnn
+.PHONY: all install config localctl systemctl yay zsh spacevim spacemacs polybar dropbox nnn
 all:
 	make install
 	make config
+	make localctl
 	make systemctl
 	make yay
-	make local
-	make localbin
 	make zsh
 	make spacevim
 	make spacemacs
-	make newsboat
 	make polybar
 	make dropbox
-	make git
 	make nnn
 
 install:
 	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts advcp alsa-utils alsa-plugins alsa-lib atool avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm nnn pandoc pass powerline-fonts renameutils ripgrep rlwrap rofi scribus termite tig thunderbird tmux tldr ttf-hack trash-cli whois yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
 
 config:
+	ln -sfn ~/.dotfiles/.config/dunst ~/.config/dunst
+	ln -sfn ~/.dotfiles/.config/rofi ~/.config/rofi
+	ln -sfn ~/.dotfiles/.config/sxiv ~/.config/sxiv
+	ln -sfn ~/.dotfiles/.config/termite ~/.config/termite
 	ln -sfn ~/.dotfiles/.ctags ~/.
 	ln -sfn ~/.dotfiles/.dir_colors ~/.
+	ln -sfn ~/.dotfiles/.gitconfig ~/.
+	ln -sfn ~/.dotfiles/.i3 ~/.i3
+	ln -sfn ~/.dotfiles/.local/share/mime/packages/text-markdown.xml ~/.local/share/mime/packages/text-markdown.xml
+	ln -sfn ~/.dotfiles/.localbin/ ~/.localbin
+	ln -sfn ~/.dotfiles/.newsboat/ ~/.newsboat
 	ln -sfn ~/.dotfiles/.tern-config ~/.
 	ln -sfn ~/.dotfiles/.tmux.conf ~/.
 	ln -sfn ~/.dotfiles/.Xresources ~/.
 	ln -sfn ~/.dotfiles/.xinitrc ~/.
-	ln -sfn ~/.dotfiles/i3 ~/.i3
-	ln -sfn ~/.dotfiles/config/dunst ~/.config/dunst
-	ln -sfn ~/.dotfiles/config/polybar ~/.config/polybar
-	ln -sfn ~/.dotfiles/config/rofi ~/.config/rofi
-	ln -sfn ~/.dotfiles/config/sxiv ~/.config/sxiv
-	ln -sfn ~/.dotfiles/config/termite ~/.config/termite
-	# set 
+
+localectl:
 	localectl set-keymap de-latin1-nodeadkeys
 	localectl set-x11-keymap de
 
@@ -45,12 +46,6 @@ systemctl:
 yay:
 	cd ~ && git clone https://aur.archlinux.org/yay.git
 	cd ~/yay && makepkg -si && rm -rf ~/yay
-
-local:
-	ln -sfn ~/.dotfiles/.local/share/mime/packages/text-markdown.xml ~/.local/share/mime/packages/text-markdown.xml
-
-localbin:
-	ln -sfn ~/.dotfiles/.localbin/ ~/.localbin
 
 zsh:
 	cd ~ && curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
@@ -76,18 +71,13 @@ spacemacs:
 	ln -sfn ~/.dotfiles/.emacs.d/private/customizations/ ~/.emacs.d/private/customizations
 	ln -sfn ~/.dotfiles/.spacemacs ~/.spacemacs
 
-newsboat:
-	ln -sfn ~/.dotfiles/.newsboat/ ~/.newsboat
-
 polybar:
 	yay -S polybar
+	ln -sfn ~/.dotfiles/.config/polybar ~/.config/polybar
 
 dropbox:
 	yay -S dropbox dropbox-cli
 
-git:
-	ln -sfn ~/.dotfiles/.gitconfig ~/.
-
 nnn:
 	curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
-	ln -sfn ~/.dotfiles/config/nnn/plugins/z ~/.config/nnn/plugins/z
+	ln -sfn ~/.dotfiles/.config/nnn/plugins/z ~/.config/nnn/plugins/z
