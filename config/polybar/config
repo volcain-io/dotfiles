@@ -91,7 +91,7 @@ module-margin-left = 1
 font-0 = "Hack:size=10:weight=bold;1"
 
 modules-left = i3
-modules-center = memory wifi wg date cpu temperature battery 
+modules-center = memory wifi wg date cpu temperature battery
 modules-right = dropbox volume user pacman
 
 ;tray-position = right
@@ -161,7 +161,7 @@ label-disconnected-foreground = ${colors.wifi-label-disconnected-foreground}
 
 [module/wg]
 type = custom/script
-exec = ~/.dotfiles/localbin/wg-status mullvad-us6
+exec = wg-status mullvad-us6
 
 format-prefix = "wg"
 click-left="gksu wg-quick up mullvad-us6 &"
@@ -248,7 +248,7 @@ animation-discharging-framerate = 1000
 
 [module/pacman]
 type = custom/script
-exec = ~/.dotfiles/localbin/pacman-status
+exec = pacman-status
 
 format-prefix = "|"
 click-left="st -e sudo pacman -Syyu &"
@@ -273,7 +273,7 @@ label-muted-foreground = ${colors.volume-label-muted-foreground}
 
 [module/dropbox]
 type = custom/script
-exec = ~/.dotfiles/localbin/dropbox-status
+exec = dropbox-status
 
 format-prefix = "dbx"
 
