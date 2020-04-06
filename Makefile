@@ -73,7 +73,7 @@ spacevim:
 
 spacemacs:
 	git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	ln -sfn ~/.dotfiles/emacs.d/private/customizations/ ~/.emacs.d/private/customizations
+	ln -sfn ~/.dotfiles/.emacs.d/private/customizations/ ~/.emacs.d/private/customizations
 	ln -sfn ~/.dotfiles/.spacemacs ~/.spacemacs
 
 newsboat:
