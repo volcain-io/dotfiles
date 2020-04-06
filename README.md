@@ -40,7 +40,7 @@ See `[module/wifi]` inside polybar config file for more details.
 
 ### Wireguard
 
-The flag inside polybar turns on/off accordingly to show me the status of wireguard. I use a simple script to start/stop wireguard (`wg-status` inside the `localbin` folder), which needs to run as `sudo`.
+The flag inside polybar turns on/off accordingly to show me the status of wireguard. I use a simple script to start/stop wireguard (`wg-status` inside the `.localbin` folder), which needs to run as `sudo`.
 Therefore the script will prompt for `sudo` password, if you want to start or stop the service.
 
 | State | Description          | Screenshot                                      | How To                                                                                                   |
@@ -159,16 +159,16 @@ A custom script checks periodically for available updates.
 
 ### Wallpaper
 
-The script **[set-wallpaper](localbin/set-wallpaper)** sets randomly the wallpapers on start. It can be invoked from the command line, too. The script checks, how many monitors are connected and chooses randomly a wallpaper for each monitor. To set the wallpaper on each monitor **[feh](https://github.com/amix/vimrc)** is used. The wallpapers are stored inside the **[wallpapers](wallpapers)** directory.
+The script **[set-wallpaper](.localbin/set-wallpaper)** sets randomly the wallpapers on start. It can be invoked from the command line, too. The script checks, how many monitors are connected and chooses randomly a wallpaper for each monitor. To set the wallpaper on each monitor **[feh](https://github.com/amix/vimrc)** is used. The wallpapers are stored inside the **[wallpapers](wallpapers)** directory.
 
 ### Taking Screenshots
 
-Custom Script: **[take-screenshot](localbin/take-screenshot)**
+Custom Script: **[take-screenshot](.localbin/take-screenshot)**
 
 ![Taking a Screenshot](screenshots/take-screenshot.png)
 
 ### Power Management
 
-Custom Script: **[session-menu](localbin/session-menu)**
+Custom Script: **[session-menu](.localbin/session-menu)**
 
 ![Session Menu](screenshots/session-menu.png)
