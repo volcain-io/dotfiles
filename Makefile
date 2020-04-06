@@ -1,4 +1,4 @@
-.PHONY: all install config localctl systemctl yay zsh spacevim spacemacs polybar dropbox nnn
+.PHONY: all install config localctl systemctl yay zsh spacevim spacemacs polybar dropbox nnn st
 all:
 	make install
 	make config
@@ -11,6 +11,7 @@ all:
 	make polybar
 	make dropbox
 	make nnn
+	make st
 
 install:
 	sudo pacman -S --noconfirm --needed acpid adobe-source-code-pro-fonts advcp alsa-utils alsa-plugins alsa-lib atool avahi bat chromium compton cronie ctags cups dbus diff-so-fancy dunst emacs exa fd feh firefox fzf gimp highlight htop i3-gaps i3lock inkscape jq macchanger maim mediainfo mpv mupdf newsboat nodejs npm nnn pandoc pass powerline-fonts renameutils ripgrep rlwrap rofi scribus termite tig thunderbird tmux tldr ttf-hack trash-cli whois yarn xorg-server xorg-apps xorg-drivers xorg-init zsh
@@ -82,3 +83,11 @@ dropbox:
 nnn:
 	curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 	ln -sfn ~/.dotfiles/.config/nnn/plugins/z ~/.config/nnn/plugins/z
+
+st:
+	cd /opt/ && sudo wget https://dl.suckless.org/st/st-0.8.2.tar.gz
+	cd /opt/ && sudo tar -xzvf st-0.8.2.tar.gz
+	sudo mv /opt/st-0.8.2 /opt/st
+	sudo ln -sfn ~/.dotfiles/opt/st/config.h /opt/st/config.h
+	cd /opt/st/ && sudo  make clean install
+	sudo chown -R fred:fred /opt/st/
