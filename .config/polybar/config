@@ -84,9 +84,7 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-padding-right = 1
-
-module-margin-left = 1
+separator = " "
 
 font-0 = "Hack:size=10:weight=bold;1"
 
