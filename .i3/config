@@ -154,39 +154,42 @@ bindsym $mod+Ctrl+Left workspace prev
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
 #set $ws1 "1:main"
-set $ws1 "1:code"
-set $ws2 "2:web"
-set $ws3 "3:mail"
+set $ws1 "1:1"
+set $ws2 "2:2"
+set $ws3 "3:3"
+set $ws4 "4:4"
 
 # output workspaces to specific monitors
 #workspace "1:main" output LVDS1
-workspace "1:code" output LVDS1
-workspace "2:web" output HDMI1
-workspace "3:mail" output VGA1
+workspace "1:1" output LVDS1
+workspace "2:2" output HDMI1
+workspace "3:3" output VGA1
+workspace "4:4" output VGA1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
-#bindsym $mod+4 workspace $ws4
+bindsym $mod+4 workspace $ws4
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
 bindsym $mod+Ctrl+2 move container to workspace $ws2
 bindsym $mod+Ctrl+3 move container to workspace $ws3
-#bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+4 move container to workspace $ws4
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-#bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
 
 # Open applications on specific workspaces
-assign [class="Emacs"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="Chromium"] $ws2
-assign [class="Thunderbird"] $ws3
+assign [class="st"] $ws1
+assign [class="Emacs"] $ws2
+assign [class="(?i)firefox"] $ws3
+assign [class="Chromium"] $ws3
+assign [class="Thunderbird"] $ws4
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
