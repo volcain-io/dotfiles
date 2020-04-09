@@ -2,9 +2,10 @@
 #
 # Quickly enable/disable git url rewrite configuration
 #
-# Usage: git-url-rewrite [enable|disable]
+# Usage: git-url-rewrite [-e|-d] [-h]
 #
-#   $git-url-rewrite [enable|disable]
+#   $git-url-rewrite [-e|-d] [-h]
+#
 
 # This option will make the script exit when there is an error
 set -o errexit
@@ -21,13 +22,52 @@ __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
-option="${1:-enable}"
+options="${1:-}"
+flag=false
 
-if [[ ${option} == "enable" ]]; then
-  sed -i 's/^\;//' ~/.gitconfig
+usage() {
+  echo "Usage: git-url-rewrite [OPTIONS]"
+  echo -e "\nLONG VIEW OPTIONS"
+  echo -e "   -h, --help\t\tDisplay this help message"
+  echo -e "   -e, --enable\t\tEnable url rewrite"
+  echo -e "   -d, --disable\tDisable url rewrite"
+  echo -e "\nEnable/disable usage of git@github.com[:] instead of git://github.com and https://github.com."
+}
+
+if [[ -z ${options} ]]; then
+  usage
+  exit 0
 else
-  sed -i 's/^\[url/;&/' ~/.gitconfig
-  sed -i 's/^\s*\t*insteadOf/;&/' ~/.gitconfig
+  while getopts ':edh-:' opt; do
+    if [ "${opt}" = "-" ]; then
+      opt="${OPTARG%%=*}"
+    fi
+    case $opt in
+      e | enable)
+        if [ ${flag} = false ]; then
+          sed -i 's/^\;//' ~/.gitconfig
+          flag=true
+        fi
+        ;;
+      d | disable)
+        if [ ${flag} = false ]; then
+          sed -i 's/^\[url/;&/' ~/.gitconfig
+          sed -i 's/^\s*\t*insteadOf/;&/' ~/.gitconfig
+          flag=true
+        fi
+        ;;
+      h | help)
+        usage
+        exit 0
+        ;;
+      *)
+        echo "Invalid option: -$OPTARG" >&2
+        echo -e "\r"
+        usage
+        exit 2
+        ;;
+    esac
+  done
 fi
 
 exit $?
