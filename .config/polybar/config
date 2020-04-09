@@ -152,9 +152,9 @@ format-connected-prefix = "wifi "
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = "wifi "
 
-label-connected = %{A1:termite -e "sudo wifi-menu":}%essid%%{A}
+label-connected = %{A1:st -e sudo wifi-menu &:}%essid%%{A}
 label-connected-foreground = ${colors.wifi-label-connected-foreground}
-label-disconnected = %{A1:termite -e "sudo wifi-menu":}%ifname%%{A}
+label-disconnected = %{A1:st -e sudo wifi-menu &:}%ifname%%{A}
 label-disconnected-foreground = ${colors.wifi-label-disconnected-foreground}
 
 [module/wg]
