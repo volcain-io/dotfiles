@@ -26,7 +26,7 @@ pattern="${1:-}"
 if [[ -z ${pattern} ]]; then
   echo "error: The following required arguments were not provided:"
   echo "    <PATTERN>"
-  echo -e "\nUsage:\n";
+  echo -e "\nUsage:\r";
   echo "    preview PATTERN";
 else
   rg --files-with-matches --no-messages "$1" | fzf --preview "bat --color always {} 2>/dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}" 
