@@ -10,6 +10,6 @@ rofi.run-shell-command: {terminal} -e {cmd}
 rofi.show-icons:        true
 rofi.ssh-client:        ssh
 rofi.ssh-command:       {terminal} -e {ssh-client} {host}
-rofi.terminal:          termite
+rofi.terminal:          st
 rofi.theme:             dracula
 rofi.window-command:    xkill -id {window}
