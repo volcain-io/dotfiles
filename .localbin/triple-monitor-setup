@@ -5,6 +5,10 @@
 # Usage: triple-monitor-setup
 #
 #   $ triple-monitor-setup
+#
+# Create a udev rule to automatically change the monitor setup on connect/disconnect event (https://wiki.archlinux.org/index.php/Udev)
+# /etc/udev/rules.d/99-monitor-changed.rules
+# ACTION=="change", SUBSYSTEM=="drm", RUN+="/path/to/triple-monitor-setup"
 
 # This option will make the script exit when there is an error
 set -o errexit
@@ -20,61 +24,38 @@ __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __file="${__dir}/basename "${BASH_SOURCE[0]}")"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
-# Workaround to turn on connected outputs
-# that may be in suspend mode and
-# hence shown as disconnected.
+# Workaround to turn on connected outputs that may be in suspend mode and hence shown as disconnected.
 declare -i count=1
 declare -i seconds=1
 while((count)); do
-    xrandr >/dev/null
+    xrandr --auto >/dev/null
     sleep $seconds
     ((count--))
 done
 
-num_monitors=$(($(xrandr --listmonitors | awk '/Monitors:/ {print $2}')))
-output_hdmi1="--output HDMI1 --off" # LEFT
-output_lvds1="--output LVDS1 --off" # CENTER
-output_vga1="--output VGA1 --off" # RIGHT
+dmode_lvds1="$(cat /sys/class/drm/card0-LVDS-1/status)"
+dmode_hdmi1="$(cat /sys/class/drm/card0-HDMI-A-1/status)"
+dmode_vga1="$(cat /sys/class/drm/card0-VGA-1/status)"
 
-# Following constellations are possible:
-# 1st: default
-# LEFT  CENTER  RIGHT
-#  |       |      |
-# HDMI1  LVDS1   VGA1
-#
-# 2nd: HDMI disconnected.
-# LEFT  CENTER  RIGHT
-#  |       |      |
-# NONE   LVDS1   VGA1
-#
-# 3rd: Laptop screen only (LVDS1)
-# LEFT  CENTER  RIGHT
-#  |       |      |
-# NONE   LVDS1   NONE
-for (( i = 0; i <= $num_monitors; i++ ))
-do
-  monitor=$(xrandr --listmonitors | awk -v count="$i" '$1 ~ count":" {printf $4}')
-  if [[ ${monitor} == "HDMI1" ]]; then # LEFT
-    output_hdmi1="--output HDMI1 --crtc 1 --mode 1920x1080 --rotate normal --pos 0x0"
+output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 0x0" # laptop screen, is always on
+output_hdmi1="--output HDMI1 --off" # LEFT screen
+output_vga1="--output VGA1 --off" # RIGHT screen
+
+if [[ ${dmode_hdmi1} = "connected" ]]; then
+  output_hdmi1="--output HDMI1 --auto --crtc 1 --mode 1920x1080 --rotate normal --pos 0x0"
+  output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 1920x0"
+fi
+if [[ ${dmode_vga1} == "connected" ]]; then
+  output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 0x0"
+  output_vga1="--output VGA1 --auto --crtc 2 --mode 1920x1080 --rotate normal --pos 1600x0"
+  if [[ ${dmode_hdmi1} = "connected" ]]; then
+    output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 1920x0"
+    output_vga1="--output VGA1 --auto --crtc 2 --mode 1920x1080 --rotate normal --pos 3520x0"
   fi
-  if [[ ${monitor} == "LVDS1" ]]; then # CENTER
-    output_lvds1="--output LVDS1 --primary --mode 1600x900 --rotate normal"
-    if [[ ${num_monitors} -eq 1 ]] || [[ ${num_monitors} -eq 2 ]]; then
-      output_lvds1=("${output_lvds1} --pos 0x0")
-    fi
-    if [[ ${num_monitors} -eq 3 ]]; then
-      output_lvds1=("${output_lvds1} --pos 1920x0")
-    fi
-  fi
-  if [[ ${monitor} == "VGA1" ]]; then # RIGHT
-    output_vga1="--output VGA1 --crtc 2 --mode 1920x1080 --rotate normal"
-    if [[ ${num_monitors} -eq 2 ]]; then
-      output_vga1=("${output_vga1} --pos 1600x0")
-    fi
-    if [[ ${num_monitors} -eq 3 ]]; then
-      output_vga1=("${output_vga1} --pos 3520x0")
-    fi
-  fi
-done
+fi
 
 xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off ${output_hdmi1} ${output_lvds1} ${output_vga1}
+# relaunch polybar, if installed
+if hash polybar >/dev/null 2>&1; then
+  $HOME/.localbin/launch-polybar
+fi
