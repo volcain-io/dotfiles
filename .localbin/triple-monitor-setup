@@ -2,7 +2,7 @@
 #
 # Set up monitors. Maximum three monitors can be connected.
 #
-# Usage: triple-monitor-setup
+# Usage: triple-monitor-setup [-p] [-w]
 #
 #   $ triple-monitor-setup
 #
@@ -24,38 +24,69 @@ __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __file="${__dir}/basename "${BASH_SOURCE[0]}")"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
-# Workaround to turn on connected outputs that may be in suspend mode and hence shown as disconnected.
-declare -i count=1
-declare -i seconds=1
-while((count)); do
-    xrandr >/dev/null
-    sleep $seconds
-    ((count--))
+options="${1:-}"
+
+# Workaround to turn on connected outputs that may be in suspend mode and hence shown as disconnected
+init() {
+  declare -i count=1
+  declare -i seconds=1
+  while((count)); do
+      xrandr >/dev/null
+      sleep $seconds
+      ((count--))
+  done
+}
+
+setup_monitors() {
+  dmode_lvds1="$(cat /sys/class/drm/card0-LVDS-1/status)"
+  dmode_hdmi1="$(cat /sys/class/drm/card0-HDMI-A-1/status)"
+  dmode_vga1="$(cat /sys/class/drm/card0-VGA-1/status)"
+
+  output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 0x0" # laptop screen, is always on
+  output_hdmi1="--output HDMI1 --off" # LEFT screen
+  output_vga1="--output VGA1 --off" # RIGHT screen
+
+  if [[ ${dmode_hdmi1} = "connected" ]]; then
+    output_hdmi1="--output HDMI1 --auto --crtc 1 --mode 1920x1080 --rotate normal --pos 0x0"
+    output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 1920x0"
+  fi
+  if [[ ${dmode_vga1} == "connected" ]]; then
+    output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 0x0"
+    output_vga1="--output VGA1 --auto --crtc 2 --mode 1920x1080 --rotate normal --pos 1600x0"
+    if [[ ${dmode_hdmi1} = "connected" ]]; then
+      output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 1920x0"
+      output_vga1="--output VGA1 --auto --crtc 2 --mode 1920x1080 --rotate normal --pos 3520x0"
+    fi
+  fi
+
+  xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off ${output_hdmi1} ${output_lvds1} ${output_vga1} > /dev/null
+}
+
+launch_polybar() {
+  $HOME/.localbin/launch-polybar
+}
+
+set_wallpaper() {
+  $HOME/.localbin/set-wallpaper
+}
+
+init
+
+while getopts ':pw-:' opt; do
+  if [ "${opt}" = "-" ]; then
+    opt="${OPTARG%%=*}"
+  fi
+  case $opt in
+    p | polybar)
+      launch-polybar
+      ;;
+    w | wallpaper)
+      set_wallpaper
+      ;;
+    *)
+      setup_monitors
+      ;;
+  esac
 done
 
-dmode_lvds1="$(cat /sys/class/drm/card0-LVDS-1/status)"
-dmode_hdmi1="$(cat /sys/class/drm/card0-HDMI-A-1/status)"
-dmode_vga1="$(cat /sys/class/drm/card0-VGA-1/status)"
-
-output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 0x0" # laptop screen, is always on
-output_hdmi1="--output HDMI1 --off" # LEFT screen
-output_vga1="--output VGA1 --off" # RIGHT screen
-
-if [[ ${dmode_hdmi1} = "connected" ]]; then
-  output_hdmi1="--output HDMI1 --auto --crtc 1 --mode 1920x1080 --rotate normal --pos 0x0"
-  output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 1920x0"
-fi
-if [[ ${dmode_vga1} == "connected" ]]; then
-  output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 0x0"
-  output_vga1="--output VGA1 --auto --crtc 2 --mode 1920x1080 --rotate normal --pos 1600x0"
-  if [[ ${dmode_hdmi1} = "connected" ]]; then
-    output_lvds1="--output LVDS1 --auto --primary --mode 1600x900 --rotate normal --pos 1920x0"
-    output_vga1="--output VGA1 --auto --crtc 2 --mode 1920x1080 --rotate normal --pos 3520x0"
-  fi
-fi
-
-xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off ${output_hdmi1} ${output_lvds1} ${output_vga1} > /dev/null
-# try to relaunch polybar
-$HOME/.localbin/launch-polybar
-# set wallpaper
-$HOME/.localbin/set-wallpaper
+exit $?
