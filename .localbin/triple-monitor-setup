@@ -8,7 +8,7 @@
 #
 # Create a udev rule to automatically change the monitor setup on connect/disconnect event (https://wiki.archlinux.org/index.php/Udev)
 # /etc/udev/rules.d/99-monitor-changed.rules
-# ACTION=="change", SUBSYSTEM=="drm", RUN+="/path/to/triple-monitor-setup"
+# ACTION=="change", SUBSYSTEM="drm", RUN+="/path/to/triple-monitor-setup"
 
 # This option will make the script exit when there is an error
 set -o errexit
@@ -28,7 +28,7 @@ __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on
 declare -i count=1
 declare -i seconds=1
 while((count)); do
-    xrandr --auto >/dev/null
+    xrandr >/dev/null
     sleep $seconds
     ((count--))
 done
@@ -54,8 +54,8 @@ if [[ ${dmode_vga1} == "connected" ]]; then
   fi
 fi
 
-xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off ${output_hdmi1} ${output_lvds1} ${output_vga1}
-# relaunch polybar, if installed
-if hash polybar >/dev/null 2>&1; then
-  $HOME/.localbin/launch-polybar
-fi
+xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off ${output_hdmi1} ${output_lvds1} ${output_vga1} > /dev/null
+# try to relaunch polybar
+$HOME/.localbin/launch-polybar
+# set wallpaper
+$HOME/.localbin/set-wallpaper
