@@ -25,6 +25,8 @@ dir_wallpaper="${1:-${HOME}/.dotfiles/wallpapers}"
 num_of_monitors="$(xrandr --listmonitors | awk '/Monitors:/ {print $2}')"
 random_wallpapers=$(ls ${dir_wallpaper} | shuf -n${num_of_monitors} | awk -v dir_w="$dir_wallpaper" '{print dir_w"/"$1}')
 
-feh --no-fehbg --bg-max ${random_wallpapers}
+if hash feh >/dev/null 2>&1; then
+  feh --no-fehbg --bg-max ${random_wallpapers}
+fi
 
 exit $?
