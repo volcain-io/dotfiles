@@ -12,6 +12,8 @@ set -o errexit
 set -o pipefail
 # This option will make the script exit when it tries to use an unset variable
 set -o nounset
+# No log/history
+set -o nolog
 # Trace what gets executed
 # set -o xtrace
 
