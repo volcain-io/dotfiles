@@ -1,0 +1,56 @@
+#!/usr/bin/env sh
+#
+# Upgrade spacemacs to latest version of given branch (default branch is develop)
+#
+# Usage: upgrade-spacemacs [BRANCH]
+#
+#   $upgrade-spacemacs master
+
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# No log/history
+set -o nolog
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+branch=${1:-develop}
+
+# Use colors, but only if connected to a terminal, and that terminal
+# supports them.
+## DEFINE COLORS
+
+# probably don't change these
+if [ -x "$(command -v tput)" ]; then
+	red="$(tput setaf 1)"
+	green="$(tput setaf 2)"
+	reset="$(tput sgr0)"
+fi
+
+cd "$HOME/.emacs.d/"
+
+printf "%s\n" "Updating Spacemacs..."
+if git pull --rebase --stat origin ${branch}
+then
+  printf '%s' "${green}"
+  printf '%s\n' '███████╗██████╗**█████╗**██████╗███████╗███╗***███╗*█████╗**██████╗███████╗'
+  printf '%s\n' '██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗*████║██╔══██╗██╔════╝██╔════╝'
+  printf '%s\n' '███████╗██████╔╝███████║██║*****█████╗**██╔████╔██║███████║██║*****███████╗'
+  printf '%s\n' '╚════██║██╔═══╝*██╔══██║██║*****██╔══╝**██║╚██╔╝██║██╔══██║██║*****╚════██║'
+  printf '%s\n' '███████║██║*****██║**██║╚██████╗███████╗██║*╚═╝*██║██║**██║╚██████╗███████║'
+  printf '%s\n' '╚══════╝╚═╝*****╚═╝**╚═╝*╚═════╝╚══════╝╚═╝*****╚═╝╚═╝**╚═╝*╚═════╝╚══════╝'
+  printf "${reset}%s\n" "Hooray! Spacemacs has been updated and/or is at the current version [branch=$branch]."
+else
+  printf "${red}%s${reset}\n" 'There was an error updating. Please try again later.'
+fi
+
+exit $?

@@ -1,0 +1,89 @@
+#!/usr/bin/env sh
+#
+# Check for upgrade of Spacemacs every 14 days
+#
+# Usage: check-spacemacs-upgrade
+#
+#   $check-spacemacs-upgrade
+
+# This option will make the script exit when there is an error
+set -o errexit
+# This option will make the script exit when last command threw an error
+set -o pipefail
+# This option will make the script exit when it tries to use an unset variable
+set -o nounset
+# No log/history
+set -o nolog
+# Trace what gets executed
+# set -o xtrace
+
+# Set magic variables for current file & dir
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__base="$(basename ${__file} .sh)"
+__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
+
+TMP_DIR=/tmp
+LOCALBIN_DIR=$HOME/.dotfiles/.localbin
+# check for upgrades every 14 days
+epoch_target=13
+update_file=${TMP_DIR}/.spacemacs.update
+lock_file=${TMP_DIR}/.spacemacs.update.lck
+
+function _current_epoch() {
+  echo $(( $(date +%s) / 60 / 60 / 24 ))
+}
+
+function _update_spacemacs_update() {
+  echo "LAST_EPOCH=$(_current_epoch)" > ${update_file}
+}
+
+function _upgrade_spacemacs() {
+  sh ${LOCALBIN_DIR}/upgrade-spacemacs
+
+  _update_spacemacs_update
+}
+
+# check write permissions to emacs directory
+[[ -w "${HOME}/.emacs.d/" ]] || return 0
+
+# check, if Spacemacs is installed
+[[ -e ${HOME}/.spacemacs ]] || return 0
+
+# check, if git is available
+hash git >/dev/null || return 0
+
+# No need to run this script, if an update is already being performed
+if [[ ! -e ${lock_file} ]]; then
+  touch ${lock_file}
+
+  if [ -f ${update_file} ]; then
+    . ${update_file}
+
+    if [[ -z ${LAST_EPOCH} ]]; then
+      _update_spacemacs_update
+      rm ${lock_file}
+      return 0
+    fi
+
+    epoch_diff=$(($(_current_epoch) - ${LAST_EPOCH}))
+    if [ ${epoch_diff} -gt ${epoch_target} ]; then
+      echo -n "[Spacemacs] Would you like to update? [Y/n]: "
+      read line
+      if [[ "${line}" == Y* ]] || [[ "${line}" == y* ]] || [ -z "${line}" ]; then
+        _upgrade_spacemacs
+      else
+        _update_spacemacs_update
+      fi
+    fi
+  else
+    _update_spacemacs_update
+  fi
+
+  rm ${lock_file}
+else
+  echo "Unable to lock process. If you are sure an update is not already running, you can remove ${lock_file}"
+fi
+
+
+exit $?
