@@ -45,14 +45,15 @@ else
     case $opt in
       e | enable)
         if [ ${flag} = false ]; then
-          sed -i 's/^\;//' ~/.gitconfig
+          git config --global url.git@github.com.insteadOf git://github.com
+          git config --global url.git@github.com:.insteadOf https://github.com
           flag=true
         fi
         ;;
       d | disable)
         if [ ${flag} = false ]; then
-          sed -i 's/^\[url/;&/' ~/.gitconfig
-          sed -i 's/^\s*\t*insteadOf/;&/' ~/.gitconfig
+          git config --global --unset url.git@github.com.insteadOf
+          git config --global --unset url.git@github.com:.insteadOf
           flag=true
         fi
         ;;
