@@ -5,13 +5,10 @@
 ## INFO
 
 # user is already defined
-host="$(hostname)"
-os='Manjaro'
+os="$(cat /etc/os-release | grep 'PRETTY' | cut -d '=' -f 2 | sed 's/"//g')"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"
-shell="$(basename "$SHELL")"
-terminal="$TERM"
 
 ## UI DETECTION
 
@@ -23,34 +20,26 @@ ui_type='WM'
 # probably don't change these
 if [ -x "$(command -v tput)" ]; then
 	bold="$(tput bold)"
-	black="$(tput setaf 0)"
-	red="$(tput setaf 1)"
 	green="$(tput setaf 2)"
-	green_bg="$(tput setab 2)"
-	yellow="$(tput setaf 3)"
-	blue="$(tput setaf 4)"
-	magenta="$(tput setaf 5)"
-	cyan="$(tput setaf 6)"
 	white="$(tput setaf 7)"
 	reset="$(tput sgr0)"
+  # you can change these
+  bold_green_fg="${reset}${bold}${green}" # bold, green, foreground
+  bold_white_fg="${reset}${bold}${white}" # bold, white, foreground
 fi
 
-# you can change these
-bold_green_fg="${reset}${bold}${green}" # bold, green, foreground
-bold_white_fg="${reset}${bold}${white}" # bold, white, foreground
 ## OUTPUT
-
 cat <<EOF
 
 ${bold_green_fg}       █████${bold_white_fg}══╗         [${bold_green_fg}USER${bold_white_fg}]  ${bold_green_fg}${USER}
-${bold_green_fg}     █████████${bold_white_fg}╚═╗       [${bold_green_fg}HOST${bold_white_fg}]  ${bold_green_fg}${host}
-${bold_green_fg}   █████████████${bold_white_fg}║         [${bold_green_fg}OS${bold_white_fg}]  ${os}${reset}
-${bold_green_fg}   ██${bold_white_fg}╔═╗${bold_green_fg}███${bold_white_fg}╔═╗${bold_green_fg}██${bold_white_fg}║     [${bold_green_fg}KERNEL${bold_white_fg}]  ${kernel}${reset}
-${bold_green_fg}   █████████████${bold_white_fg}║     [${bold_green_fg}UPTIME${bold_white_fg}]  ${uptime}${reset}
-${bold_green_fg}     ████ ████${bold_white_fg}╔═╝   [${bold_green_fg}PACKAGES${bold_white_fg}]  ${packages}${reset}
-${bold_green_fg}       █████${bold_white_fg}╔═╝        [${bold_green_fg}SHELL${bold_white_fg}]  ${shell}${reset}
-${bold_green_fg}       █${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║             [${bold_green_fg}${ui_type}${bold_white_fg}]  ${ui}${reset}
-${bold_green_fg}       █${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║       [${bold_green_fg}TERMINAL${bold_white_fg}]  ${terminal}${reset}
-${bold_white_fg}       ╚╝╚╝╚╝
+${bold_green_fg}     █████████${bold_white_fg}╚═╗       [${bold_green_fg}HOST${bold_white_fg}]  ${bold_green_fg}$(hostname)
+${bold_green_fg}   █████████████${bold_white_fg}║         [${bold_green_fg}OS${bold_white_fg}]  ${os}
+${bold_green_fg}   ██${bold_white_fg}╔═╗${bold_green_fg}███${bold_white_fg}╔═╗${bold_green_fg}██${bold_white_fg}║     [${bold_green_fg}KERNEL${bold_white_fg}]  ${kernel}
+${bold_green_fg}   █████████████${bold_white_fg}║     [${bold_green_fg}UPTIME${bold_white_fg}]  ${uptime}
+${bold_green_fg}     ████ ████${bold_white_fg}╔═╝   [${bold_green_fg}PACKAGES${bold_white_fg}]  ${packages}
+${bold_green_fg}       █████${bold_white_fg}╔═╝        [${bold_green_fg}SHELL${bold_white_fg}]  $(basename "$SHELL")
+${bold_green_fg}       █${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║             [${bold_green_fg}${ui_type}${bold_white_fg}]  ${ui}
+${bold_green_fg}       █${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║${bold_green_fg}█${bold_white_fg}║       [${bold_green_fg}TERMINAL${bold_white_fg}]  ${TERM}
+${bold_white_fg}       ╚╝╚╝╚╝${reset}
 
 EOF
