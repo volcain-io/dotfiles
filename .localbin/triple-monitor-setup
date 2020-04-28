@@ -38,9 +38,9 @@ init() {
 }
 
 setup_monitors() {
-  dmode_lvds1="$(cat /sys/class/drm/card0-LVDS-1/status)"
-  dmode_hdmi1="$(cat /sys/class/drm/card0-HDMI-A-1/status)"
-  dmode_vga1="$(cat /sys/class/drm/card0-VGA-1/status)"
+  dmode_lvds1="$(cat /sys/class/drm/card1-LVDS-1/status)"
+  dmode_hdmi1="$(cat /sys/class/drm/card1-HDMI-A-1/status)"
+  dmode_vga1="$(cat /sys/class/drm/card1-VGA-1/status)"
 
   output_lvds1="--output LVDS1 --primary --mode 1600x900 --rotate normal --pos 0x0" # laptop screen, is always on
   output_hdmi1="--output HDMI1 --off" # LEFT screen
