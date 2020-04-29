@@ -281,7 +281,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id ~/.localbin/triple-monitor-setup; ~/.localbin/set-wallpaper; sleep 1; picom -b; ~/.localbin/launch-polybar
+exec_always --no-startup-id ~/.localbin/triple-monitor-setup; ~/.localbin/set-random-wallpaper; sleep 1; picom -b; ~/.localbin/launch-polybar
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
