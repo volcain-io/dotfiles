@@ -2,9 +2,9 @@
 #
 # Opens fzf with a file preview
 #
-# Usage: preview PATTERN
+# Usage: preview PATTERN [PATH]
 #
-#   $ preview PATTERN
+#   $ preview PATTERN [PATH]
 
 # This option will make the script exit when there is an error
 set -o errexit
@@ -22,6 +22,7 @@ __base="$(basename ${__file} .sh)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
 pattern="${1:-}"
+path="${2:-.}"
 
 if [[ -z ${pattern} ]]; then
   echo "error: The following required arguments were not provided:"
@@ -29,7 +30,7 @@ if [[ -z ${pattern} ]]; then
   echo -e "\nUsage:\r";
   echo "    preview PATTERN";
 else
-  rg --files-with-matches --no-messages "$1" | fzf --preview "bat --color always {} 2>/dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}" 
+  rg --files-with-matches --no-messages --hidden --glob "!.git" --ignore-case "${pattern}" "${path}" | fzf --preview "bat --color always {} 2>/dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '${pattern}' || rg --ignore-case --pretty --context 10 '${pattern}' {}"
 fi
 
 exit $?
