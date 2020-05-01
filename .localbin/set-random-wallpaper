@@ -3,9 +3,9 @@
 # Set wallpaper(s) according to number of monitors.
 # Default directory for wallpapers is ~/.dotfiles/wallpapers.
 #
-# Usage: set-wallpapers [DIRECTORY]
+# Usage: set-random-wallpapers [DIRECTORY]
 #
-#   $ set-wallpapers ~/Pictures/Wallpapers
+#   $ set-random-wallpapers ~/Pictures/Wallpapers
 
 # This option will make the script exit when there is an error
 set -o errexit
