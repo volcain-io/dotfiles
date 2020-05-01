@@ -24,7 +24,7 @@ __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on
 
 case $(echo "[L]ock|[E]xit|[S]hutdown" | rofi -sep '|' -auto-select -no-fixed-num-lines -dmenu -p "Session" -i) in
     '[L]ock')
-        ~/.dotfiles/localbin/blurlock
+        blurlock
         ;;
     '[E]xit')
         i3exit logout
