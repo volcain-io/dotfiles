@@ -18,6 +18,7 @@ install:
 
 config:
 	ln -sfn ~/.dotfiles/.config/dunst ~/.config/dunst
+	ln -sfn ~/.dotfiles/.config/picom ~/.config/picom
 	ln -sfn ~/.dotfiles/.config/rofi ~/.config/rofi
 	ln -sfn ~/.dotfiles/.config/sxiv ~/.config/sxiv
 	ln -sfn ~/.dotfiles/.ctags ~/.
