@@ -249,6 +249,7 @@ type = custom/script
 exec = pacman-status
 
 format-prefix = "|"
+format-suffix = " "
 click-left="st -e sudo pacman -Syyu &"
 
 [module/user]
