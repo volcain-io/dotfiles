@@ -35,7 +35,7 @@ function _current_epoch() {
 }
 
 function _update_spacemacs_update() {
-  echo "LAST_EPOCH=$(_current_epoch)" > ${update_file}
+  echo "LAST_EPOCH=$(_current_epoch)" >| ${update_file}
 }
 
 function _upgrade_spacemacs() {
@@ -72,9 +72,10 @@ if [[ ! -e ${lock_file} ]]; then
       read line
       if [[ "${line}" == Y* ]] || [[ "${line}" == y* ]] || [ -z "${line}" ]; then
         _upgrade_spacemacs
-      else
-        _update_spacemacs_update
       fi
+    else
+      days_till_next_update=$((${epoch_target} - ${epoch_diff}))
+      echo "Already latest version. Check back in ${days_till_next_update} days ..."
     fi
   else
     _update_spacemacs_update
