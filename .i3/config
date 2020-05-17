@@ -185,12 +185,12 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 
 # Open applications on specific workspaces
-assign [class="st"] $ws6
 assign [class="(?i)Emacs"] $ws1
 assign [class="(?i)Vim"] $ws2
 assign [class="(?i)Firefox|(?i)Chromium"] $ws3
 assign [class="(?i)FileZilla"] $ws4
 assign [class="(?i)Thunderbird"] $ws5
+assign [class="st"] $ws6
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
