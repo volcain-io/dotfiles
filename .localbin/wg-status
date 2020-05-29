@@ -23,11 +23,11 @@ __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on
 
 interface="${1:?Unknown interface}"
 
-status=$(echo -n $(ip addr show dev ${interface} 2>/dev/null | awk 'END { print NR }'))
+status=$(echo -n $(ip addr show dev ${interface} 2>/dev/null))
 
-if [[ ${status} == "0" ]]; then
+if [[ -z ${status} ]]; then
     echo -n "%{F#ff5555} off"
-elif [[ -n ${status} ]]; then
+else
     echo -n "%{F#50fa7b} on"
 fi
  
