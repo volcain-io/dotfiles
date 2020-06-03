@@ -35,7 +35,7 @@ function _current_epoch() {
 }
 
 function _update_spacemacs_update() {
-  echo "LAST_EPOCH=$(_current_epoch)" >| ${update_file}
+  echo "LAST_EPOCH=$(_current_epoch)" > ${update_file}
 }
 
 function _upgrade_spacemacs() {
@@ -44,14 +44,18 @@ function _upgrade_spacemacs() {
   _update_spacemacs_update
 }
 
-# check write permissions to emacs directory
-[[ -w "${HOME}/.emacs.d/" ]] || return 0
+function _check_dependencies() {
+  # check write permissions to emacs directory
+  [[ -w "${HOME}/.emacs.d/" ]] || return 0
 
-# check, if Spacemacs is installed
-[[ -e ${HOME}/.spacemacs ]] || return 0
+  # check, if Spacemacs is installed
+  [[ -e ${HOME}/.spacemacs ]] || return 0
 
-# check, if git is available
-hash git >/dev/null || return 0
+  # check, if git is available
+  hash git >/dev/null || return 0
+}
+
+_check_dependencies
 
 # No need to run this script, if an update is already being performed
 if [[ ! -e ${lock_file} ]]; then
