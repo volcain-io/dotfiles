@@ -35,7 +35,7 @@ function _current_epoch() {
 }
 
 function _update_spacemacs_update() {
-  echo "LAST_EPOCH=$(_current_epoch)" > ${update_file}
+  echo "LAST_EPOCH=$(_current_epoch)" >! ${update_file}
 }
 
 function _upgrade_spacemacs() {
