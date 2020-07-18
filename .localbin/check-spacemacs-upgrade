@@ -25,17 +25,17 @@ __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on
 
 TMP_DIR=/tmp
 LOCALBIN_DIR=$HOME/.dotfiles/.localbin
-# check for upgrades every 14 days
-epoch_target=13
+# 1123200 seconds equals 13 days (13 * 24 * 60 * 60)
+epoch_target=1123200
 update_file=${TMP_DIR}/.spacemacs.update
 lock_file=${TMP_DIR}/.spacemacs.update.lck
 
 function _current_epoch() {
-  echo $(( $(date +%s) / 60 / 60 / 24 ))
+  echo $(date +%s)
 }
 
 function _update_spacemacs_update() {
-  echo "LAST_EPOCH=$(_current_epoch)" >! ${update_file}
+  echo "LAST_EPOCH=$(_current_epoch)" > ${update_file}
 }
 
 function _upgrade_spacemacs() {
@@ -78,7 +78,8 @@ if [[ ! -e ${lock_file} ]]; then
         _upgrade_spacemacs
       fi
     else
-      days_till_next_update=$((${epoch_target} - ${epoch_diff}))
+      seconds_till_next_update=$((${epoch_target} - ${epoch_diff}))
+      days_till_next_update=$((${seconds_till_next_update} / 24 / 60 / 60 ))
       echo "Already latest version. Check back in ${days_till_next_update} days ..."
     fi
   else
