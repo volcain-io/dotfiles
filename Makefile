@@ -90,4 +90,4 @@ st:
 	sudo mv /opt/st-0.8.2 /opt/st
 	sudo ln -sfn ~/.dotfiles/opt/st/config.h /opt/st/config.h
 	cd /opt/st/ && sudo  make clean install
-	sudo chown -R fred:fred /opt/st/
+	sudo chown -R ${USER}:${USER} /opt/st/
