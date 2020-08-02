@@ -25,8 +25,8 @@ __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on
 
 TMP_DIR=/tmp
 LOCALBIN_DIR=$HOME/.dotfiles/.localbin
-# 1123200 seconds equals 13 days (13 * 24 * 60 * 60)
-epoch_target=1123200
+# 1296000 seconds equals 15 days (15 * 24 * 60 * 60)
+epoch_target=1296000
 update_file=${TMP_DIR}/.spacemacs.update
 lock_file=${TMP_DIR}/.spacemacs.update.lck
 
