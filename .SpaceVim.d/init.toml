@@ -46,6 +46,8 @@
 [[layers]]
   name = 'lang#elm'
 [[layers]]
+  name = 'lang#dart'
+[[layers]]
   name = 'lang#html'
 [[layers]]
   name = 'lang#javascript'
@@ -53,6 +55,8 @@
   name = 'lang#markdown'
 [[layers]]
   name = 'lang#php'
+[[layers]]
+  name = 'lang#powershell'
 [[layers]]
   name = 'lang#python'
   format_on_save = 1
