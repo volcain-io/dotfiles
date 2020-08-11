@@ -18,17 +18,16 @@ set -o nolog
 # set -o xtrace
 
 # Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+__file="${__dir}/$(basename "${BASH_SOURCE[0]:-$0}")"
 __base="$(basename ${__file} .sh)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
-TMP_DIR=/tmp
 LOCALBIN_DIR=$HOME/.dotfiles/.localbin
 # 1296000 seconds equals 15 days (15 * 24 * 60 * 60)
 epoch_target=1296000
-update_file=${TMP_DIR}/.spacemacs.update
-lock_file=${TMP_DIR}/.spacemacs.update.lck
+update_file=${__dir}/.spacemacs.update
+lock_file=${__dir}/.spacemacs.update.lck
 
 function _current_epoch() {
   echo $(date +%s)
