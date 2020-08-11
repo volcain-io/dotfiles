@@ -19,3 +19,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Configre nnn
 export NNN_BMS="D:~/.dotfiles/;d:~/Downloads/;x:~/Dropbox/;p:~/Pictures/;w:~/Workspace/"
 export NNN_PLUG="d:diffs;D:dragdrop;g:gutenread;h:hexview;i:imgview;w:ipinfo;r:renamer;s:suedit;t:treeview;u:uidgid;z:z"
+# Configure nvm
+export NVM_DIR="$HOME/.nvm"
+
