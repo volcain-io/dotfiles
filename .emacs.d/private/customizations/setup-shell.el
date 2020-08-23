@@ -7,3 +7,5 @@
 (setq shell-default-height 30)
 ;; shell window at bottom
 (setq shell-default-position 'bottom)
+;; shell language server
+(setq shell-scripts-backend 'lsp)
