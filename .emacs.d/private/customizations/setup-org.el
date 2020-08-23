@@ -55,12 +55,12 @@
         org-log-done 'time
 
         ;; custom capture templates
-        org-capture-templates '(("a" "Kiss the box - Abholung" entry (file "~/Dropbox/Orgzly/ktb/auslieferungen.org")
-                                 "* TODO [[%^{link}][%^{description}]] :auslieferung:\n  SCHEDULED: %^{Delivery date+time}T\n
-                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{PRINTER}p %^{BACKGR.}p %^{MISC}p %^{DRIVER}p" :empty-lines 1))
+        org-capture-templates '(("a" "Kiss the box - Abholung" entry (file "~/Dropbox/Orgzly/ktb/abholungen.org")
+                                 "* TODO [[%^{link}][%^{description}]] :abholung:\n  SCHEDULED: %^{pickup date+time}T\n
+                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{DRIVER}p" :empty-lines 1))
         org-capture-templates '(("l" "Kiss the box - Auslieferung" entry (file "~/Dropbox/Orgzly/ktb/auslieferungen.org")
-                                 "* TODO [[%^{link}][%^{description}]] :auslieferung:\n  SCHEDULED: %^{Delivery date+time}T\n
-                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{PRINTER}p %^{BACKGR.}p %^{MISC}p %^{DRIVER}p" :empty-lines 1))
+                                 "* TODO [[%^{link}][%^{description}]] :auslieferung:\n  SCHEDULED: %^{delivery date+time}T\n
+                                 %^{CONTACT}p %^{PHONE}p %^{BOX}p %^{PRINTER}p %^{TEMPLATE}p %^{BACKGR.}p %^{MISC}p %^{DRIVER}p" :empty-lines 1))
         )
 
   )
