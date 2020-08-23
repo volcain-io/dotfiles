@@ -29,11 +29,11 @@ _current_epoch() {
 }
 
 _update_spacemacs_update() {
-  echo "LAST_EPOCH=$(_current_epoch)" > ${update_file}
+  echo "LAST_EPOCH=$(_current_epoch)" > "${update_file}"
 }
 
 _upgrade_spacemacs() {
-  sh ${LOCALBIN_DIR}/upgrade-spacemacs
+  sh "${LOCALBIN_DIR}/upgrade-spacemacs"
 
   _update_spacemacs_update
 }
@@ -53,14 +53,14 @@ _check_dependencies
 
 # No need to run this script, if an update is already being performed
 if [[ ! -e ${lock_file} ]]; then
-  touch ${lock_file}
+  touch "${lock_file}"
 
-  if [ -f ${update_file} ]; then
-    . ${update_file}
+  if [ -f "${update_file}" ]; then
+    . "${update_file}"
 
     if [[ -z ${LAST_EPOCH} ]]; then
       _update_spacemacs_update
-      rm ${lock_file}
+      rm "${lock_file}"
       return 0
     fi
 
@@ -80,7 +80,7 @@ if [[ ! -e ${lock_file} ]]; then
     _update_spacemacs_update
   fi
 
-  rm ${lock_file}
+  rm "${lock_file}"
 else
   echo "Unable to lock process. If you are sure an update is not already running, you can remove ${lock_file}"
 fi
