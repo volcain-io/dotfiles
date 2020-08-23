@@ -19,9 +19,6 @@ set -o nolog
 
 # Set magic variables for current file & dir
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]:-$0}")"
-__base="$(basename ${__file} .sh)"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
 
 LOCALBIN_DIR=$HOME/.dotfiles/.localbin
 # 1296000 seconds equals 15 days (15 * 24 * 60 * 60)
