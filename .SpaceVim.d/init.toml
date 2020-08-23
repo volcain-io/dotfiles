@@ -42,11 +42,13 @@
 [[layers]]
   name = 'lang#asciidoc'
 [[layers]]
+  name = 'lang#dart'
+[[layers]]
   name = 'lang#extra'
 [[layers]]
   name = 'lang#elm'
 [[layers]]
-  name = 'lang#dart'
+  name = 'lang#go'
 [[layers]]
   name = 'lang#html'
 [[layers]]
