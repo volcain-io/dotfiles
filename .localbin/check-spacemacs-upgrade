@@ -24,21 +24,21 @@ epoch_target=1296000
 update_file=${__dir}/.spacemacs.update
 lock_file=${__dir}/.spacemacs.update.lck
 
-function _current_epoch() {
+_current_epoch() {
   echo $(date +%s)
 }
 
-function _update_spacemacs_update() {
+_update_spacemacs_update() {
   echo "LAST_EPOCH=$(_current_epoch)" > ${update_file}
 }
 
-function _upgrade_spacemacs() {
+_upgrade_spacemacs() {
   sh ${LOCALBIN_DIR}/upgrade-spacemacs
 
   _update_spacemacs_update
 }
 
-function _check_dependencies() {
+_check_dependencies() {
   # check write permissions to emacs directory
   [[ -w "${HOME}/.emacs.d/" ]] || return 0
 
