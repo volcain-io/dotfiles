@@ -52,8 +52,9 @@
 
 ;; display a vertical rule at column 120
 (setq-default fill-column 120)
-(add-hook 'prog-mode-hook 'turn-on-fci-mode)
-(add-hook 'text-mode-hook 'turn-on-fci-mode)
+;; (add-hook 'prog-mode-hook 'turn-on-fci-mode)
+;; (add-hook 'text-mode-hook 'turn-on-fci-mode)
+;; (add-hook 'org-mode-hook 'turn-off-fci-mode 'append)
 
 ;; Flycheck
 ;; turn on flychecking globally
