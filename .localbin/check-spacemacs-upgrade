@@ -21,8 +21,8 @@ set -o nolog
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 LOCALBIN_DIR=$HOME/.dotfiles/.localbin
-# 1296000 seconds equals 15 days (15 * 24 * 60 * 60)
-epoch_target=1296000
+# 1209600 seconds equals 14 days (14 * 24 * 60 * 60)
+epoch_target=1209600
 update_file=${__dir}/.spacemacs.update
 lock_file=${__dir}/.spacemacs.update.lck
 
@@ -68,7 +68,7 @@ if [[ ! -e ${lock_file} ]]; then
     fi
 
     epoch_diff=$(($(_current_epoch) - LAST_EPOCH))
-    if [ "${epoch_diff}" -gt "${epoch_target}" ]; then
+    if [[ "${epoch_diff}" -gt "${epoch_target}" ]]; then
       echo -n "[Spacemacs] Would you like to update? [Y/n]: "
       read -r line
       if [[ "${line}" == Y* ]] || [[ "${line}" == y* ]] || [ -z "${line}" ]; then
