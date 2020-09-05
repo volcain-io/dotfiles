@@ -50,6 +50,8 @@
 [[layers]]
   name = 'lang#go'
 [[layers]]
+  name = 'lang#git'
+[[layers]]
   name = 'lang#html'
 [[layers]]
   name = 'lang#javascript'
@@ -105,4 +107,7 @@
 # Custom plugins
 [[custom_plugins]]
   name = 'dracula/vim'
+  merged = false
+[[custom_plugins]]
+  name = 'junegunn/vader.vim'
   merged = false
