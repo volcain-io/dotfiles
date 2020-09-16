@@ -67,8 +67,8 @@ if [[ ! -e ${lock_file} ]]; then
       return 0
     fi
 
-    epoch_diff=$(($(_current_epoch) - LAST_EPOCH))
-    if [[ "${epoch_diff}" -gt "${epoch_target}" ]]; then
+    epoch_diff=$( (_current_epoch - LAST_EPOCH) )
+    if (( epoch_diff > epoch_target )); then
       echo -n "[Spacemacs] Would you like to update? [Y/n]: "
       read -r line
       if [[ "${line}" == Y* ]] || [[ "${line}" == y* ]] || [ -z "${line}" ]; then
