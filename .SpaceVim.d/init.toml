@@ -65,6 +65,10 @@
   name = 'lang#python'
   format_on_save = 1
 [[layers]]
+  name = 'lang#rust'
+  recommended_style = 1
+  format_on_save = 1
+[[layers]]
   name = 'lang#sh'
 [[layers]]
   name = 'lang#typescript'
@@ -81,6 +85,7 @@
     'javascript',
     'php',
     'python',
+    'rust',
     'sh',
     'typescript'
   ]
