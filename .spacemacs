@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
      go
      helm
      html
+     java
      javascript
      json
      lsp
@@ -506,6 +507,7 @@ before packages are loaded."
   ;; (load "setup-dart.el")
   ;; (load "setup-elm.el")
   (load "setup-git.el")
+  (load "setup-go.el")
   (load "setup-js.el")
   ;; (load "setup-markdown.el")
   (load "setup-org.el")
@@ -513,9 +515,11 @@ before packages are loaded."
   (load "setup-php.el")
   (load "setup-python.el")
   ;; (load "setup-ruby.el")
+  (load "setup-rust.el")
   (load "setup-shell.el")
   ;; (load "setup-smartparens.el")
   (load "setup-typescript.el")
+  (load "setup-vimscript.el")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
