@@ -6,13 +6,8 @@ export BROWSER=firefox
 export TERM=st
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export CHROME_PATH=/usr/bin/chromium
-# export NVM_DIR="$HOME/.nvm"
-# Set Path
-# export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-#export PATH=$PATH:~/code/AndroidSDK/tools
-#export PATH=$PATH:~/code/AndroidSDK/platform-tools
-#export PATH=$PATH:~/Workspace/flutter/bin
-export PATH=/usr/local/bin:/usr/local/sbin:/bin:$HOME/.local/bin:$HOME/.localbin:$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin
+export PATH=$HOME/.local/bin:$HOME/.localbin:$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:/bin
+# fzf default command
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs --vimgrep --glob '!git/*'"
 # Path to your oh-my-zsh installation
 export ZSH=$HOME/.oh-my-zsh
