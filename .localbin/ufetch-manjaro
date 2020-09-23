@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # ufetch-manjaro - tiny system info for manjaro
 
 ## INFO
 
 # user is already defined
-os="$(cat /etc/os-release | grep 'PRETTY' | cut -d '=' -f 2 | sed 's/"//g')"
+os="$(grep 'PRETTY' < /etc/os-release | cut -d '=' -f 2 | sed 's/"//g')"
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"

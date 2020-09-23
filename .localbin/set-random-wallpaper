@@ -3,9 +3,9 @@
 # Set wallpaper(s) according to number of monitors.
 # Default directory for wallpapers is ~/.dotfiles/wallpapers.
 #
-# Usage: set-random-wallpapers [DIRECTORY]
+# Usage: set-random-wallpaper [DIRECTORY]
 #
-#   $ set-random-wallpapers ~/Pictures/Wallpapers
+#   $ set-random-wallpaper ~/Pictures/Wallpapers
 
 # This option will make the script exit when there is an error
 set -o errexit
@@ -16,17 +16,10 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-# Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
-
 dir_wallpaper="${1:-${HOME}/.dotfiles/wallpapers}"
-num_of_monitors="$(xrandr --listmonitors | awk '/Monitors:/ {print $2}')"
-random_wallpapers=$(ls ${dir_wallpaper} | shuf -n${num_of_monitors} | awk -v dir_w="$dir_wallpaper" '{print dir_w"/"$1}')
 
 if hash feh >/dev/null 2>&1; then
-  feh --no-fehbg --bg-max ${random_wallpapers}
+  feh --no-fehbg --bg-max --randomize "${dir_wallpaper}"
 fi
 
 exit $?

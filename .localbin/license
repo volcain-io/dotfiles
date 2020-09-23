@@ -15,12 +15,6 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-# Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
-__base="$(basename ${__file} .sh)"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
-
 printf 'MIT License
 
 Copyright (c) %s Volkan Erdogan
@@ -41,6 +35,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.' $(date +%Y)
+SOFTWARE.' "$(date +%Y)"
 
 exit $?

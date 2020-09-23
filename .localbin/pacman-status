@@ -15,12 +15,6 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-# Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
-__base="$(basename ${__file} .sh)"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
-
 check_dependencies() {
   if ! hash checkupdates >/dev/null 2>&1; then
     echo "%{F#ff5555} error" # missing dependency
@@ -30,12 +24,12 @@ check_dependencies() {
 
 num_upgrades() {
   upgrades=$(checkupdates 2>/dev/null | wc -l)
-  echo -n ${upgrades}
+  echo -n "${upgrades}"
 }
 
 check_dependencies
 
-if [[ $(num_upgrades) -eq 0 ]]; then
+if (( "$(num_upgrades)" == 0 )); then
   echo "%{F#50fa7b} latest" # up to date
 else
   echo "%{F#f1fa8c} upgrade ($(num_upgrades))" # out-of-date packages

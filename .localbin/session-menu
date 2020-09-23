@@ -15,23 +15,16 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-# Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
-__base="$(basename ${__file} .sh)"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
-
-
 case $(echo "[L]ock|[E]xit|[S]hutdown" | rofi -sep '|' -auto-select -no-fixed-num-lines -dmenu -p "Session" -i) in
-    '[L]ock')
-        blurlock
-        ;;
-    '[E]xit')
-        i3exit logout
-        ;;
-    '[S]hutdown')
-        i3exit shutdown
-        ;;
+  '[L]ock')
+    blurlock
+    ;;
+  '[E]xit')
+    i3exit logout
+    ;;
+  '[S]hutdown')
+    i3exit shutdown
+    ;;
 esac
 
 exit $?

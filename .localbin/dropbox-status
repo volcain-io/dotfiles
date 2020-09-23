@@ -15,13 +15,7 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-# Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
-__base="$(basename ${__file} .sh)"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
-
-status=$(echo -n $(dropbox-cli status) | awk END{print})
+status=$(echo -n "$(dropbox-cli status)" | awk END"{print}")
 
 if [[ ${status} == "Dropbox isn't running!" ]]; then
     echo "%{F#ff5555} down" # daemon down

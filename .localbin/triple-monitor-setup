@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Set up monitors. Maximum three monitors can be connected.
 #
-# Usage: triple-monitor-setup [p|polybar] [w|wallpaper]
+# Usage: triple-monitor-setup [OPTIONS]
 #
 #   $ triple-monitor-setup
 #
@@ -19,17 +19,10 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-# Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/basename "${BASH_SOURCE[0]}")"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
-
-options="${1:-}"
-
 # Workaround to turn on connected outputs that may be in suspend mode and hence shown as disconnected
 init() {
-  declare -i count=1
-  declare -i seconds=1
+  local -i count=1
+  local -i seconds=1
   while((count)); do
       xrandr &> /dev/null
       sleep $seconds
@@ -44,7 +37,6 @@ setup_monitors() {
     card_id=1
   fi
 
-  dmode_lvds1="$(cat /sys/class/drm/card${card_id}-LVDS-1/status)"
   dmode_hdmi1="$(cat /sys/class/drm/card${card_id}-HDMI-A-1/status)"
   dmode_vga1="$(cat /sys/class/drm/card${card_id}-VGA-1/status)"
 
@@ -59,6 +51,7 @@ setup_monitors() {
     output_hdmi1="--output HDMI1 --crtc 1 --mode 1920x1080 --rotate normal --pos 0x0"
     output_lvds1="--output LVDS1 --primary --mode 1600x900 --rotate normal --pos 1920x0"
   fi
+
   if [[ ${dmode_vga1} == "connected" ]]; then
     output_lvds1="--output LVDS1 --primary --mode 1600x900 --rotate normal --pos 0x0"
     output_vga1="--output VGA1 --crtc 2 --mode 1920x1080 --rotate normal --pos 1600x0"
@@ -69,29 +62,22 @@ setup_monitors() {
   fi
 
   # turn on
-  xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off ${output_hdmi1} ${output_lvds1} ${output_vga1} &> /dev/null
-}
-
-launch_polybar() {
-  $HOME/.localbin/launch-polybar &>/dev/null
-}
-
-set_wallpaper() {
-  $HOME/.localbin/set-wallpaper &>/dev/null
+  xrandr --output DVI-D-1-1 --off --output VIRTUAL1 --off --output DP2 --off --output DP1 --off --output eDP-1-1 --off --output HDMI2 --off $output_hdmi1 $output_lvds1 $output_vga1 &> /dev/null
 }
 
 init
 setup_monitors
 
-
 while getopts ':pw' opt; do
-  case ${opt} in 
-    p | polybar) 
-      launch-polybar 
-      ;; 
-    w | wallpaper) 
-      set_wallpaper 
-      ;; 
+  case ${opt} in
+    p)
+      launch-polybar &>/dev/null
+      ;;
+    w)
+      set-random-wallpaper &>/dev/null
+      ;;
+    *)
+      ;;
   esac
 done
 

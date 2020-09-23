@@ -30,7 +30,7 @@ fi
 if [[ "$*" ]]; then
     pass="$*"
 else
-    read -p "Password: " pass
+    read -r -p "Password: " pass
     [[ "$pass" ]] || exit
 fi
 
@@ -40,7 +40,7 @@ rest=${hash:5:35}
 verbose "first five of hash is $first5, rest is $rest"
 
 echo -n "Requesting hashes that begin with $first5... "
-pwnedhashes=$(curl -s https://api.pwnedpasswords.com/range/$first5 | tr -d '\r')
+pwnedhashes=$(curl -s https://api.pwnedpasswords.com/range/"$first5" | tr -d '\r')
 count=$(echo "$pwnedhashes" | wc -l)
 echo "downloaded $count possibilities."
 

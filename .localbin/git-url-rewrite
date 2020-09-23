@@ -16,25 +16,19 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-# Set magic variables for current file & dir
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
-__base="$(basename ${__file} .sh)"
-__root="$(cd "$(dirname "${__dir}")" && pwd)" # <-- change this as it depends on your app
-
-options="${1:-}"
+option="${1:-}"
 flag=false
 
 usage() {
-  echo "Usage: git-url-rewrite [OPTIONS]"
+  echo "Usage: $0 [OPTIONS]"
   echo -e "\nLONG VIEW OPTIONS"
-  echo -e "   -h, --help\t\tDisplay this help message"
-  echo -e "   -e, --enable\t\tEnable url rewrite"
-  echo -e "   -d, --disable\tDisable url rewrite"
+  echo -e "   -h, \tDisplay this help message"
+  echo -e "   -e, \tEnable url rewrite"
+  echo -e "   -d, \tDisable url rewrite"
   echo -e "\nEnable/disable usage of git@github.com[:] instead of git://github.com and https://github.com."
 }
 
-if [[ -z ${options} ]]; then
+if [[ -z ${option} ]]; then
   usage
   exit 0
 else
@@ -43,29 +37,29 @@ else
       opt="${OPTARG%%=*}"
     fi
     case $opt in
-      e | enable)
+      e)
         if [ ${flag} = false ]; then
           git config --global url.git@github.com.insteadOf git://github.com
           git config --global url.git@github.com:.insteadOf https://github.com
           flag=true
         fi
         ;;
-      d | disable)
+      d)
         if [ ${flag} = false ]; then
           git config --global --unset url.git@github.com.insteadOf
           git config --global --unset url.git@github.com:.insteadOf
           flag=true
         fi
         ;;
-      h | help)
+      h)
         usage
         exit 0
         ;;
       *)
-        echo "Invalid option: -$OPTARG" >&2
+        echo "Invalid option: -$opt" >&2
         echo -e "\r"
         usage
-        exit 2
+        exit 1
         ;;
     esac
   done
