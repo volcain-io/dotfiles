@@ -40,13 +40,13 @@ bindsym $mod+d exec --no-startup-id rofi -show
 #bindsym $mod+z exec --no-startup-id morc_menu
 
 # start pass
-bindsym $mod+p exec --no-startup-id ~/.localbin/passmenu -i
+bindsym $mod+p exec --no-startup-id passmenu -i
 
 # start greenclip
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # start session
-bindsym $mod+0 exec --no-startup-id ~/.localbin/session-menu
+bindsym $mod+0 exec --no-startup-id session-menu
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -69,7 +69,7 @@ bindsym $mod+F12 exec st -e 'tmux'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec dunstify 'Dunst' 'restarting...'"
-bindsym $mod+Print exec --no-startup-id ~/.localbin/take-screenshot
+bindsym $mod+Print exec --no-startup-id take-screenshot
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
@@ -244,7 +244,7 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xautolock -time 10 -locker ~/.localbin/blurlock
+exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id triple-monitor-setup; set-random-wallpaper; launch-polybar
