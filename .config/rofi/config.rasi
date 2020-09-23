@@ -1,0 +1,17 @@
+configuration {
+	modi: "combi";
+	show-icons: true;
+	terminal: "st";
+	ssh-client: "ssh";
+	ssh-command: "{terminal} -e {ssh-client} {host}";
+	run-command: "{cmd}";
+	run-list-command: "";
+	run-shell-command: "{terminal} -e {cmd}";
+	window-command: "xkill -id {window}";
+	combi-modi: "window,drun,run,ssh";
+	theme: "dracula";
+	display-window: "switch to >";
+	display-ssh: "ssh >";
+	display-drun: "run >";
+	display-combi: ">";
+}
