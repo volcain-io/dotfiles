@@ -6,7 +6,9 @@ export BROWSER=firefox
 export TERM=st
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export CHROME_PATH=/usr/bin/chromium
-export PATH=$HOME/.local/bin:$HOME/.localbin:$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:/bin
+# Configure GO
+export GOPATH="$HOME/Workspace/go"
+export PATH=$GOPATH/bin:$HOME/.local/bin:$HOME/.localbin:$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:/bin
 # fzf default command
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs --vimgrep --glob '!git/*'"
 # Path to your oh-my-zsh installation
@@ -16,7 +18,5 @@ export NNN_BMS="D:~/.dotfiles/;d:~/Downloads/;x:~/Dropbox/;p:~/Pictures/;w:~/Wor
 export NNN_PLUG="d:diffs;D:dragdrop;g:gutenread;h:hexview;i:imgview;w:ipinfo;r:renamer;s:suedit;t:treeview;u:uidgid;z:z"
 # Configure nvm
 export NVM_DIR="$HOME/.nvm"
-# Configure GO
-export GOPATH="$HOME/Workspace/go"
 # Configure RUST-RACER
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
