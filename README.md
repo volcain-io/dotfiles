@@ -159,7 +159,7 @@ A custom script checks periodically for available updates.
 
 ### Wallpaper
 
-The script **[set-random-wallpaper](.localbin/set-random-wallpaper)** sets randomly the wallpapers on start. It can be invoked from the command line, too. The script checks, how many monitors are connected and chooses randomly a wallpaper for each monitor. To set the wallpaper on each monitor **[feh](https://github.com/amix/vimrc)** is used. The wallpapers are stored inside the **[wallpapers](wallpapers)** directory.
+The script **[set-random-wallpaper](.localbin/set-random-wallpaper)** sets randomly the wallpapers on start. It can be invoked from the command line, too. The script checks, how many monitors are connected and chooses randomly a wallpaper for each monitor. To set the wallpaper on each monitor **[feh](https://feh.finalrewind.org/)** is used. The wallpapers are stored inside the **[wallpapers](wallpapers)** directory.
 
 ### Taking Screenshots
 
