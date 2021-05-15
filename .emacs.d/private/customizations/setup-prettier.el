@@ -18,4 +18,13 @@
        (add-hook 'web-mode-hook #'add-node-modules-path)
        (add-hook 'web-mode-hook #'prettier-js-mode)))
 
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'prettier-js nil 'make-it-local)))
+
+(setq prettier-js-args '(
+                   "--trailing-comma" "all"
+                   "--single-quote" "true")
+)
+
 (provide 'setup-prettier)
