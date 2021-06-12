@@ -1,3 +1,8 @@
+(require 'company)
+(require 'elm-mode)
+(require 'flycheck)
+(require 'flycheck-elm)
+
 (add-to-list 'company-backends 'company-elm)
 
 ;; format on save
