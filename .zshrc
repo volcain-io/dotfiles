@@ -46,12 +46,13 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(catimg colored-man-pages colorize copyfile cp extract fzf git github gitignore jsontools pass tig tmux vi-mode web-search yarn z zsh-autosuggestions)
+plugins=(catimg colored-man-pages colorize copyfile cp extract fzf git github gitignore jsontools pass tig tmux vi-mode z zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-# source /usr/share/nvm/init-nvm.sh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#source /usr/share/nvm/init-nvm.sh
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Show OS info when opening a new terminal
 ufetch-manjaro
