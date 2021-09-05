@@ -8,5 +8,5 @@ killall -q -s SIGKILL polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 if hash polybar >/dev/null 2>&1; then
-  MONITOR=$(xrandr -q | grep " connected primary" | cut -d" " -f1) polybar -r alienware &
+  MONITOR=$(xrandr -q | grep -e "(\sconnected)(\sprimary)*" | cut -d" " -f1) polybar -r alienware &
 fi
