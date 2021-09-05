@@ -1,9 +1,17 @@
+@import "colors.rasi"
+
 * {
-    background-color: #282a36;
+    background-color: @color0;
     font: "Hack Bold 10";
     margin: 0;
     padding: 0;
-    text-color: #f8f8f2;
+    text-color: @color7;
+    selected-normal-background: @color1;
+    selected-normal-foreground: @color3;
+    active-normal-background: @color1;
+    active-normal-foreground: @color3;
+    normal-foreground: @color1;
+    normal-background: @color3;
 }
 #window {
     anchor: north;
@@ -13,11 +21,11 @@
 }
 #prompt {
     padding: 0px 4px 0px 0px;
-    text-color: #61bfff;
+    text-color: @color6;
 }
 #entry {
     expand: false;
-    text-color: #50fa7b;
+    text-color: @color2;
     width: 10em;
 }
 #listview {
@@ -25,24 +33,34 @@
     columns: 4;
     lines: 4;
     orientation: horizontal;
-    text-color: #f1fa8c;
+    text-color: @color3;
+}
+#element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+#element-icon {
+    background-color: transparent;
+    text-color: inherit;
 }
 #element normal.active {
-    text-color: #f1fa8c;
+    text-color: @color3;
 }
 #element normal.urgent {
-    text-color: #f1fa8c;
+    text-color: @color3;
 }
 #element selected.normal {
-    background-color: #f1fa8c;
-    text-color: #282a36;
+    background-color: @color3;
+    text-color: @color0;
 }
 #element selected.urgent {
-    text-color: #ff5555;
+    text-color: @color1;
 }
 #element alternate.active {
-    text-color: #f1fa8c;
+    text-color: @color3;
 }
 #element alternate.urgent {
-    text-color: #ff5555;
+    text-color: @color1;
 }
+
+/* vim:ft=css
