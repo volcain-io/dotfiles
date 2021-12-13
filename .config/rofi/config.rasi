@@ -9,9 +9,10 @@ configuration {
 	run-shell-command: "{terminal} -e {cmd}";
 	window-command: "xkill -id {window}";
 	combi-modi: "window,drun,run,ssh";
-	theme: "dracula";
 	display-window: "switch to >";
 	display-ssh: "ssh >";
 	display-drun: "run >";
 	display-combi: ">";
 }
+
+@theme "dracula"
