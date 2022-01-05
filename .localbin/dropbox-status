@@ -15,7 +15,7 @@ set -o nounset
 # Trace what gets executed
 # set -o xtrace
 
-status=$(echo -n "$(dropbox-cli status 2&> /dev/null)" | awk END"{print}")
+status=$(echo -n "$(dropbox-cli status)" | awk END"{print}")
 
 if [[ ${status} == "Dropbox isn't running!" ]]; then
     echo "%{F#ff5555} down" # daemon down
