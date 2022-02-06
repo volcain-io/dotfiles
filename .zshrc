@@ -54,5 +54,18 @@ source $ZSH/oh-my-zsh.sh
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Add auto completion for dotnet
+# zsh parameter completion for the dotnet CLI
+
+_dotnet_zsh_complete() {
+  local completions=("$(dotnet complete "$words")")
+  reply=( "${(ps:\n:)completions}" )
+}
+
+compctl -K _dotnet_zsh_complete dotnet
+
 # Show OS info when opening a new terminal
 ufetch-manjaro
+
+# Check Spacemacs for upgrades
+source check-spacemacs-upgrade.sh
