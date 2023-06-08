@@ -62,6 +62,8 @@ _dotnet_zsh_complete() {
   reply=( "${(ps:\n:)completions}" )
 }
 
+eval $(thefuck --alias)
+
 compctl -K _dotnet_zsh_complete dotnet
 
 # Show OS info when opening a new terminal
